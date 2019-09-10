@@ -9,17 +9,19 @@ namespace Interaction.Level_Elements
     public class ToggleInteraction : EnvironmentInteraction
     {
 
-        [SerializeField] private List<Vector2> positions;
-        [SerializeField] private List<Vector3> rotation;
+        [SerializeField] private List<Vector2> positions = new List<Vector2>();
+        [SerializeField] private List<Vector3> rotation = new List<Vector3>();
 
         private int _toggled = 0;
         private Transform _transform;
 
         private void Awake()
         {
-            _transform = transform; 
-            _transform.localPosition = positions[0];
-            _transform.rotation = Quaternion.Euler(rotation[0]);
+            _transform = transform;
+            if(positions.Count > 0)
+                _transform.localPosition = positions[0];
+            if(rotation.Count > 0)
+                _transform.rotation = Quaternion.Euler(rotation[0]);
         }
 
         public override void Interact()

@@ -72,22 +72,16 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4038075853038399205, guid: 30747d4181390dc439a9799ae8d6a281,
+    - target: {fileID: 6204434676179633928, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
-      propertyPath: playerNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4038075853038399205, guid: 30747d4181390dc439a9799ae8d6a281,
-        type: 3}
-      propertyPath: rigidBody
+      propertyPath: Interaction
       value: 
-      objectReference: {fileID: 543618938240513653}
-    m_RemovedComponents:
-    - {fileID: 4038075853038399205, guid: 30747d4181390dc439a9799ae8d6a281, type: 3}
+      objectReference: {fileID: 11400000, guid: 155a7e5dc14a84545a39384dca6e31a8,
+        type: 2}
+    - target: {fileID: 3042235148000575459, guid: 30747d4181390dc439a9799ae8d6a281,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: beb03935d0925804098541a9982dde29, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30747d4181390dc439a9799ae8d6a281, type: 3}
---- !u!50 &543618938240513653 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3042235149349959461, guid: 30747d4181390dc439a9799ae8d6a281,
-    type: 3}
-  m_PrefabInstance: {fileID: 3293083731022446928}
-  m_PrefabAsset: {fileID: 0}
