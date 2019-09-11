@@ -36,8 +36,8 @@ public class Movement : MonoBehaviour
     {
         movement = input.Player;
         movement.Enable();
-        movement.GetAction("Jump").performed += ctx => Jump();
-        movement.GetAction("JumpHold").performed += ctx => JumpHold();
+        movement.GetAction("Jump").performed += Jump;
+        movement.GetAction("JumpHold").performed += JumpHold;
     }
 
     private void MoveLeftStick()
@@ -59,31 +59,31 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void Jump()
+    private void Jump(InputAction.CallbackContext ctx)
     {
         if (!IsGrounded)
             return;
         IsGrounded = false;
         //Debug.Log("Jump", gameObject);
-        Vector2 velocity = rigidBody.velocity;
+        var velocity = rigidBody.velocity;
         velocity.y = settings.jumpVelocity;
         rigidBody.velocity = velocity;
     }
 
-    private void JumpHold()
+    private void JumpHold(InputAction.CallbackContext ctx)
     {
         if (DoubleJumped)
             return;
         DoubleJumped = true;
         //Debug.Log("JumpHold", gameObject);
-        Vector2 velocity = rigidBody.velocity;
+        var velocity = rigidBody.velocity;
         velocity.y = settings.jumpVelocity * settings.jumpHoldMultiplier;
         rigidBody.velocity = velocity;
     }
 
     private void FallDown()
     {
-        Vector2 velocity = rigidBody.velocity;
+        var velocity = rigidBody.velocity;
         if (velocity.y < settings.fallDownThreshHold)
         {
             //Debug.Log("falling down");
@@ -94,8 +94,10 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
-            other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) ||
+            other.gameObject.layer.Equals(LayerMask.NameToLayer("Player")) ||
+            (other.gameObject.layer.Equals(LayerMask.NameToLayer("Creation")) && 
+             other.gameObject.tag.Equals("Block")))
         {
             DoubleJumped = false;
             IsGrounded = true;
@@ -104,8 +106,8 @@ public class Movement : MonoBehaviour
 
     private void OnDisable()
     {
-        movement.GetAction("Jump").performed -= ctx => Jump();
-        movement.GetAction("JumpHold").performed -= ctx => JumpHold();
+        movement.GetAction("Jump").performed -= Jump;
+        movement.GetAction("JumpHold").performed -= JumpHold;
         movement.Disable();
     }
 }

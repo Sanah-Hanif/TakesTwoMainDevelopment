@@ -18,6 +18,8 @@ namespace Player
         private InputActionMap movement;
         private GameObject CreatedObject;
 
+        private Rigidbody2D _createdRigidbody2D;
+
         private void Awake()
         {
             Initialize();
@@ -35,9 +37,9 @@ namespace Player
             movement = input.Player;
             ability.Disable();
             movement.GetAction("Ability").performed += ctx => Interact();
-            ability.GetAction("Rotate").performed += ctx => Rotate(ctx.ReadValue<float>());
-            ability.GetAction("Place").performed += ctx => Place();
-            ability.GetAction("Cancel").performed += ctx => Cancel();
+            ability.GetAction("Rotate").performed += Rotate;
+            ability.GetAction("Place").performed += Place;
+            ability.GetAction("Cancel").performed += Cancel;
         }
         
         public override void Interact()
@@ -45,18 +47,23 @@ namespace Player
             Interaction.Interact(transform.position);
             var create = (CreationInteraction)Interaction;
             CreatedObject = create.createdObject;
-            var rb = CreatedObject.GetComponent<Rigidbody2D>();
-            if (rb)
-                rb.gravityScale = 0;
+            _createdRigidbody2D = CreatedObject.GetComponent<Rigidbody2D>();
+            if (_createdRigidbody2D)
+            {
+                CreatedObject.layer = LayerMask.NameToLayer("CreationNoneCollision");
+                _createdRigidbody2D.gravityScale = 0;
+            }
+
             InitMovingObject();
         }
 
         private void InitMovingObject()
         {
+            movement.GetAction("Ability").Disable();
             ability.Enable();
         }
         
-        private void Cancel()
+        private void Cancel(InputAction.CallbackContext ctx)
         {
             ability.Disable();
             Destroy(CreatedObject);
@@ -66,38 +73,46 @@ namespace Player
             create.createdObject = null;
         }
 
-        private void Place()
+        private void Place(InputAction.CallbackContext ctx)
         {
             ability.Disable();
-            if(CreatedObject.GetComponent<Rigidbody2D>())
-                CreatedObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+            movement.GetAction("Ability").Enable();
+            CreatedObject.layer = LayerMask.NameToLayer("Creation");
+            if (_createdRigidbody2D)
+            {
+                _createdRigidbody2D.gravityScale = 1f;
+            }
+
             if(CreatedObject.GetComponent<InteractionController>())
                 CreatedObject.GetComponent<InteractionController>().Interact();
+            
             CreatedObject = null;
+            _createdRigidbody2D = null;
         }
 
-        private void Rotate(float value)
+        private void Rotate(InputAction.CallbackContext ctx)
         {
+            var value = ctx.ReadValue<float>();
             CreatedObject.transform.Rotate(0,0, 90f * value);
         }
 
         private void Move()
         {
-            Vector2 move = ability.GetAction("Movement").ReadValue<Vector2>() * 0.1f;
+            var move = ability.GetAction("Movement").ReadValue<Vector2>() * 0.1f;
             Vector2 oldPos = CreatedObject.transform.position;
             oldPos += move;
-            Vector2 moveAmmount = oldPos - (Vector2) transform.position;
-            Vector2 clamped = Vector2.ClampMagnitude(moveAmmount, Settings.interactionSpawnRadius);
-            Vector2 newPos = (Vector2) transform.position + clamped;
+            var moveAmmount = oldPos - (Vector2) transform.position;
+            var clamped = Vector2.ClampMagnitude(moveAmmount, Settings.interactionSpawnRadius);
+            var newPos = (Vector2) transform.position + clamped;
             CreatedObject.transform.position = newPos;
         }
 
         private void OnDisable()
         {
             movement.GetAction("Ability").performed -= ctx => Interact();
-            ability.GetAction("Rotate").performed -= ctx => Rotate(ctx.ReadValue<float>());
-            ability.GetAction("Place").performed -= ctx => Place();
-            ability.GetAction("Cancel").performed -= ctx => Cancel();
+            ability.GetAction("Rotate").performed -= Rotate;
+            ability.GetAction("Place").performed -= Place;
+            ability.GetAction("Cancel").performed -= Cancel;
             ability.Disable();
         }
     }

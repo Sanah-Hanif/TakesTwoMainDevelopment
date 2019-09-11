@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2423799303806552548}
   - component: {fileID: 1138809350506305208}
   - component: {fileID: 8174076684529709068}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,6 +67,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

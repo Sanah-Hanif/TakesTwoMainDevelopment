@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Interactions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,17 +10,16 @@ namespace Interaction.Level_Elements
     public class Switch : InteractionController
     {
 
-        [SerializeField] private List<EnvironmentInteraction> dependancies;
+        [SerializeField] private List<EnvironmentInteraction> dependancies = new List<EnvironmentInteraction>();
 
         private InputActionMap map;
         
         public override void Interact()
         {
-            if(dependancies == null)
-                dependancies = new List<EnvironmentInteraction>();
+            Debug.Log(dependancies.Count);
             if(dependancies.Count == 0)
                 return;
-            foreach (var interaction in dependancies)
+            foreach (var interaction in dependancies.Where(interaction => interaction))
             {
                 interaction.Interact();
             }

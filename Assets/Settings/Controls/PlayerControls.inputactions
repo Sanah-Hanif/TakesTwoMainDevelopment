@@ -735,7 +735,7 @@
                 {
                     "name": "",
                     "id": "c44be28a-41cd-475c-9412-c2e84ce7dd99",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XBox360",
@@ -746,7 +746,7 @@
                 {
                     "name": "",
                     "id": "910955aa-fe6e-41c8-8cc0-799bd824e608",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";keyboard",
@@ -848,7 +848,6 @@
     "controlSchemes": [
         {
             "name": "XBox360",
-            "basedOn": "",
             "bindingGroup": "XBox360",
             "devices": [
                 {
@@ -860,7 +859,6 @@
         },
         {
             "name": "Switch",
-            "basedOn": "",
             "bindingGroup": "Switch",
             "devices": [
                 {
@@ -872,7 +870,6 @@
         },
         {
             "name": "keyboard",
-            "basedOn": "",
             "bindingGroup": "keyboard",
             "devices": [
                 {
