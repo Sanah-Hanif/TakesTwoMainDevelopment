@@ -5,6 +5,7 @@ using ScriptableObjects.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using PlayerInputManager = Player.PlayerInputManager;
 
 public class Movement : MonoBehaviour
 {

@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4991119cae07d9e4db4e5630b7948ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interaction: {fileID: 11400000, guid: b43657f27cadbbf479d5f78285a08435, type: 2}
-  Settings: {fileID: 11400000, guid: 4370802687c207841a5abb6c6f2de9e3, type: 2}
+  interaction: {fileID: 11400000, guid: b43657f27cadbbf479d5f78285a08435, type: 2}
+  settings: {fileID: 11400000, guid: 4370802687c207841a5abb6c6f2de9e3, type: 2}
   input: {fileID: 1541785094}
 --- !u!114 &1935901944704711004
 MonoBehaviour:

@@ -6,35 +6,30 @@ using UnityEngine;
 
 namespace Interaction.Level_Elements
 {
-    public class PressurePad : InteractionController
+    public class PressurePad : EnvironmentInteraction
     {
-        
-        [SerializeField] private List<EnvironmentInteraction> dependancies = new List<EnvironmentInteraction>();
 
-        private bool triggered = false;
+        private bool _triggered = false;
         
         public override void Interact()
         {
-            if(dependancies.Count == 0)
-                return;
-            foreach (var interaction in dependancies.Where(interaction => interaction))
-            {
-                interaction.Interact();
-            }
+            base.Interact();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if(_triggered)
+                return;
             if ((!other.tag.Equals("Block") || !other.gameObject.layer.Equals(LayerMask.NameToLayer("Creation"))) &&
                 !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) return;
-            triggered = true;
+            _triggered = true;
             Interact();
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!triggered) return;
-            triggered = false;
+            if (!_triggered) return;
+            _triggered = false;
             Interact();
         }
     }
