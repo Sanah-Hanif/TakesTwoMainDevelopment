@@ -771,12 +771,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 8910924107952653912, guid: 0609ce8acafebef48927a490d4c241fe,
-        type: 3}
-      propertyPath: interaction
-      value: 
-      objectReference: {fileID: 11400000, guid: 155a7e5dc14a84545a39384dca6e31a8,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0609ce8acafebef48927a490d4c241fe, type: 3}
 --- !u!1 &2033368517
@@ -955,7 +949,8 @@ PrefabInstance:
       propertyPath: dependancies.Array.data[0]
       value: 
       objectReference: {fileID: 2033368518}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1416867185, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
 --- !u!1001 &7947496563616546093
 PrefabInstance:

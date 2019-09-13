@@ -17,6 +17,7 @@ namespace Player
         private InputActionMap _ability;
         private InputActionMap _movement;
         private GameObject _createdObject;
+        private PlayerCreationInteraction _createdInteraction;
 
         public bool HasCreation => _createdObject != null;
 
@@ -56,12 +57,16 @@ namespace Player
                 _createdRigidbody2D.gravityScale = 0;
             }
 
+            _createdInteraction = _createdObject.GetComponent<PlayerCreationInteraction>();
+            
             InitMovingObject();
         }
 
         private void InitMovingObject()
         {
             _movement.GetAction("Ability").Disable();
+            _ability.GetAction("Place").performed += _createdInteraction.OnPlaced;
+            _createdInteraction._ability = _ability;
             _ability.Enable();
         }
         
@@ -85,11 +90,12 @@ namespace Player
                 _createdRigidbody2D.gravityScale = 1f;
             }
 
-            if(_createdObject.GetComponent<InteractionController>())
+            if (_createdObject.GetComponent<InteractionController>())
                 _createdObject.GetComponent<InteractionController>().Interact();
-            
+
             _createdObject = null;
             _createdRigidbody2D = null;
+            _createdInteraction = null;
         }
 
         private void Rotate(InputAction.CallbackContext ctx)

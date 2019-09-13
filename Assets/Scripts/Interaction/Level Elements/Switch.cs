@@ -11,6 +11,7 @@ namespace Interaction.Level_Elements
 {
     public class Switch : EnvironmentInteraction
     {
+
         public override void Interact()
         {
             base.Interact();
@@ -40,7 +41,10 @@ namespace Interaction.Level_Elements
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
-            PlayerMovement.GetAction("Ability").Enable();
+            
+            if(!other.GetComponent<PlayerInteraction>().HasCreation)
+                PlayerMovement.GetAction("Ability").Enable();
+            
             PlayerMovement.GetAction("Interact").performed -= Performed;
             PlayerAbility.GetAction("Place").performed -= PlacedObject;
             PlayerMovement.GetAction("Interact").Disable();

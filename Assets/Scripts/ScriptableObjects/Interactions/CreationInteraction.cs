@@ -17,6 +17,7 @@ namespace ScriptableObjects.Interactions
             else
             {
                 createdObject.transform.position = _position;
+                createdObject.GetComponent<PlayerCreationInteraction>().ReCreated();
             }
         }
     }
