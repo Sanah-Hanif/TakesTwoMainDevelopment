@@ -706,11 +706,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2 Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 543618938240513656, guid: 0609ce8acafebef48927a490d4c241fe,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 543618938240513655, guid: 0609ce8acafebef48927a490d4c241fe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -882,6 +877,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePad
       objectReference: {fileID: 0}
+    - target: {fileID: 397489702459523781, guid: de440fab0b8b3f842aaed423243a35a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 397489702459523833, guid: de440fab0b8b3f842aaed423243a35a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -951,10 +951,9 @@ PrefabInstance:
       objectReference: {fileID: 2033368518}
     - target: {fileID: 1416867180, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1416867185, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
 --- !u!1001 &7947496563616546093
 PrefabInstance:
@@ -972,11 +971,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3042235149349959464, guid: 30747d4181390dc439a9799ae8d6a281,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3042235149349959463, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
@@ -1033,18 +1027,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6204434676179633928, guid: 30747d4181390dc439a9799ae8d6a281,
-        type: 3}
-      propertyPath: interaction
-      value: 
-      objectReference: {fileID: 11400000, guid: 155a7e5dc14a84545a39384dca6e31a8,
-        type: 2}
-    - target: {fileID: 6204434676179633928, guid: 30747d4181390dc439a9799ae8d6a281,
-        type: 3}
-      propertyPath: settings
-      value: 
-      objectReference: {fileID: 11400000, guid: 4370802687c207841a5abb6c6f2de9e3,
-        type: 2}
     - target: {fileID: 3042235148000575462, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
       propertyPath: m_Layer

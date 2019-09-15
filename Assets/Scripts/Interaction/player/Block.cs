@@ -1,65 +1,69 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Interaction.Level_Elements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Block : PlayerCreationInteraction
+namespace Interaction.player
 {
-    private Dictionary<int, PressurePad> _pads = new Dictionary<int, PressurePad>();
-
-    private Collider2D _collider2D;
-
-    private void Awake()
+    public class Block : PlayerCreationInteraction
     {
-        _collider2D = GetComponent<Collider2D>();
-    }
+        private readonly Dictionary<int, PressurePad> _pads = new Dictionary<int, PressurePad>();
 
-    public override void ReCreated()
-    {
-        ClearPads();
-    }
+        private Collider2D _collider2D;
 
-    public override void OnPlaced(InputAction.CallbackContext ctx)
-    {
-        
-        Debug.Log("Placed");
-        
-        var cols = Physics2D.OverlapBoxAll(_collider2D.bounds.center, _collider2D.bounds.extents, 0);
-        foreach (var col in cols.Where(col => col.GetComponent<PressurePad>()))
+        private Bounds _bounds;
+
+        private void Awake()
         {
-            AddPad(col.GetComponent<PressurePad>());
-            Debug.Log(col.name);
+            _collider2D = GetComponent<Collider2D>();
+            _bounds = _collider2D.bounds;
         }
+
+        public override void ReCreated()
+        {
+            ClearPads();
+        }
+
+        public override void OnPlaced()
+        {
+            var cols = Physics2D.OverlapBoxAll(transform.position, _bounds.size, 0);
         
-        //_ability.GetAction("Place").performed -= OnPlaced;
-    }
+            foreach (var col in cols.Where(col => col.GetComponent<PressurePad>()))
+            {
+                AddPad(col.GetComponent<PressurePad>());
+                Debug.Log(col.name);
+            }
+        }
 
-    public void AddPad(PressurePad pad)
-    {
-        if (_pads.ContainsKey(pad.GetInstanceID())) return;
-        _pads.Add(pad.GetInstanceID(), pad);
-        pad.AddObjectOnPad(gameObject);
-    }
+        private void AddPad(PressurePad pad)
+        {
+            if (_pads.ContainsKey(pad.GetInstanceID())) return;
+            _pads.Add(pad.GetInstanceID(), pad);
+            pad.AddObjectOnPad(gameObject);
+        }
 
-    public void RemovePad(PressurePad pad)
-    {
-        _pads.Remove(pad.GetInstanceID());
-        pad.RemoveObjectOnPad(this.instanceID);
-    }
+        public void RemovePadOnBlock(PressurePad pad)
+        {
+            _pads.Remove(pad.GetInstanceID());
+        }
 
-    private void ClearPads()
-    {
-        var itemsToRemove = _pads.ToArray();
-        foreach (var item in itemsToRemove)
-            RemovePad(item.Value);
-        _ability.GetAction("Place").performed -= OnPlaced;
-    }
+        public void RemovePad(PressurePad pad)
+        {
+            _pads.Remove(pad.GetInstanceID());
+            pad.RemoveObjectOnPad(gameObject);
+        }
 
-    private void OnDestroy()
-    {
-        ClearPads();
+        private void ClearPads()
+        {
+            var itemsToRemove = _pads.ToArray();
+            foreach (var item in itemsToRemove)
+                RemovePad(item.Value);
+        }
+
+        private void OnDestroy()
+        {
+            ClearPads();
+        }
     }
 }

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1935901944704711004}
   - component: {fileID: 8377863251331429554}
   - component: {fileID: 1541785094}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,14 +197,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
-      Version=0.9.5.0, Culture=neutral, PublicKeyToken=null
+      Version=0.9.6.0, Culture=neutral, PublicKeyToken=null
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
-      Version=0.9.5.0, Culture=neutral, PublicKeyToken=null
-  m_ActionEvents: []
-  m_AutoSwitchControlScheme: 0
+      Version=0.9.6.0, Culture=neutral, PublicKeyToken=null
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: XBox360
   m_DefaultActionMap: 6e0975ac-ad30-4e29-87b3-e6be2e25e18d
   m_SplitScreenIndex: -1

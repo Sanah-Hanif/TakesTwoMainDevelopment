@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Interactions;
+using Interaction.player;
 using UnityEngine;
 
 namespace Interaction.Level_Elements
@@ -15,58 +15,51 @@ namespace Interaction.Level_Elements
         
         public override void Interact()
         {
-            //if(_objectsOnPad.Count > 0)
-            //    return;
             base.Interact();
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D obj)
         {
-            CheckForDisabled();
-            if(_triggered)
-                return;
-            if ((!other.tag.Equals("Block") || !other.gameObject.layer.Equals(LayerMask.NameToLayer("Creation"))) &&
-                !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) return;
-            _triggered = true;
-            Interact();
-            if(!_objectsOnPad.ContainsKey(other.GetInstanceID()))
-                _objectsOnPad.Add(other.GetInstanceID(),other.gameObject);
+            if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Creation"))) &&
+                !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) return;
             
+            AddObjectOnPad(obj.gameObject);
         }
 
-        private void CheckForDisabled()
+        private void OnTriggerExit2D(Collider2D obj)
         {
-            foreach (var obj in _objectsOnPad.Where(obj => obj.Value == null))
-            {
-                _objectsOnPad.Remove(obj.Key);
-            }
+            if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Creation"))) &&
+                !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) return;
+
+            RemoveObjectOnPad(obj.gameObject);
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        public void RemoveObjectOnPad(GameObject obj)
         {
-            CheckForDisabled();
-            if (!_triggered) return;
-            _triggered = false;
-            
-            _objectsOnPad.Remove(other.GetInstanceID());
+            var other = _objectsOnPad[obj.GetInstanceID()];
             var block = other.GetComponent<Block>();
+            
             if (block != null)
             {
-                block.RemovePad(this);
+                block.RemovePadOnBlock(this);
             }
-            Interact();
             
-        }
-
-        public void RemoveObjectOnPad(int key)
-        {
-            _objectsOnPad.Remove(key);
+            _objectsOnPad.Remove(obj.GetInstanceID());
+            if(_objectsOnPad.Count != 0 || !_triggered)
+                return;
+            _triggered = false;
+            //Debug.Log("Interacted because of removing object", gameObject);
             Interact();
         }
 
         public void AddObjectOnPad(GameObject obj)
         {
-            _objectsOnPad.Add(obj.GetInstanceID(), gameObject);
+            if (_objectsOnPad.ContainsKey(obj.GetInstanceID()))
+                return;
+            _objectsOnPad.Add(obj.GetInstanceID(), obj);
+            if (_objectsOnPad.Count != 1 || _triggered) return;
+            _triggered = true;
+            //Debug.Log("Interacted because of adding object", gameObject);
             Interact();
         }
     }

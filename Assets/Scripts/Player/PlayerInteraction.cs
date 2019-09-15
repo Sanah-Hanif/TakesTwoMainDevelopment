@@ -1,4 +1,4 @@
-﻿using Interactions;
+﻿using Interaction;
 using ScriptableObjects.Interactions;
 using ScriptableObjects.Player;
 using UnityEngine;
@@ -65,19 +65,20 @@ namespace Player
         private void InitMovingObject()
         {
             _movement.GetAction("Ability").Disable();
-            _ability.GetAction("Place").performed += _createdInteraction.OnPlaced;
+            //_ability.GetAction("Place").performed += _createdInteraction.OnPlaced;
             _createdInteraction._ability = _ability;
             _ability.Enable();
         }
         
         private void Cancel(InputAction.CallbackContext ctx)
         {
-            _ability.Disable();
             Destroy(_createdObject);
+            _ability.Disable();
             _createdObject = null;
-            interaction.Interact(transform.position);
+            //interaction.Interact(transform.position);
             var create = (CreationInteraction)interaction;
             create.createdObject = null;
+            _movement.GetAction("Ability").Enable();
         }
 
         private void Place(InputAction.CallbackContext ctx)
@@ -92,7 +93,8 @@ namespace Player
 
             if (_createdObject.GetComponent<InteractionController>())
                 _createdObject.GetComponent<InteractionController>().Interact();
-
+            
+            _createdInteraction.OnPlaced();
             _createdObject = null;
             _createdRigidbody2D = null;
             _createdInteraction = null;

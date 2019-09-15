@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Interaction.Level_Elements;
-using Interactions;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 
