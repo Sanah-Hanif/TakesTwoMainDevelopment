@@ -32,7 +32,6 @@ namespace Interaction.player
             foreach (var col in cols.Where(col => col.GetComponent<PressurePad>()))
             {
                 AddPad(col.GetComponent<PressurePad>());
-                Debug.Log(col.name);
             }
         }
 
