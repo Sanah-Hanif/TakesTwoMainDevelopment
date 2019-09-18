@@ -33,6 +33,11 @@ namespace Interaction.player
             {
                 AddPad(col.GetComponent<PressurePad>());
             }
+
+            foreach (var col in cols.Where(col => col.GetComponent<Airblast>()))
+            {
+                col.GetComponent<Airblast>().AddObject(GetComponent<Rigidbody2D>());
+            }
         }
 
         private void AddPad(PressurePad pad)
