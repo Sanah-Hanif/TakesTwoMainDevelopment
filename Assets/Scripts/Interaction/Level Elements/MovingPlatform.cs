@@ -4,12 +4,10 @@ using UnityEngine;
 
 namespace Interaction.Level_Elements
 {
-    [RequireComponent(typeof(Rigidbody2D))]
     public class MovingPlatform : MonoBehaviour
     {
         
         [SerializeField] private List<Transform> positions = new List<Transform>();
-        [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float moveDuration;
 
         private int _position = 0;
@@ -33,9 +31,9 @@ namespace Interaction.Level_Elements
             _movePositions.SetLoops(-1);
             foreach (var position in positions)
             {
-                _movePositions.Append(rb.DOMove(position.position, moveDuration));
+                _movePositions.Append(transform.DOMove(position.position, moveDuration));
             }
-            _movePositions.Append(rb.DOMove(_initialPosition, moveDuration));
+            _movePositions.Append(transform.DOMove(_initialPosition, moveDuration));
         }
     }
 }
