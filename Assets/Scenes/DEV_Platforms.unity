@@ -860,6 +860,23 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 543618938240513654, guid: 0609ce8acafebef48927a490d4c241fe,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910924107952653912, guid: 0609ce8acafebef48927a490d4c241fe,
+        type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 4370802687c207841a5abb6c6f2de9e3,
+        type: 2}
+    - target: {fileID: 6482724998151583202, guid: 0609ce8acafebef48927a490d4c241fe,
+        type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 4370802687c207841a5abb6c6f2de9e3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0609ce8acafebef48927a490d4c241fe, type: 3}
 --- !u!1 &2033368517
@@ -1058,6 +1075,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7045211670272631830, guid: 93aeb54147090504486329dba345cf7a,
+        type: 3}
+      propertyPath: m_Name
+      value: MovingPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 3549701051222462327, guid: 93aeb54147090504486329dba345cf7a,
         type: 3}
       propertyPath: m_UseOneWay
@@ -1068,20 +1090,15 @@ PrefabInstance:
       propertyPath: m_UseOneWayGrouping
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7045211670272631830, guid: 93aeb54147090504486329dba345cf7a,
-        type: 3}
-      propertyPath: m_Name
-      value: MovingPlatform
-      objectReference: {fileID: 0}
     - target: {fileID: 7045211670272631833, guid: 93aeb54147090504486329dba345cf7a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.63
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7045211670272631833, guid: 93aeb54147090504486329dba345cf7a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.84
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 7045211670272631833, guid: 93aeb54147090504486329dba345cf7a,
         type: 3}
@@ -1137,6 +1154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UsedByEffector
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045211670272631832, guid: 93aeb54147090504486329dba345cf7a,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93aeb54147090504486329dba345cf7a, type: 3}
