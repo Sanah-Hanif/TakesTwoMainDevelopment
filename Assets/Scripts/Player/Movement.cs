@@ -15,8 +15,10 @@ namespace Player
 
         [SerializeField] private Rigidbody2D rigidBody;
         [SerializeField] private int playerNumber;
-        [SerializeField] private PlayerSettings settings;
-        [SerializeField] private PlayerInputManager input;
+        
+        private PlayerSettings settings;
+        
+        private PlayerInputSystem input;
 
         private InputActionMap movement;
 
@@ -34,11 +36,13 @@ namespace Player
 
         private void Initialize()
         {
+            input = GetComponent<PlayerInputSystem>();
             CanMove = true;
             movement = input.Player;
             movement.Enable();
-            movement.GetAction("Jump").performed += Jump;
-            movement.GetAction("JumpHold").performed += JumpHold;
+            movement.TryGetAction("Jump").performed += Jump;
+            movement.TryGetAction("JumpHold").performed += JumpHold;
+            settings = input.Settings;
         }
 
         private void MoveLeftStick()
@@ -49,6 +53,7 @@ namespace Player
             if (direc.magnitude > 0.5f)
             {
                 _moved = true;
+                //velocity.x = Mathf.Clamp(velocity.x + Time.fixedDeltaTime * settings.acceleration * settings.maxSpeed * direc.x, -settings.maxSpeed, settings.maxSpeed);
                 velocity.x = settings.maxSpeed * direc.x;
                 rigidBody.velocity = velocity;
             }
@@ -94,18 +99,23 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            if (other.gameObject.tag.Equals("Block"))
+            {
+                _doubleJumped = false;
+                _isGrounded = true;
+            }
+
             if (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) &&
-                !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player")) &&
-                (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Creation")) ||
-                 !other.gameObject.tag.Equals("Block"))) return;
+                !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) 
+                return;
             _doubleJumped = false;
             _isGrounded = true;
         }
 
         private void OnDisable()
         {
-            movement.GetAction("Jump").performed -= Jump;
-            movement.GetAction("JumpHold").performed -= JumpHold;
+            movement.TryGetAction("Jump").performed -= Jump;
+            movement.TryGetAction("JumpHold").performed -= JumpHold;
             movement.Disable();
         }
     }

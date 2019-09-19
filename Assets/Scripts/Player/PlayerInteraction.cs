@@ -1,4 +1,5 @@
 ﻿using Interaction;
+using Interaction.player;
 using ScriptableObjects.Interactions;
 using ScriptableObjects.Player;
 using UnityEngine;
@@ -11,9 +12,9 @@ namespace Player
     {
 
         [SerializeField] private ScriptableObjects.Interactions.Interaction interaction;
-        [SerializeField] private PlayerSettings settings;
-        [SerializeField] private PlayerInputManager input;
-
+        
+        private PlayerSettings settings;
+        private PlayerInputSystem input;
         private InputActionMap _ability;
         private InputActionMap _movement;
         private GameObject _createdObject;
@@ -36,6 +37,7 @@ namespace Player
 
         private void Initialize()
         {
+            input = GetComponent<PlayerInputSystem>();
             _ability = input.Ability;
             _movement = input.Player;
             _ability.Disable();
@@ -43,6 +45,7 @@ namespace Player
             _ability.GetAction("Rotate").performed += Rotate;
             _ability.GetAction("Place").performed += Place;
             _ability.GetAction("Cancel").performed += Cancel;
+            settings = input.Settings;
         }
         
         public override void Interact()
@@ -50,15 +53,7 @@ namespace Player
             interaction.Interact(transform.position);
             var create = (CreationInteraction)interaction;
             _createdObject = create.createdObject;
-            _createdRigidbody2D = _createdObject.GetComponent<Rigidbody2D>();
-            if (_createdRigidbody2D)
-            {
-                _createdObject.layer = LayerMask.NameToLayer("CreationNoneCollision");
-                _createdRigidbody2D.gravityScale = 0;
-            }
-
             _createdInteraction = _createdObject.GetComponent<PlayerCreationInteraction>();
-            
             InitMovingObject();
         }
 
@@ -67,6 +62,7 @@ namespace Player
             _movement.GetAction("Ability").Disable();
             //_ability.GetAction("Place").performed += _createdInteraction.OnPlaced;
             _createdInteraction._ability = _ability;
+            _createdInteraction.ReCreated();
             _ability.Enable();
         }
         
@@ -85,14 +81,8 @@ namespace Player
         {
             _ability.Disable();
             _movement.GetAction("Ability").Enable();
-            _createdObject.layer = LayerMask.NameToLayer("Creation");
-            if (_createdRigidbody2D)
-            {
-                _createdRigidbody2D.gravityScale = 1f;
-            }
 
-            if (_createdObject.GetComponent<InteractionController>())
-                _createdObject.GetComponent<InteractionController>().Interact();
+            _createdInteraction.Interact();
             
             _createdInteraction.OnPlaced();
             _createdObject = null;
@@ -120,7 +110,7 @@ namespace Player
 
         private void OnDisable()
         {
-            _movement.GetAction("Ability").performed -= ctx => Interact();
+            _movement.TryGetAction("Ability").performed -= ctx => Interact();
             _ability.GetAction("Rotate").performed -= Rotate;
             _ability.GetAction("Place").performed -= Place;
             _ability.GetAction("Cancel").performed -= Cancel;
