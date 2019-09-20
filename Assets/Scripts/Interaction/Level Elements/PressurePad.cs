@@ -20,7 +20,7 @@ namespace Interaction.Level_Elements
 
         private void OnTriggerEnter2D(Collider2D obj)
         {
-            if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Creation"))) &&
+            if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Block"))) &&
                 !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) return;
             
             AddObjectOnPad(obj.gameObject);

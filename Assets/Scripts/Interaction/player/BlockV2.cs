@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace Interaction.player
 {
-    public class Block : PlayerCreationInteraction
+    public class BlockV2 : PlayerCreationInteraction
     {
         private readonly Dictionary<int, PressurePad> _pads = new Dictionary<int, PressurePad>();
 
@@ -20,7 +20,8 @@ namespace Interaction.player
             _rb = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
             _bounds = _collider2D.bounds;
-            ReCreated();
+            _rb.gravityScale = 0;
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
         public override void ReCreated()
@@ -33,10 +34,10 @@ namespace Interaction.player
 
         public override void OnPlaced()
         {
+            gameObject.layer = LayerMask.NameToLayer("Block");
             _rb.gravityScale = 1;
             _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             _rb.velocity = Vector2.zero;
-            gameObject.layer = LayerMask.NameToLayer("Creation");
             var cols = Physics2D.OverlapBoxAll(transform.position, _bounds.size, 0);
         
             foreach (var col in cols.Where(col => col.GetComponent<PressurePad>()))
