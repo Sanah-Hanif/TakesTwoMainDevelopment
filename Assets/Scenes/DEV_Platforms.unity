@@ -876,6 +876,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4370802687c207841a5abb6c6f2de9e3,
         type: 2}
+    - target: {fileID: 8910924107952653912, guid: 0609ce8acafebef48927a490d4c241fe,
+        type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 11400000, guid: 65ffb088da3a8cb499d1b10c221f3b61,
+        type: 2}
     - target: {fileID: 6482724998151583202, guid: 0609ce8acafebef48927a490d4c241fe,
         type: 3}
       propertyPath: settings
@@ -1140,26 +1146,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4506234923405910279, guid: 93aeb54147090504486329dba345cf7a,
-        type: 3}
-      propertyPath: moveDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4262809789674403002, guid: 93aeb54147090504486329dba345cf7a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7045211668951069714, guid: 93aeb54147090504486329dba345cf7a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8088282508015369611, guid: 93aeb54147090504486329dba345cf7a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93aeb54147090504486329dba345cf7a, type: 3}
 --- !u!1001 &7947496563616546093
@@ -1234,6 +1220,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6204434676179633928, guid: 30747d4181390dc439a9799ae8d6a281,
+        type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 11400000, guid: 234f54adea476db4fadbdb10f17ec85d,
+        type: 2}
     - target: {fileID: 3042235148000575462, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
       propertyPath: m_Layer

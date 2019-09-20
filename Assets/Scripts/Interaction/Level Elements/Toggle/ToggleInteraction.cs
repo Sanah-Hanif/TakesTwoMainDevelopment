@@ -25,17 +25,4 @@ namespace Interaction.Level_Elements
             toggled %= 2;
         }
     }
-
-    /*public class Toggle
-    {
-        private Vector2 position;
-        private Quaternion rotation;
-
-        public Toggle(Vector2 _position, Quaternion _quaternion)
-        {
-            position = _position;
-            rotation = _quaternion;
-        }
-
-    }*/
 }

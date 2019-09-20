@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using System;
 using DG.Tweening;
 
 namespace Interaction.Level_Elements.Toggle

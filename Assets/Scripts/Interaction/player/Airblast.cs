@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Interaction.Level_Elements;
 using Player;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 
 namespace Interaction.player
 {

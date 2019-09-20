@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Block
   - Airblast
-  tags: []
   layers:
   - Default
   - TransparentFX
@@ -22,16 +21,8 @@ TagManager:
   - Creation
   - CreationNoneCollision
   - EnvironmentInteraction
-  - MovingPlatform
   - Block
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MovingPlatform
   - 
   - 
   - 
