@@ -16,7 +16,11 @@ MonoBehaviour:
   safeModeOptions:
     nestedTweenFailureBehaviour: 0
   timeScale: 1
+<<<<<<< HEAD
   useSmoothDeltaTime: 1
+=======
+  useSmoothDeltaTime: 0
+>>>>>>> e0029e0fe6679e8434293d06e661d7beaa474307
   maxSmoothUnscaledTime: 0.15
   rewindCallbackMode: 0
   showUnityEditorReport: 0
@@ -24,8 +28,13 @@ MonoBehaviour:
   drawGizmos: 1
   defaultRecyclable: 0
   defaultAutoPlay: 3
+<<<<<<< HEAD
   defaultUpdateType: 2
   defaultTimeScaleIndependent: 1
+=======
+  defaultUpdateType: 0
+  defaultTimeScaleIndependent: 0
+>>>>>>> e0029e0fe6679e8434293d06e661d7beaa474307
   defaultEaseType: 6
   defaultEaseOvershootOrAmplitude: 1.70158
   defaultEasePeriod: 0

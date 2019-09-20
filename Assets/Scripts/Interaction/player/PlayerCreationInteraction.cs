@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Interaction;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine.InputSystem;
 
-public abstract class PlayerCreationInteraction : InteractionController
+namespace Interaction.player
 {
+    public abstract class PlayerCreationInteraction : InteractionController
+    {
     
-    public InputActionMap _ability { protected get; set; }
+        public InputActionMap _ability { protected get; set; }
 
-    public virtual void OnPlaced(){}
+        public virtual void OnPlaced(){}
     
-    public virtual void ReCreated(){}
+        public virtual void ReCreated(){}
+    }
 }

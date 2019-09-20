@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Interaction.player;
+using UnityEngine;
 
 namespace ScriptableObjects.Interactions
 {
