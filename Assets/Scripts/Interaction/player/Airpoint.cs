@@ -43,7 +43,7 @@ namespace Interaction.player
 
         public override void OnPlaced()
         { 
-            Destroy(gameObject, duration);
+            Invoke(nameof(DisablePoint), duration);
             _point.colliderMask = mask;
             foreach (var col in Physics2D.OverlapCircleAll(transform.position, _collider2D.radius + 1))
             {
@@ -51,6 +51,17 @@ namespace Interaction.player
                 if(_switch)
                     _switch.Interact();
             }
+        }
+
+        public override void ReCreated()
+        {
+            CancelInvoke(nameof(DisablePoint));
+            _point.colliderMask = 0;
+        }
+
+        private void DisablePoint()
+        {
+            DestroyImmediate(gameObject);
         }
     }
 }

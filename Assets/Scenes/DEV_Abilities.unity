@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Airblast
       objectReference: {fileID: 0}
+    - target: {fileID: 7524508890257752214, guid: 86dff6a8c73609844a81ba6be316b23c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7524508890257752202, guid: 86dff6a8c73609844a81ba6be316b23c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,7 +717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247971014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41043845, y: -0.84517956, z: -9.65}
+  m_LocalPosition: {x: 0, y: 0, z: -9.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -817,7 +822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482231644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41043845, y: -0.84517956, z: -9.65}
+  m_LocalPosition: {x: 0, y: 0, z: -9.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 52824102}
@@ -888,7 +893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511652710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41043845, y: -0.84517956, z: -1.8142356}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -909,7 +914,7 @@ PrefabInstance:
     - target: {fileID: 543618938240513656, guid: 0609ce8acafebef48927a490d4c241fe,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 543618938240513655, guid: 0609ce8acafebef48927a490d4c241fe,
         type: 3}
@@ -1008,6 +1013,7 @@ GameObject:
   - component: {fileID: 2033368521}
   - component: {fileID: 2033368520}
   - component: {fileID: 2033368518}
+  - component: {fileID: 2033368519}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1033,6 +1039,32 @@ MonoBehaviour:
   rotation:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+--- !u!61 &2033368519
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033368517}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!23 &2033368520
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1203,7 +1235,7 @@ PrefabInstance:
     - target: {fileID: 5224775482526385425, guid: 5b1c2e6311f745841bd99d4ee7a15bb6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.17
+      value: 2.78
       objectReference: {fileID: 0}
     - target: {fileID: 5224775482526385425, guid: 5b1c2e6311f745841bd99d4ee7a15bb6,
         type: 3}
@@ -1352,10 +1384,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3042235149349959464, guid: 30747d4181390dc439a9799ae8d6a281,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3042235149349959463, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.53
+      value: 3.41
       objectReference: {fileID: 0}
     - target: {fileID: 3042235149349959463, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
