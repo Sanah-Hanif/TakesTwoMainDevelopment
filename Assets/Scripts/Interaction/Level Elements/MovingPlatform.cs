@@ -11,7 +11,6 @@ namespace Interaction.Level_Elements
         [SerializeField] private float moveDuration;
 
         private int _position = 0;
-        private int _totalPostions;
         private Vector3 _initialPosition;
 
         private Tween _transformTween;
@@ -21,7 +20,6 @@ namespace Interaction.Level_Elements
         private void Awake()
         {
             _initialPosition = transform.position;
-            _totalPostions = positions.Count;
             SetupTween();
         }
 
