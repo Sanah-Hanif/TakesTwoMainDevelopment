@@ -7,11 +7,11 @@ public class shinde : MonoBehaviour
 {
 
     // Use this for initialization
-    void OnCollision(Collision collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("levelTest");
+            SceneManager.LoadScene("Test2_Pads_Levers_Platforms");
             Debug.Log("working");
         }
     }
