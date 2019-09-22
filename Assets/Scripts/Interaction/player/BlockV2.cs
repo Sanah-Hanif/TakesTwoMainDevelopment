@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Interaction.Level_Elements;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Interaction.player
@@ -14,29 +15,33 @@ namespace Interaction.player
         private Collider2D _collider2D;
         private Rigidbody2D _rb;
         private Bounds _bounds;
+        private PlatformEffector2D _platform;
+
+        public UnityAction<GameObject> OnRecreated;
 
         private void Awake()
         {
+            _platform = GetComponent<PlatformEffector2D>();
             _rb = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
             _bounds = _collider2D.bounds;
-            _rb.gravityScale = 0;
-            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            ReCreated();
         }
 
         public override void ReCreated()
         {
+            _platform.colliderMask &= ~(1 << LayerMask.NameToLayer("Player"));
             gameObject.layer = LayerMask.NameToLayer("CreationNoneCollision");
             _rb.gravityScale = 0;
-            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            OnRecreated?.Invoke(gameObject);
             ClearPads();
         }
 
         public override void OnPlaced()
         {
+            _platform.colliderMask |= 1 << LayerMask.NameToLayer("Player");
             gameObject.layer = LayerMask.NameToLayer("Block");
             _rb.gravityScale = 1;
-            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             _rb.velocity = Vector2.zero;
             var cols = Physics2D.OverlapBoxAll(transform.position, _bounds.size, 0);
         

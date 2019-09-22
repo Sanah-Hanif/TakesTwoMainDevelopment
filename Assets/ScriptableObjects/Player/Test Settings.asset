@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9edad283df749204cb8151cb2a7b0dca, type: 3}
-  m_Name: Player1
+  m_Name: Test Settings
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 2
   acceleration: 1
-  jumpVelocity: 5
-  jumpHoldMultiplier: 1
-  fallDownThreshHold: 0
+  jumpVelocity: 2
+  jumpHoldMultiplier: 2
+  fallDownThreshHold: 1
   fallSpeedIncrease: 0.5
   interactionSpawnRadius: 3

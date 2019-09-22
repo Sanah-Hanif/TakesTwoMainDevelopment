@@ -1,5 +1,6 @@
 ﻿using ScriptableObjects.Player;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace Player
@@ -21,6 +22,10 @@ namespace Player
         private PlayerInputSystem input;
 
         private InputActionMap movement;
+
+        public UnityAction<GameObject> OnJump;
+        public UnityAction<GameObject> OnMove;
+        public UnityAction<GameObject> OnStop;
 
         private void Awake()
         {
@@ -52,7 +57,12 @@ namespace Player
             var velocity = rigidBody.velocity;
             if (direc.magnitude > 0.5f)
             {
-                _moved = true;
+                if (_moved == false)
+                {
+                    OnMove?.Invoke(gameObject);
+                    _moved = true;
+                }
+
                 //velocity.x = Mathf.Clamp(velocity.x + Time.fixedDeltaTime * settings.acceleration * settings.maxSpeed * direc.x, -settings.maxSpeed, settings.maxSpeed);
                 velocity.x = settings.maxSpeed * direc.x;
                 rigidBody.velocity = velocity;
@@ -60,6 +70,7 @@ namespace Player
             else if(_moved)
             {
                 _moved = false;
+                OnStop?.Invoke(gameObject);
                 velocity = rigidBody.velocity;
                 velocity.x = 0;
                 rigidBody.velocity = velocity;
@@ -75,6 +86,7 @@ namespace Player
             var velocity = rigidBody.velocity;
             velocity.y = settings.jumpVelocity;
             rigidBody.velocity = velocity;
+            OnJump?.Invoke(gameObject);
         }
 
         private void JumpHold(InputAction.CallbackContext ctx)
@@ -106,7 +118,8 @@ namespace Player
             }
 
             if (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) &&
-                !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) 
+                !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player")) &&
+                !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform"))) 
                 return;
             _doubleJumped = false;
             _isGrounded = true;

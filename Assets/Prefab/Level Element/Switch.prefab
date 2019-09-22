@@ -45,9 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dfab94609008246920df7f7eb88d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dependancies:
-  - {fileID: 3764876268509487107}
-  - {fileID: 0}
+  dependancies: []
 --- !u!58 &3764876268340858408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -73,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3764876268509487108}
-  - component: {fileID: 3764876268509487107}
+  - component: {fileID: 4570450074921616881}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -96,7 +94,7 @@ Transform:
   m_Father: {fileID: 3764876268340858409}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.478}
---- !u!114 &3764876268509487107
+--- !u!114 &4570450074921616881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,14 +103,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3764876268509487109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba1130361ced25b4db0394dbb0dd9543, type: 3}
+  m_Script: {fileID: 11500000, guid: 58a0594c034b38040a51225e95cce86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
-  - {x: 0, y: 0}
+  tweenDuration: 1
   rotation:
-  - {x: 0, y: 0, z: 30.478}
-  - {x: 0, y: 0, z: -30.478}
+  - {x: 0, y: 0, z: 30.5}
+  - {x: 0, y: 0, z: -30.5}
 --- !u!1 &3764876268856908566
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +175,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -21,7 +21,6 @@ namespace Interaction.Level_Elements
 
         public override void Interact()
         {
-            //Debug.Log(dependancies.Count);
             if(dependancies.Count == 0)
                 return;
             foreach (var interaction in dependancies.Where(interaction => interaction))
