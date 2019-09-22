@@ -47,7 +47,6 @@ namespace Interaction.Level_Elements
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            Debug.Log(other.enabled);
             if(other.enabled)
                 CheckForValidObjects(other.gameObject);
         }
