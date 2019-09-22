@@ -11,6 +11,7 @@ namespace Player
         private bool _isGrounded = true;
         private bool _doubleJumped = false;
         private bool _moved = false;
+        private bool _isJumping = false;
         public bool CanMove { get; set; }
         private PlayerControls _control;
 
@@ -37,6 +38,35 @@ namespace Player
             //Debug.Log(rigidBody.velocity);d
             MoveLeftStick();
             FallDown();
+            if(_isJumping)
+                JumpUp();
+        }
+
+        private void StartJump(InputAction.CallbackContext ctx)
+        {
+            Debug.Log("Jumped");
+            if (!_isGrounded)
+                return;
+            _isGrounded = false;
+            _isJumping = true;
+            //Debug.Log("Jump", gameObject);
+            /*var velocity = rigidBody.velocity;
+            velocity.y = settings.jumpVelocity;
+            rigidBody.velocity = velocity;*/
+            JumpUp();
+            OnJump?.Invoke(gameObject);
+        }
+
+        private void JumpUp()
+        {
+            var velocity = rigidBody.velocity;
+            velocity.y = settings.jumpVelocity;
+            rigidBody.velocity = velocity;
+        }
+
+        private void CancelJump(InputAction.CallbackContext ctx)
+        {
+            _isJumping = false;
         }
 
         private void Initialize()
@@ -45,8 +75,11 @@ namespace Player
             CanMove = true;
             movement = input.Player;
             movement.Enable();
-            movement.TryGetAction("Jump").performed += Jump;
-            movement.TryGetAction("JumpHold").performed += JumpHold;
+            //movement.TryGetAction("Jump").performed += Jump;
+            movement.TryGetAction("Jump").started += StartJump;
+            movement.TryGetAction("Jump").performed += CancelJump;
+            movement.TryGetAction("Jump").canceled += CancelJump;
+            //movement.TryGetAction("JumpHold").performed += JumpHold;
             settings = input.Settings;
         }
 
@@ -79,6 +112,7 @@ namespace Player
 
         private void Jump(InputAction.CallbackContext ctx)
         {
+            Debug.Log("Jumped");
             if (!_isGrounded)
                 return;
             _isGrounded = false;

@@ -17,9 +17,9 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "b7430f11-52d4-4baa-9101-05e87e1982a9",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Hold(duration=0.35)"
                 },
                 {
                     "name": "JumpHold",
