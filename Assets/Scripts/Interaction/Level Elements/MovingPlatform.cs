@@ -84,11 +84,6 @@ namespace Interaction.Level_Elements
             AddToList(objStopped);
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.DrawCube(_collider.transform.position + new Vector3(0, _collider.bounds.size.y, 0), _collider.bounds.size);
-        }
-
         private void OnRemove(GameObject objToRemove)
         {
             if(!_objectsOnPlatform.Contains(objToRemove)) return;
