@@ -44,15 +44,10 @@ namespace Player
 
         private void StartJump(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Jumped");
             if (!_isGrounded)
                 return;
             _isGrounded = false;
             _isJumping = true;
-            //Debug.Log("Jump", gameObject);
-            /*var velocity = rigidBody.velocity;
-            velocity.y = settings.jumpVelocity;
-            rigidBody.velocity = velocity;*/
             JumpUp();
             OnJump?.Invoke(gameObject);
         }
@@ -145,6 +140,7 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            CanMove = !(Vector2.Dot(other.GetContact(0).normal, Vector2.up) < 0.7);
             if (other.gameObject.tag.Equals("Block"))
             {
                 _doubleJumped = false;
@@ -162,7 +158,7 @@ namespace Player
         private void OnDisable()
         {
             movement.TryGetAction("Jump").performed -= Jump;
-            movement.TryGetAction("JumpHold").performed -= JumpHold;
+            //movement.TryGetAction("JumpHold").performed -= JumpHold;
             movement.Disable();
         }
     }
