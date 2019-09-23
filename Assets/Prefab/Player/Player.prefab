@@ -234,10 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa5f62f2b20c2c44b4890912765b0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   settings: {fileID: 11400000, guid: 0771effae7998614da31824ae11239b3, type: 2}
-=======
-  settings: {fileID: 11400000, guid: 4370802687c207841a5abb6c6f2de9e3, type: 2}
 --- !u!251 &8163853465242244836
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -275,4 +272,3 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0.5}
   - {x: 0.5, y: 0.5}
->>>>>>> 8e8033116269e57740f00680ee7c5ef18b8820dd
