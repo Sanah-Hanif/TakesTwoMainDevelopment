@@ -12,6 +12,8 @@ namespace Interaction.player
     {
         private readonly Dictionary<int, PressurePad> _pads = new Dictionary<int, PressurePad>();
 
+        [SerializeField] private LayerMask whatCanLandOnBlock;
+
         private Collider2D _collider2D;
         private Rigidbody2D _rb;
         private Bounds _bounds;
@@ -30,16 +32,17 @@ namespace Interaction.player
 
         public override void ReCreated()
         {
-            _platform.colliderMask &= ~(1 << LayerMask.NameToLayer("Player"));
+            _platform.colliderMask = 0;
             gameObject.layer = LayerMask.NameToLayer("CreationNoneCollision");
             _rb.gravityScale = 0;
+            _rb.velocity = Vector2.zero;
             OnRecreated?.Invoke(gameObject);
             ClearPads();
         }
 
         public override void OnPlaced()
         {
-            _platform.colliderMask |= 1 << LayerMask.NameToLayer("Player");
+            _platform.colliderMask = whatCanLandOnBlock;
             gameObject.layer = LayerMask.NameToLayer("Block");
             _rb.gravityScale = 1;
             _rb.velocity = Vector2.zero;

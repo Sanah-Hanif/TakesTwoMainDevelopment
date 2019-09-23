@@ -159,7 +159,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 3584
+    m_Bits: 19968
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -179,3 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005d2ff3a03e9fc4087376ff66131e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatCanLandOnBlock:
+    serializedVersion: 2
+    m_Bits: 19968
