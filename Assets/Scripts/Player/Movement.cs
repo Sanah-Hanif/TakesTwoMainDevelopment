@@ -140,7 +140,8 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            CanMove = !(Vector2.Dot(other.GetContact(0).normal, Vector2.up) < 0.7);
+            if(!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
+                CanMove = !(Mathf.Abs(Vector2.Dot(other.GetContact(0).normal, Vector2.up)) < 0.7);
             if (other.gameObject.tag.Equals("Block"))
             {
                 _doubleJumped = false;
@@ -157,8 +158,11 @@ namespace Player
 
         private void OnDisable()
         {
-            movement.TryGetAction("Jump").performed -= Jump;
+            //movement.TryGetAction("Jump").performed -= Jump;
             //movement.TryGetAction("JumpHold").performed -= JumpHold;
+            movement.TryGetAction("Jump").started -= StartJump;
+            movement.TryGetAction("Jump").performed -= CancelJump;
+            movement.TryGetAction("Jump").canceled -= CancelJump;
             movement.Disable();
         }
     }
