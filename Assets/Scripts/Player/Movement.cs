@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.Player;
+﻿using System;
+using ScriptableObjects.Player;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -17,6 +18,9 @@ namespace Player
 
         [SerializeField] private Rigidbody2D rigidBody;
         [SerializeField] private int playerNumber;
+        [SerializeField] private Transform feetTransform;
+        [SerializeField] private LayerMask canJumpOff;
+        [SerializeField] private float groundCheckRadius = 0.05f;
         
         private PlayerSettings settings;
         
@@ -28,9 +32,12 @@ namespace Player
         public UnityAction<GameObject> OnMove;
         public UnityAction<GameObject> OnStop;
 
+        private BoxCollider2D _collider;
+
         private void Awake()
         {
             Initialize();
+            _collider = GetComponent<BoxCollider2D>();
         }
 
         private void FixedUpdate()
@@ -142,6 +149,12 @@ namespace Player
         {
             if(!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
                 CanMove = !(Mathf.Abs(Vector2.Dot(other.GetContact(0).normal, Vector2.up)) < 0.7);
+            if (!CanMove)
+            {
+                CanMove = Physics2D.OverlapBox(feetTransform.position, 
+                              new Vector2(_collider.bounds.size.x - groundCheckRadius, groundCheckRadius), 
+                              canJumpOff) != null || rigidBody.velocity.y > 0;
+            }
             if (other.gameObject.tag.Equals("Block"))
             {
                 _doubleJumped = false;
@@ -154,6 +167,7 @@ namespace Player
                 return;
             _doubleJumped = false;
             _isGrounded = true;
+            
         }
 
         private void OnDisable()
@@ -164,6 +178,11 @@ namespace Player
             movement.TryGetAction("Jump").performed -= CancelJump;
             movement.TryGetAction("Jump").canceled -= CancelJump;
             movement.Disable();
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x - groundCheckRadius, groundCheckRadius));
         }
     }
 }
