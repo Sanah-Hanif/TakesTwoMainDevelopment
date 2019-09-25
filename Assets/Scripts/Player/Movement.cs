@@ -1,114 +1,169 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using ScriptableObjects.Player;
+﻿using ScriptableObjects.Player;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
-using PlayerInputManager = Player.PlayerInputManager;
 
-public class Movement : MonoBehaviour
+namespace Player
 {
-    private Gamepad gamepad;
-    private bool IsGrounded = true;
-    private bool DoubleJumped = false;
-    private bool Moved = false;
-    private PlayerControls Control;
-
-    [SerializeField] private Rigidbody2D rigidBody;
-    [SerializeField] private int playerNumber;
-    [SerializeField] private PlayerSettings settings;
-    [SerializeField] private PlayerInputManager input;
-
-    private InputActionMap movement;
-
-    private void Awake()
+    public class Movement : MonoBehaviour
     {
-        Initialize();
-    }
+        private Gamepad _gamepad;
+        private bool _isGrounded = true;
+        private bool _doubleJumped = false;
+        private bool _moved = false;
+        private bool _isJumping = false;
+        public bool CanMove { get; set; }
+        private PlayerControls _control;
 
-    private void FixedUpdate()
-    {
-        MoveLeftStick();
-        FallDown();
-    }
+        [SerializeField] private Rigidbody2D rigidBody;
+        [SerializeField] private int playerNumber;
+        
+        private PlayerSettings settings;
+        
+        private PlayerInputSystem input;
 
-    private void Initialize()
-    {
-        movement = input.Player;
-        movement.Enable();
-        movement.GetAction("Jump").performed += Jump;
-        movement.GetAction("JumpHold").performed += JumpHold;
-    }
+        private InputActionMap movement;
 
-    private void MoveLeftStick()
-    {
-        var direc =  movement.GetAction("move").ReadValue<Vector2>();
-        var velocity = rigidBody.velocity;
-        if (direc.magnitude > 0.5f)
+        public UnityAction<GameObject> OnJump;
+        public UnityAction<GameObject> OnMove;
+        public UnityAction<GameObject> OnStop;
+
+        private void Awake()
         {
-            Moved = true;
-            velocity.x = settings.maxSpeed * direc.x;
+            Initialize();
+        }
+
+        private void FixedUpdate()
+        {
+            //Debug.Log(rigidBody.velocity);d
+            MoveLeftStick();
+            FallDown();
+            if(_isJumping)
+                JumpUp();
+        }
+
+        private void StartJump(InputAction.CallbackContext ctx)
+        {
+            if (!_isGrounded)
+                return;
+            _isGrounded = false;
+            _isJumping = true;
+            JumpUp();
+            OnJump?.Invoke(gameObject);
+        }
+
+        private void JumpUp()
+        {
+            var velocity = rigidBody.velocity;
+            velocity.y = settings.jumpVelocity;
             rigidBody.velocity = velocity;
         }
-        else if(Moved)
+
+        private void CancelJump(InputAction.CallbackContext ctx)
         {
-            Moved = false;
-            velocity = rigidBody.velocity;
-            velocity.x = 0;
+            _isJumping = false;
+        }
+
+        private void Initialize()
+        {
+            input = GetComponent<PlayerInputSystem>();
+            CanMove = true;
+            movement = input.Player;
+            movement.Enable();
+            //movement.TryGetAction("Jump").performed += Jump;
+            movement.TryGetAction("Jump").started += StartJump;
+            movement.TryGetAction("Jump").performed += CancelJump;
+            movement.TryGetAction("Jump").canceled += CancelJump;
+            //movement.TryGetAction("JumpHold").performed += JumpHold;
+            settings = input.Settings;
+        }
+
+        private void MoveLeftStick()
+        {
+            if(!CanMove) return;
+            var direc =  movement.GetAction("move").ReadValue<Vector2>();
+            var velocity = rigidBody.velocity;
+            if (direc.magnitude > 0.5f)
+            {
+                if (_moved == false)
+                {
+                    OnMove?.Invoke(gameObject);
+                    _moved = true;
+                }
+
+                //velocity.x = Mathf.Clamp(velocity.x + Time.fixedDeltaTime * settings.acceleration * settings.maxSpeed * direc.x, -settings.maxSpeed, settings.maxSpeed);
+                velocity.x = settings.maxSpeed * direc.x;
+                rigidBody.velocity = velocity;
+            }
+            else if(_moved)
+            {
+                _moved = false;
+                OnStop?.Invoke(gameObject);
+                velocity = rigidBody.velocity;
+                velocity.x = 0;
+                rigidBody.velocity = velocity;
+            }
+        }
+
+        private void Jump(InputAction.CallbackContext ctx)
+        {
+            Debug.Log("Jumped");
+            if (!_isGrounded)
+                return;
+            _isGrounded = false;
+            //Debug.Log("Jump", gameObject);
+            var velocity = rigidBody.velocity;
+            velocity.y = settings.jumpVelocity;
+            rigidBody.velocity = velocity;
+            OnJump?.Invoke(gameObject);
+        }
+
+        private void JumpHold(InputAction.CallbackContext ctx)
+        {
+            if (_doubleJumped)
+                return;
+            _doubleJumped = true;
+            //Debug.Log("JumpHold", gameObject);
+            var velocity = rigidBody.velocity;
+            velocity.y = settings.jumpVelocity * settings.jumpHoldMultiplier;
             rigidBody.velocity = velocity;
         }
-    }
 
-    private void Jump(InputAction.CallbackContext ctx)
-    {
-        if (!IsGrounded)
-            return;
-        IsGrounded = false;
-        //Debug.Log("Jump", gameObject);
-        var velocity = rigidBody.velocity;
-        velocity.y = settings.jumpVelocity;
-        rigidBody.velocity = velocity;
-    }
-
-    private void JumpHold(InputAction.CallbackContext ctx)
-    {
-        if (DoubleJumped)
-            return;
-        DoubleJumped = true;
-        //Debug.Log("JumpHold", gameObject);
-        var velocity = rigidBody.velocity;
-        velocity.y = settings.jumpVelocity * settings.jumpHoldMultiplier;
-        rigidBody.velocity = velocity;
-    }
-
-    private void FallDown()
-    {
-        var velocity = rigidBody.velocity;
-        if (velocity.y < settings.fallDownThreshHold)
+        private void FallDown()
         {
+            var velocity = rigidBody.velocity;
+            if (!(velocity.y < settings.fallDownThreshHold)) return;
             //Debug.Log("falling down");
             velocity.y -= settings.fallSpeedIncrease;
             rigidBody.velocity = velocity;
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) ||
-            other.gameObject.layer.Equals(LayerMask.NameToLayer("Player")) ||
-            (other.gameObject.layer.Equals(LayerMask.NameToLayer("Creation")) && 
-             other.gameObject.tag.Equals("Block")))
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            DoubleJumped = false;
-            IsGrounded = true;
-        }
-    }
+            if(!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
+                CanMove = !(Mathf.Abs(Vector2.Dot(other.GetContact(0).normal, Vector2.up)) < 0.7);
+            if (other.gameObject.tag.Equals("Block"))
+            {
+                _doubleJumped = false;
+                _isGrounded = true;
+            }
 
-    private void OnDisable()
-    {
-        movement.GetAction("Jump").performed -= Jump;
-        movement.GetAction("JumpHold").performed -= JumpHold;
-        movement.Disable();
+            if (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) &&
+                !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player")) &&
+                !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform"))) 
+                return;
+            _doubleJumped = false;
+            _isGrounded = true;
+        }
+
+        private void OnDisable()
+        {
+            //movement.TryGetAction("Jump").performed -= Jump;
+            //movement.TryGetAction("JumpHold").performed -= JumpHold;
+            movement.TryGetAction("Jump").started -= StartJump;
+            movement.TryGetAction("Jump").performed -= CancelJump;
+            movement.TryGetAction("Jump").canceled -= CancelJump;
+            movement.Disable();
+        }
     }
 }

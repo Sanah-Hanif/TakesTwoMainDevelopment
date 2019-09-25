@@ -12,10 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9edad283df749204cb8151cb2a7b0dca, type: 3}
   m_Name: Player1
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   maxSpeed: 8
   acceleration: 2
   jumpVelocity: 4
   jumpHoldMultiplier: 2
   fallDownThreshHold: 2
   fallSpeedIncrease: 3
+=======
+  maxSpeed: 5
+  acceleration: 1
+  jumpVelocity: 5
+  jumpHoldMultiplier: 1
+  fallDownThreshHold: 0
+  fallSpeedIncrease: 0.5
+>>>>>>> 1249b0ad96875a29f9d95110cf5a548c49a911f8
   interactionSpawnRadius: 3

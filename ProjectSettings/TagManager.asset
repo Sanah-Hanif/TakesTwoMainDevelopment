@@ -21,8 +21,8 @@ TagManager:
   - Creation
   - CreationNoneCollision
   - EnvironmentInteraction
-  - 
-  - 
+  - Block
+  - MovingPlatform
   - 
   - 
   - 

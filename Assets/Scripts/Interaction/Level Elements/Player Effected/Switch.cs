@@ -4,7 +4,6 @@ using System.Linq;
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PlayerInputManager = Player.PlayerInputManager;
 
 namespace Interaction.Level_Elements
 {
@@ -20,7 +19,7 @@ namespace Interaction.Level_Elements
         {
             if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
             var hasCreation = other.GetComponent<PlayerInteraction>().HasCreation;
-            var playerInputManager = other.GetComponent<PlayerInputManager>();
+            var playerInputManager = other.GetComponent<PlayerInputSystem>();
             PlayerMovement = playerInputManager.Player;
             PlayerAbility = playerInputManager.Ability;
 
