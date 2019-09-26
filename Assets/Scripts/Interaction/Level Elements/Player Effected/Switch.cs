@@ -17,7 +17,7 @@ namespace Interaction.Level_Elements
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
+            if (!other.gameObject.CompareTag("Player")) return;
             var hasCreation = other.GetComponent<PlayerInteraction>().HasCreation;
             var playerInputManager = other.GetComponent<PlayerInputSystem>();
             PlayerMovement = playerInputManager.Player;
@@ -38,7 +38,7 @@ namespace Interaction.Level_Elements
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.layer != LayerMask.NameToLayer("Player")) return;
+            if (!other.gameObject.CompareTag("Player")) return;
             
             if(!other.GetComponent<PlayerInteraction>().HasCreation)
                 PlayerMovement.GetAction("Ability").Enable();

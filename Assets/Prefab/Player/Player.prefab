@@ -125,9 +125,9 @@ GameObject:
   - component: {fileID: 2141220240}
   - component: {fileID: 8163853465242244836}
   - component: {fileID: 3133432970092137323}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 3042235149349959461}
   feetTransform: {fileID: 9046285128187561312}
-  SideTransform: {fileID: 0}
+  SideTransform: {fileID: 8168653152096175288}
   canJumpOff:
     serializedVersion: 2
     m_Bits: 49664
@@ -284,7 +284,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 197632
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
