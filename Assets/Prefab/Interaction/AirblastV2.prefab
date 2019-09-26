@@ -227,6 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 23552
+    m_Bits: 220160
   _collider2D: {fileID: 7394563353548933653}
   duration: 2
