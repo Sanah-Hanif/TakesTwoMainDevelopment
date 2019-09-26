@@ -159,7 +159,7 @@ namespace Player
             }
 
             if (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) &&
-                !other.gameObject.layer.Equals(LayerMask.NameToLayer("Player")) &&
+                !other.gameObject.CompareTag("Player") &&
                 !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform"))) 
                 return;
             _doubleJumped = false;

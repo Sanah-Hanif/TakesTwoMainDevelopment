@@ -20,8 +20,8 @@ namespace Interaction.Level_Elements
 
         private void OnTriggerEnter2D(Collider2D obj)
         {
-            if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Block"))) &&
-                !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) return;
+            if ((!obj.CompareTag("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Block"))) &&
+                !obj.gameObject.CompareTag("Player")) return;
             
             AddObjectOnPad(obj.gameObject);
         }
@@ -29,7 +29,7 @@ namespace Interaction.Level_Elements
         private void OnTriggerExit2D(Collider2D obj)
         {
             if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Creation"))) &&
-                !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Player"))) return;
+                !obj.gameObject.CompareTag("Player")) return;
 
             RemoveObjectOnPad(obj.gameObject);
         }
