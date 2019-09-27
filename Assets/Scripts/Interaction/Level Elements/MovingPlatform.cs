@@ -53,14 +53,14 @@ namespace Interaction.Level_Elements
 
         private void CheckForValidObjects(GameObject obj)
         {
-            if (obj.gameObject.layer.Equals(LayerMask.NameToLayer("Player")))
+            if (obj.gameObject.CompareTag("Player"))
             {
                 var movement = obj.gameObject.GetComponent<Movement>();
                 movement.OnJump += OnRemove;
                 movement.OnMove += OnRemove;
                 movement.OnStop += OnObjectStop;
             }
-            else if (obj.gameObject.tag.Equals("Block"))
+            else if (obj.gameObject.CompareTag("Block"))
                 obj.gameObject.GetComponent<BlockV2>().OnRecreated += OnRemove;
             else
                 return;
