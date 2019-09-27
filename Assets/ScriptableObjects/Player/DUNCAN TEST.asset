@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   acceleration: 1
-  jumpVelocity: 8
+  jumpVelocity: 5
   jumpHoldMultiplier: 1
   fallDownThreshHold: 0
   fallSpeedIncrease: 0.7
