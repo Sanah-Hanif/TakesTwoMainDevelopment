@@ -24,6 +24,8 @@ namespace Player
         [SerializeField] private Transform SideTransform;
         [Tooltip("LayerMask for what the player can jump off of, do not add player")]
         [SerializeField] private LayerMask canJumpOff;
+        [Tooltip("LayerMask for what the player can slide off of, do not add player")]
+        [SerializeField] private LayerMask slideOffOf;
         [Tooltip("Distance to check for the ground")]
         [SerializeField] private float groundCheckRadius = 0.05f;
         [Tooltip("BoxCollider on the player")]
@@ -86,6 +88,10 @@ namespace Player
             movement.TryGetAction("Jump").started += StartJump;
             movement.TryGetAction("Jump").performed += CancelJump;
             movement.TryGetAction("Jump").canceled += CancelJump;
+            if(gameObject.layer.Equals(LayerMask.NameToLayer("Harmony")))
+                slideOffOf &= ~LayerMask.NameToLayer("HarmonyGateway");
+            else
+                slideOffOf &= ~LayerMask.NameToLayer("ChaosGateway");
             settings = input.Settings;
         }
 

@@ -258,6 +258,9 @@ MonoBehaviour:
   canJumpOff:
     serializedVersion: 2
     m_Bits: 49664
+  slideOffOf:
+    serializedVersion: 2
+    m_Bits: 786944
   groundCheckRadius: 0.05
   _collider: {fileID: 3042235149349959462}
 --- !u!114 &2141220240
