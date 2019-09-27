@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DEV Scenes/DEV_Movement.unity
     guid: ff795f1734b0627479ef4ca76e84be70
   - enabled: 1
-    path: Assets/Scenes/Puzzle3.unity
+    path: Assets/Scenes/Alpha/Puzzle3.unity
     guid: d950c1baeaca05b49b6080dbe88c1b1e
   - enabled: 1
     path: Assets/Scenes/puzzle4.0.unity
