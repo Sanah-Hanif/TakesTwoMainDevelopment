@@ -17,4 +17,5 @@ MonoBehaviour:
   jumpVelocity: 5
   jumpHoldMultiplier: 1
   fallDownThreshHold: 0
-  fallSpeedIncrease: 0.2
+  fallSpeedIncrease: 0.5
+  interactionSpawnRadius: 3

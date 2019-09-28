@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3042235149349959464, guid: 30747d4181390dc439a9799ae8d6a281,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3042235149349959463, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,11 +77,22 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8377863251331429554, guid: 30747d4181390dc439a9799ae8d6a281,
+        type: 3}
+      propertyPath: SideTransform
+      value: 
+      objectReference: {fileID: 6696712971468883432}
     - target: {fileID: 6204434676179633928, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
       propertyPath: Interaction
       value: 
       objectReference: {fileID: 11400000, guid: 155a7e5dc14a84545a39384dca6e31a8,
+        type: 2}
+    - target: {fileID: 6204434676179633928, guid: 30747d4181390dc439a9799ae8d6a281,
+        type: 3}
+      propertyPath: interaction
+      value: 
+      objectReference: {fileID: 11400000, guid: 65ffb088da3a8cb499d1b10c221f3b61,
         type: 2}
     - target: {fileID: 3042235148000575459, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
@@ -85,3 +101,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: beb03935d0925804098541a9982dde29, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30747d4181390dc439a9799ae8d6a281, type: 3}
+--- !u!4 &6696712971468883432 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8168653152096175288, guid: 30747d4181390dc439a9799ae8d6a281,
+    type: 3}
+  m_PrefabInstance: {fileID: 3293083731022446928}
+  m_PrefabAsset: {fileID: 0}

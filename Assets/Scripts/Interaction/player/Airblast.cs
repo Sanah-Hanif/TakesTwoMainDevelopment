@@ -1,57 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
 using Interaction.Level_Elements;
-using Interactions;
+using Player;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
 
 namespace Interaction.player
 {
-    public class Airblast : InteractionController
+    public class Airblast : PlayerCreationInteraction
     {
 
         [SerializeField] private float velocity = 3f;
         [SerializeField] private float destroyTime = 2f;
 
-        private Collider2D[] cols;
-        private List<Rigidbody2D> _rigidbody2Ds;
-        private bool initialized = false;
+        private Collider2D[] _cols;
+        private List<Rigidbody2D> _rigidbody = new List<Rigidbody2D>();
+        private bool _initialized = false;
     
         public override void Interact()
         {
-            _rigidbody2Ds = new List<Rigidbody2D>();
-            Collider2D col = GetComponent<Collider2D>();
-            cols = Physics2D.OverlapBoxAll(transform.position, col.bounds.size, 
-                transform.rotation.eulerAngles.z);
-            foreach (var collider in cols)
+            var collider = GetComponent<Collider2D>();
+            _cols = Physics2D.OverlapBoxAll(transform.position, collider.bounds.size, 0);
+            foreach (var col in _cols)
             {
-                var rb = collider.GetComponent<Rigidbody2D>();
+                var rb = col.GetComponent<Rigidbody2D>();
                 if (rb)
                 {
-                    _rigidbody2Ds.Add(rb);
+                    _rigidbody.Add(rb);
                 }
 
-                var _switch = collider.GetComponent<Switch>();
+                var _switch = col.GetComponent<Switch>();
                 if(_switch)
                     _switch.Interact();
             }
-            initialized = true;
+            _initialized = true;
             Destroy(gameObject, destroyTime);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            var otherRb = other.GetComponent<Rigidbody2D>();
+            if (!otherRb) return;
+            _initialized = true; //remove line after debugging
+            AddObject(otherRb);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            var otherRb = other.GetComponent<Rigidbody2D>();
+            if (!otherRb) return;
+            RemoveObject(otherRb);
+        }
+
+        public void AddObject(Rigidbody2D rigidbody2D)
+        {
+            if (_rigidbody.Contains(rigidbody2D)) return;
+            var movement = rigidbody2D.GetComponent<Movement>();
+            if (movement) movement.CanMove = false;
+            _rigidbody.Add(rigidbody2D);
+        }
+
+        public void RemoveObject(Rigidbody2D rigidbody2D)
+        {
+            if (!_rigidbody.Contains(rigidbody2D)) return;
+            var movement = rigidbody2D.GetComponent<Movement>();
+            if (movement) movement.CanMove = true;
+            _rigidbody.Remove(rigidbody2D);
         }
 
         private void FixedUpdate()
         {
-            if(!initialized)
+            if (!_initialized)
                 return;
-            foreach (var rb in _rigidbody2Ds)
+            foreach (var rb in _rigidbody)
             {
-                rb.velocity = transform.right * velocity;
+                rb.velocity += 5 * Time.fixedDeltaTime * velocity * (Vector2)transform.right;
+                //Debug.Log(rb.velocity);
             }
         }
 
         private void OnDestroy()
         {
-            _rigidbody2Ds.Clear();
+            if(_rigidbody.Count > 0) _rigidbody.Clear();
         }
     }
 }

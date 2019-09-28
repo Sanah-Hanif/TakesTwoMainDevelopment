@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Player1",
+            "name": "Player",
             "id": "6e0975ac-ad30-4e29-87b3-e6be2e25e18d",
             "actions": [
                 {
@@ -17,9 +17,9 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "b7430f11-52d4-4baa-9101-05e87e1982a9",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Hold(duration=0.35)"
                 },
                 {
                     "name": "JumpHold",
@@ -198,71 +198,6 @@
                     "processors": "",
                     "groups": ";XBox360",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Player2",
-            "id": "a600ccd7-29ba-4f62-84ff-1e16bfd2d91c",
-            "actions": [
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "9e27ce2b-6e4a-4ec5-96a6-79f36767ab8f",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "40de5b8a-1b56-4088-9736-849207de0ed7",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Ability",
-                    "type": "Button",
-                    "id": "b4fcb37f-cb7b-4707-b2be-fb99e5099f79",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "f51dfac2-468d-4bf1-a413-a687594647cd",
-                    "path": "<SwitchProControllerHID>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Switch",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "76dfc902-466b-46a1-b129-2548fb516412",
-                    "path": "<SwitchProControllerHID>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Switch",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bef1af8a-45f3-4cff-82d5-03abe7e22802",
-                    "path": "<SwitchProControllerHID>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Switch",
-                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -735,7 +670,7 @@
                 {
                     "name": "",
                     "id": "c44be28a-41cd-475c-9412-c2e84ce7dd99",
-                    "path": "<XInputController>/buttonWest",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";XBox360",
@@ -746,7 +681,7 @@
                 {
                     "name": "",
                     "id": "910955aa-fe6e-41c8-8cc0-799bd824e608",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";keyboard",
@@ -848,7 +783,6 @@
     "controlSchemes": [
         {
             "name": "XBox360",
-            "basedOn": "",
             "bindingGroup": "XBox360",
             "devices": [
                 {
@@ -860,7 +794,6 @@
         },
         {
             "name": "Switch",
-            "basedOn": "",
             "bindingGroup": "Switch",
             "devices": [
                 {
@@ -872,7 +805,6 @@
         },
         {
             "name": "keyboard",
-            "basedOn": "",
             "bindingGroup": "keyboard",
             "devices": [
                 {

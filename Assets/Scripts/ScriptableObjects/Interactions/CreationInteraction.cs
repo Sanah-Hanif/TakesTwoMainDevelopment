@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Interaction.player;
+using UnityEngine;
 
 namespace ScriptableObjects.Interactions
 {
@@ -17,6 +18,7 @@ namespace ScriptableObjects.Interactions
             else
             {
                 createdObject.transform.position = _position;
+                createdObject.GetComponent<PlayerCreationInteraction>().ReCreated();
             }
         }
     }
