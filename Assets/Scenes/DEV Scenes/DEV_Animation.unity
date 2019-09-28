@@ -1690,7 +1690,7 @@ PrefabInstance:
     - target: {fileID: 3042235149349959464, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player Hund
       objectReference: {fileID: 0}
     - target: {fileID: 3042235149349959464, guid: 30747d4181390dc439a9799ae8d6a281,
         type: 3}
@@ -2026,7 +2026,7 @@ PrefabInstance:
     - target: {fileID: 543618938240513656, guid: 0609ce8acafebef48927a490d4c241fe,
         type: 3}
       propertyPath: m_Name
-      value: Player2 Variant
+      value: Player Hexi
       objectReference: {fileID: 0}
     - target: {fileID: 543618938240513656, guid: 0609ce8acafebef48927a490d4c241fe,
         type: 3}
