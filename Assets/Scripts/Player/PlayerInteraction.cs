@@ -41,6 +41,7 @@ namespace Player
             _ability = input.Ability;
             _movement = input.Player;
             _ability.Disable();
+            _movement.GetAction("Interact").Disable();
             _movement.GetAction("Ability").performed += ctx => Interact();
             _ability.GetAction("Rotate").performed += Rotate;
             _ability.GetAction("Place").performed += Place;

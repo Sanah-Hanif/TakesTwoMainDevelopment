@@ -40,8 +40,7 @@ namespace Player
         public UnityAction<GameObject> OnJump;
         public UnityAction<GameObject> OnMove;
         public UnityAction<GameObject> OnStop;
-
-        
+        public UnityAction<GameObject> OnLand;
 
         private void Awake()
         {
@@ -162,6 +161,7 @@ namespace Player
             {
                 _doubleJumped = false;
                 _isGrounded = true;
+                OnLand?.Invoke(gameObject);
             }
 
             if (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) &&
@@ -170,7 +170,7 @@ namespace Player
                 return;
             _doubleJumped = false;
             _isGrounded = true;
-            
+            OnLand?.Invoke(gameObject);
         }
 
         private void OnDisable()
