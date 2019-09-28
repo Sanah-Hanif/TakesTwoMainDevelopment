@@ -4,32 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 0
-    path: Assets/Designer/TestScene0001.unity
-    guid: 45244496f6b241046b9cff2cd95c8ac7
-  - enabled: 0
-    path: Assets/Designer/TestScene0002.unity
-    guid: 2c384ad563867bf4ead5578cee1e9307
-  - enabled: 0
-    path: Assets/Designer/TestScene0003.unity
-    guid: 22283e50b5cc54043b2b6e580fac2ff1
-<<<<<<< HEAD
-  - enabled: 0
-    path: Assets/Scenes/DEV Scenes/DEV_Movement.unity
-    guid: ff795f1734b0627479ef4ca76e84be70
-  - enabled: 1
-    path: Assets/Scenes/Alpha/Puzzle3.unity
-    guid: d950c1baeaca05b49b6080dbe88c1b1e
-  - enabled: 1
-    path: Assets/Scenes/puzzle4.0.unity
-    guid: 771bc0d3efa19dd45a5e3373cf95dc6d
-=======
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level_1_Tutorial.unity
-    guid: 4d5eab96ba123c746a7f33d290db6a3d
->>>>>>> 34b4add4b492015816defbd6e383a840aa8ac1b9
+  m_Scenes: []
   m_configObjects: {}

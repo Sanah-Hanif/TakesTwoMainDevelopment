@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -440,10 +440,10 @@ MonoBehaviour:
   m_Targets:
   - target: {fileID: 1907469356}
     weight: 5
-    radius: 3
+    radius: 5
   - target: {fileID: 588879259}
     weight: 5
-    radius: 3
+    radius: 5
 --- !u!4 &255154678
 Transform:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255154676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7090673, y: 3.1499999, z: 0}
+  m_LocalPosition: {x: -7.7090673, y: 3.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1221,7 +1221,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.28980726, b: 0.4528302, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1238,7 +1238,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.4084167
+  orthographic size: 6.8148565
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1261,9 +1261,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045362231}
-  m_LocalRotation: {x: -0.000000011920929, y: -3.39963e-17, z: -0.0000000028518163,
-    w: 1}
-  m_LocalPosition: {x: -7.7090673, y: 3.1499999, z: -10}
+  m_LocalRotation: {x: 1e-45, y: 0, z: -0.0000000028518157, w: 1}
+  m_LocalPosition: {x: -7.7090673, y: 3.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1959,6 +1958,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4506234923405910279, guid: 93aeb54147090504486329dba345cf7a,
+        type: 3}
+      propertyPath: moveDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93aeb54147090504486329dba345cf7a, type: 3}
 --- !u!4 &1907469356 stripped
@@ -2028,9 +2032,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972014725}
-  m_LocalRotation: {x: -0.000000011920929, y: -3.39963e-17, z: -0.0000000028518163,
-    w: 1}
-  m_LocalPosition: {x: -7.7090673, y: 3.1499999, z: -10}
+  m_LocalRotation: {x: 1e-45, y: 0, z: -0.0000000028518157, w: 1}
+  m_LocalPosition: {x: -7.7090673, y: 3.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 166266605}

@@ -9,7 +9,7 @@ public class NextScene3 : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player"))
         {
-            SceneManager.LoadScene("puzzle4.0");
+            SceneManager.LoadScene("puzzle4");
         }
     }
 }
