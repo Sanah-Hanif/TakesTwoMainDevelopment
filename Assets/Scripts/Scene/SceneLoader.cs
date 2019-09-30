@@ -29,10 +29,19 @@ namespace Scene
             DontDestroyOnLoad(gameObject);
             
             //if the editor is open, use the active scene, if not, load the first scene we need
-            if(!Application.isEditor)
-                LoadScene(firstSceneToLoad);
-            else
-                _currentScene = SceneManager.GetActiveScene().name;
+            //if (!Application.isEditor)
+            loadRoutine = LoadFirstScene();
+            StartCoroutine(loadRoutine);
+            //else
+            //    _currentScene = SceneManager.GetActiveScene().name;
+        }
+
+        IEnumerator LoadFirstScene()
+        {
+            yield return SceneManager.LoadSceneAsync(firstSceneToLoad, LoadSceneMode.Additive);
+            var scene = SceneManager.GetSceneByName(firstSceneToLoad);
+            _currentScene = firstSceneToLoad;
+            SceneManager.SetActiveScene(scene);
         }
 
         public void LoadScene(string newScene)
@@ -69,7 +78,7 @@ namespace Scene
 
         private IEnumerator RestartScene()
         {
-            
+            Debug.Log(_currentScene);
             yield return SceneManager.UnloadSceneAsync(_currentScene);
 
             yield return SceneManager.LoadSceneAsync(_currentScene, LoadSceneMode.Additive);
