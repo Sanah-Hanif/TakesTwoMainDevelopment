@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9edad283df749204cb8151cb2a7b0dca, type: 3}
   m_Name: DUNCAN TEST
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  maxSpeed: 8
   acceleration: 1
-  jumpVelocity: 5
+  jumpVelocity: 10
   jumpHoldMultiplier: 1
   fallDownThreshHold: 0
-  fallSpeedIncrease: 0.7
+  fallSpeedIncrease: 0.3
   interactionSpawnRadius: 3
