@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6831288011835865007}
   - component: {fileID: 6831288011835865006}
   - component: {fileID: -2210771112303313854}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: ExitDuncan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
