@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Scene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +22,8 @@ namespace Exit
 
         private void LoadNextScene()
         {
-            SceneManager.LoadScene(sceneToLoad);
+            if(sceneToLoad != null)
+                SceneLoader.Instance.LoadScene(sceneToLoad);
         }
 
         private void OnTriggerExit2D(Collider2D other)

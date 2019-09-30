@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Interaction.Level_Elements;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,11 +19,16 @@ namespace Interaction.player
         private Rigidbody2D _rb;
         private Bounds _bounds;
         private PlatformEffector2D _platform;
+        private Sequence _sequence;
+        private SpriteRenderer _spriteRenderer;
 
         public UnityAction<GameObject> OnRecreated;
 
         private void Awake()
         {
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            CreateSequence();
+            _sequence = DOTween.Sequence();
             _platform = GetComponent<PlatformEffector2D>();
             _rb = GetComponent<Rigidbody2D>();
             _collider2D = GetComponent<Collider2D>();
@@ -30,8 +36,18 @@ namespace Interaction.player
             ReCreated();
         }
 
+        private void CreateSequence()
+        {
+            _sequence = DOTween.Sequence();
+            _sequence.Append(_spriteRenderer.DOFade(0, 0.5f));
+            _sequence.Append(_spriteRenderer.DOFade(0.7f, 0.5f));
+        }
+
         public override void ReCreated()
         {
+            _sequence.Play();
+            _sequence.SetLoops(-1);
+            transform.rotation = Quaternion.identity;
             _platform.colliderMask = 0;
             gameObject.layer = LayerMask.NameToLayer("CreationNoneCollision");
             _rb.gravityScale = 0;
@@ -42,6 +58,8 @@ namespace Interaction.player
 
         public override void OnPlaced()
         {
+            _sequence.SetLoops(1);
+            _sequence.Kill(true);
             _platform.colliderMask = whatCanLandOnBlock;
             gameObject.layer = LayerMask.NameToLayer("Block");
             _rb.gravityScale = 1;
