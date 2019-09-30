@@ -1,4 +1,5 @@
-﻿using Unity.Mathematics;
+﻿using Player;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Scene
@@ -20,10 +21,12 @@ namespace Scene
             //settings harmonies position to the spawn position of the puzzle
             player_manager.Harmony.transform.position = harmonyPosition.position;
             player_manager.Harmony.transform.rotation = quaternion.identity;
+            player_manager.Harmony.GetComponent<PlayerInteraction>().CanUseInteraction = canUseAbility;
             
             //settings chaos position to the spawn position of the puzzle
             player_manager.Chaos.transform.position = chaosPosition.position;
             player_manager.Chaos.transform.rotation = quaternion.identity;
+            player_manager.Chaos.GetComponent<PlayerInteraction>().CanUseInteraction = canUseAbility;
         }
         
     }
