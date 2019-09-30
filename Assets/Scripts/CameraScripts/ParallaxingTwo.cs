@@ -41,7 +41,7 @@ public class ParallaxingTwo : MonoBehaviour
         //layer1.transform.DOMove(newLayer1Pos, 0.01);
         layer1.transform.position = newLayer1Pos;
         layer12.transform.position = newLayer12Pos;
-        layer13.transform.position = newLayer12Pos;
+        layer13.transform.position = newLayer13Pos;
 
         int newTimes = (int)((-currentMidPointPos.x + midPointPos.x) / imageSize);
         int oldTimes = (int)((-oldMidpointPos.x + midPointPos.x) / imageSize);
