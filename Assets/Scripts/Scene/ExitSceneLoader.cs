@@ -22,8 +22,14 @@ namespace Exit
 
         private void LoadNextScene()
         {
-            if(sceneToLoad != null)
+            if (sceneToLoad != null)
+            {
+                var playermanager = FindObjectOfType<PlayerManager>();
+                var baseScene = SceneManager.GetSceneByBuildIndex(0);
+                SceneManager.MoveGameObjectToScene(playermanager.Chaos, baseScene);
+                SceneManager.MoveGameObjectToScene(playermanager.Harmony, baseScene);
                 SceneLoader.Instance.LoadScene(sceneToLoad);
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)

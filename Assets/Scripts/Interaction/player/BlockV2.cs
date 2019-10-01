@@ -41,12 +41,12 @@ namespace Interaction.player
             _sequence = DOTween.Sequence();
             _sequence.Append(_spriteRenderer.DOFade(0, 0.5f));
             _sequence.Append(_spriteRenderer.DOFade(0.7f, 0.5f));
+            _sequence.SetLoops(-1);
         }
 
         public override void ReCreated()
         {
             _sequence.Play();
-            _sequence.SetLoops(-1);
             transform.rotation = Quaternion.identity;
             _platform.colliderMask = 0;
             gameObject.layer = LayerMask.NameToLayer("CreationNoneCollision");
@@ -58,8 +58,9 @@ namespace Interaction.player
 
         public override void OnPlaced()
         {
-            _sequence.SetLoops(1);
-            _sequence.Kill(true);
+            //_sequence.SetLoops(1);
+            _sequence.Kill();
+            //DOTween.Kill(gameObject);
             _platform.colliderMask = whatCanLandOnBlock;
             gameObject.layer = LayerMask.NameToLayer("Block");
             _rb.gravityScale = 1;

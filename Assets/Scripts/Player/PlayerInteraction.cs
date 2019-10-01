@@ -1,4 +1,5 @@
-﻿using Interaction;
+﻿using System;
+using Interaction;
 using Interaction.player;
 using ScriptableObjects.Interactions;
 using ScriptableObjects.Player;
@@ -10,6 +11,10 @@ namespace Player
 {
     public class PlayerInteraction : InteractionController
     {
+        private void OnDestroy()
+        {
+            Debug.Log(gameObject);
+        }
 
         [SerializeField] private ScriptableObjects.Interactions.Interaction interaction;
         
