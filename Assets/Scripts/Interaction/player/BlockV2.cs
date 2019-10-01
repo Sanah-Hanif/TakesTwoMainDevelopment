@@ -20,13 +20,14 @@ namespace Interaction.player
         private Bounds _bounds;
         private PlatformEffector2D _platform;
         private Sequence _sequence;
-        private SpriteRenderer _spriteRenderer;
+        private SpriteRenderer[] _spriteRenderer = new SpriteRenderer[2];
 
         public UnityAction<GameObject> OnRecreated;
 
         private void Awake()
         {
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _sequence = DOTween.Sequence();
+            _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
             CreateSequence();
             _sequence = DOTween.Sequence();
             _platform = GetComponent<PlatformEffector2D>();
@@ -38,14 +39,15 @@ namespace Interaction.player
 
         private void CreateSequence()
         {
-            _sequence = DOTween.Sequence();
-            _sequence.Append(_spriteRenderer.DOFade(0, 0.5f));
-            _sequence.Append(_spriteRenderer.DOFade(0.7f, 0.5f));
+            _sequence.Append(_spriteRenderer[0].DOFade(0, 0.5f));
+            _sequence.Append(_spriteRenderer[0].DOFade(0.7f, 0.5f));
             _sequence.SetLoops(-1);
         }
 
         public override void ReCreated()
         {
+            _spriteRenderer[0].gameObject.SetActive(true);
+            _spriteRenderer[1].gameObject.SetActive(false);
             _sequence.Play();
             transform.rotation = Quaternion.identity;
             _platform.colliderMask = 0;
@@ -59,8 +61,11 @@ namespace Interaction.player
         public override void OnPlaced()
         {
             //_sequence.SetLoops(1);
-            _sequence.Kill();
-            //DOTween.Kill(gameObject);
+            _sequence.Kill(true);
+            _spriteRenderer[0].DOFade(1f,0.2f);
+            DOTween.Kill(_spriteRenderer);
+            _spriteRenderer[0].gameObject.SetActive(false);
+            _spriteRenderer[1].gameObject.SetActive(true);
             _platform.colliderMask = whatCanLandOnBlock;
             gameObject.layer = LayerMask.NameToLayer("Block");
             _rb.gravityScale = 1;

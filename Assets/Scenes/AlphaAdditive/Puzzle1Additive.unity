@@ -6684,7 +6684,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1461031366
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7955,7 +7955,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1797858402
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8285,11 +8285,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1525186343656137682, guid: f373783d5d608224ab54b4651e6cf8b6,
-        type: 3}
-      propertyPath: canUseAbility
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3450513163073972024, guid: f373783d5d608224ab54b4651e6cf8b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8309,6 +8304,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525186343656137682, guid: f373783d5d608224ab54b4651e6cf8b6,
+        type: 3}
+      propertyPath: canUseAbility
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f373783d5d608224ab54b4651e6cf8b6, type: 3}
@@ -8998,7 +8998,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1916071845
 MeshRenderer:
   m_ObjectHideFlags: 0
