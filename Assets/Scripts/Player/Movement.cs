@@ -13,6 +13,7 @@ namespace Player
         private bool _doubleJumped = false;
         private bool _moved = false;
         private bool _isJumping = false;
+        private bool _fallEarly = false;
         public bool CanMove { get; set; }
         private PlayerControls _control;
 
@@ -41,6 +42,7 @@ namespace Player
         public UnityAction<GameObject> OnMove;
         public UnityAction<GameObject> OnStop;
         public UnityAction<GameObject> OnLand;
+        
 
         private void Awake()
         {
@@ -49,7 +51,7 @@ namespace Player
 
         private void FixedUpdate()
         {
-            //Debug.Log(rigidBody.velocity);d
+            //Debug.Log(rigidBody.velocity);
             MoveLeftStick();
             FallDown();
             if(_isJumping)
@@ -77,6 +79,12 @@ namespace Player
         {
             _isJumping = false;
         }
+
+        private void CancelEarly(InputAction.CallbackContext ctx)
+        {
+            _isJumping = false;
+            _fallEarly = true;
+        }
         
         private void Initialize()
         {
@@ -86,7 +94,7 @@ namespace Player
             movement.Enable();
             movement.TryGetAction("Jump").started += StartJump;
             movement.TryGetAction("Jump").performed += CancelJump;
-            movement.TryGetAction("Jump").canceled += CancelJump;
+            movement.TryGetAction("Jump").canceled += CancelEarly;
             if(gameObject.layer.Equals(LayerMask.NameToLayer("Harmony")))
                 slideOffOf &= ~LayerMask.NameToLayer("HarmonyGateway");
             else
@@ -143,7 +151,7 @@ namespace Player
             var velocity = rigidBody.velocity;
             if (!(velocity.y < settings.fallDownThreshHold)) return;
             //Debug.Log("falling down");
-            velocity.y -= settings.fallSpeedIncrease;
+            velocity += Physics2D.gravity * (settings.fallSpeedIncrease - 1) * Vector2.up * Time.fixedDeltaTime;
             rigidBody.velocity = velocity;
         }
 
@@ -179,7 +187,7 @@ namespace Player
             //movement.TryGetAction("JumpHold").performed -= JumpHold;
             movement.TryGetAction("Jump").started -= StartJump;
             movement.TryGetAction("Jump").performed -= CancelJump;
-            movement.TryGetAction("Jump").canceled -= CancelJump;
+            movement.TryGetAction("Jump").canceled -= CancelEarly;
             movement.Disable();
         }
 
