@@ -23,14 +23,16 @@ namespace Player
         [SerializeField] private Transform feetTransform;
         [Tooltip("Object on the side of the player")]
         [SerializeField] private Transform SideTransform;
+        [SerializeField] private Transform SideTransformLeft;
         [Tooltip("LayerMask for what the player can jump off of, do not add player")]
         [SerializeField] private LayerMask canJumpOff;
         [Tooltip("LayerMask for what the player can slide off of, do not add player")]
         [SerializeField] private LayerMask slideOffOf;
         [Tooltip("Distance to check for the ground")]
         [SerializeField] private float groundCheckRadius = 0.05f;
+        [SerializeField] private float boxCheckRadius = 0.01f;
         [Tooltip("BoxCollider on the player")]
-        [SerializeField] private BoxCollider2D _collider;
+        [SerializeField] private CapsuleCollider2D _collider;
         
         private PlayerSettings settings;
         
@@ -42,6 +44,8 @@ namespace Player
         public UnityAction<GameObject> OnMove;
         public UnityAction<GameObject> OnStop;
         public UnityAction<GameObject> OnLand;
+
+        public bool IsMoving => _moved;
         
 
         private void Awake()
@@ -134,15 +138,15 @@ namespace Player
         {
             if (direction.magnitude < 0.5) return true;
             bool move = true;
-            var position = SideTransform.position;
             var direc =  direction.x / Mathf.Abs(direction.x);
-            position.x += (direc == 1 ? 0 : -_collider.bounds.size.x);
+            var position = direc == 1 ? SideTransform.position : SideTransformLeft.position;
             //Debug.Log(position);
             LayerMask mask = LayerMask.GetMask("Ground");
             var obj = Physics2D.OverlapBox(position,
-                       new Vector2(groundCheckRadius, _collider.bounds.size.y - groundCheckRadius),
+                       new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius),
                        0,
                        mask);
+            Debug.Log(obj == null);
             return obj == null;
         }
 
@@ -158,11 +162,11 @@ namespace Player
         private void OnCollisionEnter2D(Collision2D other)
         {
             if(!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
-                CanMove = !(Mathf.Abs(Vector2.Dot(other.GetContact(0).normal, Vector2.up)) < 0.7);
+                CanMove = !(Vector2.Dot(other.GetContact(0).normal, Vector2.up) < 0.7);
             if (!CanMove)
             {
-                CanMove = Physics2D.OverlapBox(feetTransform.position, 
-                              new Vector2(_collider.bounds.size.x - groundCheckRadius, groundCheckRadius), 
+                CanMove = Physics2D.OverlapBox(SideTransform.position, 
+                              new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius), 
                               canJumpOff) != null || rigidBody.velocity.y > 0;
             }
             if (other.gameObject.tag.Equals("Block"))
@@ -193,7 +197,9 @@ namespace Player
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x - groundCheckRadius, groundCheckRadius));
+            Gizmos.DrawCube(SideTransform.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
+            Gizmos.DrawCube(SideTransformLeft.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
+            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius));
         }
     }
 }
