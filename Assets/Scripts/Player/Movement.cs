@@ -146,7 +146,7 @@ namespace Player
                        new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius),
                        0,
                        mask);
-            Debug.Log(obj == null);
+            //Debug.Log(obj == null);
             return obj == null;
         }
 

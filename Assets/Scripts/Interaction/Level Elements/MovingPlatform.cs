@@ -47,24 +47,28 @@ namespace Interaction.Level_Elements
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if(other.enabled)
+            var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
+            if(other.enabled && dot > 0.75f)
                 CheckForValidObjects(other.gameObject);
         }
 
         private void CheckForValidObjects(GameObject obj)
         {
+            bool addPlayer = true;
             if (obj.gameObject.CompareTag("Player"))
             {
                 var movement = obj.gameObject.GetComponent<Movement>();
                 movement.OnJump += OnRemove;
                 movement.OnMove += OnRemove;
                 movement.OnStop += OnObjectStop;
+                addPlayer = !movement.IsMoving;
             }
             else if (obj.gameObject.CompareTag("Block"))
                 obj.gameObject.GetComponent<BlockV2>().OnRecreated += OnRemove;
             else
                 return;
-            AddToList(obj);
+            if(addPlayer)
+                AddToList(obj);
         }
 
         private void OnObjectStop(GameObject objStopped)

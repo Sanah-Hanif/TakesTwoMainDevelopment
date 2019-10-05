@@ -31,7 +31,7 @@ namespace Interaction.Level_Elements
             CancelInvoke(nameof(RemoveTarget));
             foreach (var interaction in dependancies.Where(interaction => interaction))
             {
-                Debug.Log(target.FindMember(interaction.transform));
+                //Debug.Log(target.FindMember(interaction.transform));
                 if(target.FindMember(interaction.transform) == -1)
                     target.AddMember(interaction.transform, 5, 5);
                 interaction.Interact();
