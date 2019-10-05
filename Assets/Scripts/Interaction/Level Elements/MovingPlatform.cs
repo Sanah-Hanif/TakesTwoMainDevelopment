@@ -47,8 +47,10 @@ namespace Interaction.Level_Elements
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
-            if(other.enabled && dot > 0.75f)
+            
+            var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.down);
+            Debug.Log(dot);
+            if(other.enabled && dot > 0.9f)
                 CheckForValidObjects(other.gameObject);
         }
 
@@ -115,6 +117,11 @@ namespace Interaction.Level_Elements
             if (_objectsOnPlatform.Contains(objToAdd)) return;
             objToAdd.transform.SetParent(transform);
             _objectsOnPlatform.Add(objToAdd);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            OnRemove(other.gameObject);
         }
     }
 }

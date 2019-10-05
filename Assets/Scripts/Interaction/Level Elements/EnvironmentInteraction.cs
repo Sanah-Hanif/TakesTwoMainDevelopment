@@ -33,7 +33,7 @@ namespace Interaction.Level_Elements
             {
                 //Debug.Log(target.FindMember(interaction.transform));
                 if(target.FindMember(interaction.transform) == -1)
-                    target.AddMember(interaction.transform, 5, 5);
+                    target.AddMember(interaction.transform, 2.5f, 2.5f);
                 interaction.Interact();
             }
             
