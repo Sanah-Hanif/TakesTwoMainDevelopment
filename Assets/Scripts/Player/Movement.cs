@@ -161,8 +161,9 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
             if(!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
-                CanMove = !(Vector2.Dot(other.GetContact(0).normal, Vector2.up) < 0.7);
+                CanMove = !(dot < 0.7);
             if (!CanMove)
             {
                 CanMove = Physics2D.OverlapBox(SideTransform.position, 
@@ -180,6 +181,8 @@ namespace Player
                 !other.gameObject.CompareTag("Player") &&
                 !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform"))) 
                 return;
+
+            if (!(dot > 0.7f)) return;
             _doubleJumped = false;
             _isGrounded = true;
             OnLand?.Invoke(gameObject);
