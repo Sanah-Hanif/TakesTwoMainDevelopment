@@ -1,4 +1,5 @@
-﻿using Interaction;
+﻿using System;
+using Interaction;
 using Interaction.player;
 using ScriptableObjects.Interactions;
 using ScriptableObjects.Player;
@@ -10,6 +11,10 @@ namespace Player
 {
     public class PlayerInteraction : InteractionController
     {
+        private void OnDestroy()
+        {
+            Debug.Log(gameObject);
+        }
 
         [SerializeField] private ScriptableObjects.Interactions.Interaction interaction;
         
@@ -21,6 +26,8 @@ namespace Player
         private PlayerCreationInteraction _createdInteraction;
 
         public bool HasCreation => _createdObject != null;
+
+        [HideInInspector] public bool CanUseInteraction = true;
 
         private Rigidbody2D _createdRigidbody2D;
 
@@ -41,6 +48,7 @@ namespace Player
             _ability = input.Ability;
             _movement = input.Player;
             _ability.Disable();
+            _movement.GetAction("Interact").Disable();
             _movement.GetAction("Ability").performed += ctx => Interact();
             _ability.GetAction("Rotate").performed += Rotate;
             _ability.GetAction("Place").performed += Place;
@@ -50,6 +58,7 @@ namespace Player
         
         public override void Interact()
         {
+            if(!CanUseInteraction) return;
             interaction.Interact(transform.position);
             var create = (CreationInteraction)interaction;
             _createdObject = create.createdObject;

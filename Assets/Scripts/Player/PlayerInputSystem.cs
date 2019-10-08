@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scene;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerSettings = ScriptableObjects.Player.PlayerSettings;
 
@@ -21,9 +22,12 @@ namespace Player
 
         private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             _input = GetComponent<PlayerInput>();
             Ability = _input.actions.GetActionMap("Ability");
             Player = _input.actions.GetActionMap("Player");
+
+            Player.GetAction("Reload").performed += ctx => SceneLoader.Instance.ReloadScene();
         }
     }
 }

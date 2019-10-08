@@ -56,7 +56,15 @@ sysinfo.txt
 
 # Builds
 *.apk
-*.unitypackage
+
 
 # Crashlytics generated file
 crashlytics-build.properties
+Assets/Scenes/DEV_Movement.unity
+Assets/Scenes/DEV_Movement.unity.meta
+Assets/ScriptableObjects/Player/DUNCAN TEST.asset
+Assets/ScriptableObjects/Player/DUNCAN TEST.asset.meta
+Assets/ScriptableObjects/Player/DuncansTestSettings.asset
+Assets/ScriptableObjects/Player/DuncansTestSettings.asset.meta
+Assets/Settings/Rendering/Forward.asset
+Assets/Settings/Rendering/Forward.asset.meta
