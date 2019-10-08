@@ -162,8 +162,11 @@ namespace Player
         private void OnCollisionEnter2D(Collision2D other)
         {
             var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
-            if(!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
+            if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
+            {
+                _isJumping = false;
                 CanMove = !(dot < 0.7);
+            }
             if (!CanMove)
             {
                 CanMove = Physics2D.OverlapBox(SideTransform.position, 
