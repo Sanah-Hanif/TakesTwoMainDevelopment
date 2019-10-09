@@ -26,14 +26,14 @@ namespace Interaction.player
 
         private int _rotation;
 
-        private void Awake()
+        public void Initialize()
         {
             if (!rb)
                 rb = GetComponent<Rigidbody2D>();
             _system = GetComponent<PlayerInputSystem>();
-            _system.Player.TryGetAction("Interact").performed += ctx => OnInteract();
-            _system.Player.TryGetAction("Ability").performed += ctx => OnAbility();
-            _system.Player.TryGetAction("Jump").started += ctx => OnJump();
+            _system.Player["Interact"].performed += ctx => OnInteract();
+            _system.Player["Ability"].performed += ctx => OnAbility();
+            _system.Player["Jump"].started += ctx => OnJump();
             GetComponent<Movement>().OnLand += OnLand;
         }
 
@@ -45,7 +45,7 @@ namespace Interaction.player
         private void OnMovement()
         {
             _prevDirec = _direc;
-            _direc = _system.Player.GetAction("move").ReadValue<Vector2>();
+            _direc = _system.Player["move"].ReadValue<Vector2>();
             if(_prevDirec != _direc && _direc != Vector2.zero)
                 _rotation = _direc.x / Mathf.Abs(_direc.x) == 1? 0 : 1;
             animator.SetFloat(HorizontalVelocity, Mathf.Abs(rb.velocity.x));

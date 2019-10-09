@@ -15,23 +15,15 @@ namespace Player
         private bool _isJumping = false;
         private bool _fallEarly = false;
         public bool CanMove { get; set; }
-        private PlayerControls _control;
-
-        [Tooltip("Rigidbody on the player")]
+        
         [SerializeField] private Rigidbody2D rigidBody;
-        [Tooltip("Object at the feet of the player")] 
         [SerializeField] private Transform feetTransform;
-        [Tooltip("Object on the side of the player")]
         [SerializeField] private Transform SideTransform;
         [SerializeField] private Transform SideTransformLeft;
-        [Tooltip("LayerMask for what the player can jump off of, do not add player")]
         [SerializeField] private LayerMask canJumpOff;
-        [Tooltip("LayerMask for what the player can slide off of, do not add player")]
         [SerializeField] private LayerMask slideOffOf;
-        [Tooltip("Distance to check for the ground")]
         [SerializeField] private float groundCheckRadius = 0.05f;
         [SerializeField] private float boxCheckRadius = 0.01f;
-        [Tooltip("BoxCollider on the player")]
         [SerializeField] private CapsuleCollider2D _collider;
         
         private PlayerSettings settings;
@@ -46,12 +38,6 @@ namespace Player
         public UnityAction<GameObject> OnLand;
 
         public bool IsMoving => _moved;
-        
-
-        private void Awake()
-        {
-            Initialize();
-        }
 
         private void FixedUpdate()
         {
@@ -90,15 +76,29 @@ namespace Player
             _fallEarly = true;
         }
         
-        private void Initialize()
+        public void Initialize()
         {
+            //reset action events
+            OnJump = null;
+            OnLand = null;
+            OnMove = null;
+            OnStop = null;
+            
+            //resed boolean values
+            _isGrounded = true;
+            _doubleJumped = false;
+            _moved = false;
+            _isJumping = false;
+            _fallEarly = false;
+            
+            //reset player input key bindings
             input = GetComponent<PlayerInputSystem>();
             CanMove = true;
             movement = input.Player;
             movement.Enable();
-            movement.TryGetAction("Jump").started += StartJump;
-            movement.TryGetAction("Jump").performed += CancelJump;
-            movement.TryGetAction("Jump").canceled += CancelEarly;
+            movement["Jump"].started += StartJump;
+            movement["Jump"].performed += CancelJump;
+            movement["Jump"].canceled += CancelEarly;
             if(gameObject.layer.Equals(LayerMask.NameToLayer("Harmony")))
                 slideOffOf &= ~LayerMask.NameToLayer("HarmonyGateway");
             else
@@ -108,7 +108,7 @@ namespace Player
 
         private void MoveLeftStick()
         {
-            var direc =  movement.GetAction("move").ReadValue<Vector2>();
+            var direc =  movement["move"].ReadValue<Vector2>();
             var velocity = rigidBody.velocity;
             if(!CheckIfCanMove(direc)) return;
             
@@ -196,9 +196,9 @@ namespace Player
         {
             //movement.TryGetAction("Jump").performed -= Jump;
             //movement.TryGetAction("JumpHold").performed -= JumpHold;
-            movement.TryGetAction("Jump").started -= StartJump;
-            movement.TryGetAction("Jump").performed -= CancelJump;
-            movement.TryGetAction("Jump").canceled -= CancelEarly;
+            movement["Jump"].started -= StartJump;
+            movement["Jump"].performed -= CancelJump;
+            movement["Jump"].canceled -= CancelEarly;
             movement.Disable();
         }
 
