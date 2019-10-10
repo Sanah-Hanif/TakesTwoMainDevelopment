@@ -29,6 +29,11 @@ namespace Editor
             {
                 _platform.ResetPosition();
             }
+
+            if (GUILayout.Button("Set New Position"))
+            {
+                _platform.SetPosition();
+            }
         }
     }
 }

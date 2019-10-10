@@ -40,16 +40,22 @@ namespace Interaction.Level_Elements
         
         #if UNITY_EDITOR
 
-        private List<Vector2> _positionsToMove = new List<Vector2>();
+        private List<Vector3> _positionsToMove = new List<Vector3>();
         private int _index = 0;
         
         private void OnValidate()
         {
-            _positionsToMove.Clear();
             EditorApplication.playModeStateChanged += StateChange;
             _index = 0;
             _collider = GetComponentInChildren<BoxCollider2D>();
             _rb = GetComponent<Rigidbody2D>();
+            SetPosition();
+        }
+
+        public void SetPosition()
+        {
+            _positionsToMove.Clear();
+            _index = 0;
             _initialPosition = transform.position;
             _positionsToMove.Add(_initialPosition);
             foreach (var pos in positions)
