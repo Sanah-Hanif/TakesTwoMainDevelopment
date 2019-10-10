@@ -3,17 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
+using ScriptableObjects.Camera;
 using UnityEngine;
 
 namespace CameraScripts
 {
     public class TargetGroupController : MonoBehaviour
     {
-        [SerializeField] private float startWeight = 2.5f, startRadius = 2.5f, endWeight = 5f, endRadius = 5f, lerpDuration = 2f;
+        [HideInInspector]
+        public bool foldout = true;
+        
+        public TargetSettings settings;
         private CinemachineTargetGroup _target;
         private Dictionary<GameObject, IEnumerator> _routines = new Dictionary<GameObject, IEnumerator>();
 
         private void Awake()
+        {
+            _target = GetComponent<CinemachineTargetGroup>();
+        }
+
+        private void OnValidate()
         {
             _target = GetComponent<CinemachineTargetGroup>();
         }
@@ -26,17 +35,11 @@ namespace CameraScripts
             StartCoroutine(routine);
         }
 
-        public void RemoveObjectFromTargetGroup(GameObject objToRemove)
-        {
-            
-        }
-
         private IEnumerator IncreaseWeight(GameObject objToIncrease)
         {
-            
-            var currentWeight = startWeight;
+            var currentWeight = settings.startWeight;
             var currentWeightLerp = 0f;
-            var currentRadius = startRadius;
+            var currentRadius = settings.startRadius;
             var currentRadiusLerp = 0f;
             _target.AddMember(objToIncrease.transform, currentWeight, currentRadius);
             var member = _target.FindMember(objToIncrease.transform);
@@ -48,13 +51,13 @@ namespace CameraScripts
             while (currentRadiusLerp < 1 && currentWeightLerp < 1)
             {
                 //currentRadius += Time.deltaTime * (endRadius - startRadius) * (1f/lerpDuration);
-                currentRadiusLerp += Time.deltaTime * (endRadius - startRadius) * (1f/lerpDuration);
+                currentRadiusLerp += Time.deltaTime * (1f/settings.lerpDuration);
                 //currentWeight += Time.deltaTime * (endWeight - startWeight) * (1f/lerpDuration);
-                currentWeightLerp += Time.deltaTime * (endWeight - startWeight) * (1f/lerpDuration);
+                currentWeightLerp += Time.deltaTime * (1f/settings.lerpDuration);
                 
                 
-                _target.m_Targets[member].radius = Mathf.Lerp(startRadius, endRadius, currentRadiusLerp);
-                _target.m_Targets[member].weight = Mathf.Lerp(startWeight, endWeight, currentWeightLerp);
+                _target.m_Targets[member].radius = Mathf.Lerp(settings.startRadius, settings.endRadius, currentRadiusLerp);
+                _target.m_Targets[member].weight = Mathf.Lerp(settings.startWeight, settings.endWeight, currentWeightLerp);
                 
                 yield return endFrame;
             }
@@ -66,12 +69,12 @@ namespace CameraScripts
             
             while (currentWeightLerp > 0 && currentRadiusLerp > 0)
             {
-                currentRadiusLerp -= Time.deltaTime * (endRadius - startRadius) * (1f/lerpDuration);
-                currentWeightLerp -= Time.deltaTime * (endWeight - startWeight) * (1f/lerpDuration);
+                currentRadiusLerp -= Time.deltaTime * (1f/settings.lerpDuration);
+                currentWeightLerp -= Time.deltaTime * (1f/settings.lerpDuration);
                 
                 
-                _target.m_Targets[member].radius = Mathf.Lerp(startRadius, endRadius, currentRadiusLerp);
-                _target.m_Targets[member].weight = Mathf.Lerp(startWeight, endWeight, currentWeightLerp);
+                _target.m_Targets[member].radius = Mathf.Lerp(settings.startRadius, settings.endRadius, currentRadiusLerp);
+                _target.m_Targets[member].weight = Mathf.Lerp(settings.startWeight, settings.endWeight, currentWeightLerp);
                 
                 yield return endFrame;
             }
@@ -80,10 +83,5 @@ namespace CameraScripts
             _routines.Remove(objToIncrease);
 
         }
-
-        /*private IEnumerator DecreaseWeight(GameObject objToDecrease)
-        {
-            
-        }*/
     }
 }

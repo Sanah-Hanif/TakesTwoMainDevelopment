@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Interaction.player;
 using Player;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Interaction.Level_Elements
 {
+    [ExecuteInEditMode]
     public class MovingPlatform : MonoBehaviour
     {
         
@@ -33,6 +35,49 @@ namespace Interaction.Level_Elements
             _initialPosition = transform.position;
             SetupTween();
         }
+
+        
+        
+        #if UNITY_EDITOR
+
+        private List<Vector2> _positionsToMove = new List<Vector2>();
+        private int _index = 0;
+        
+        private void OnValidate()
+        {
+            _positionsToMove.Clear();
+            EditorApplication.playModeStateChanged += StateChange;
+            _index = 0;
+            _collider = GetComponentInChildren<BoxCollider2D>();
+            _rb = GetComponent<Rigidbody2D>();
+            _initialPosition = transform.position;
+            _positionsToMove.Add(_initialPosition);
+            foreach (var pos in positions)
+            {
+                _positionsToMove.Add(pos.position);
+            }
+        }
+
+        public void NextPosition()
+        {
+            _index++;
+            _index %= _positionsToMove.Count;
+            transform.position = _positionsToMove[_index];
+        }
+
+        void StateChange(PlayModeStateChange mode)
+        {
+            if(mode == PlayModeStateChange.ExitingEditMode)
+                ResetPosition();
+        }
+
+        public void ResetPosition()
+        {
+            _index = 0;
+            transform.position = _positionsToMove[0];
+        }
+
+        #endif
 
         private void SetupTween()
         {

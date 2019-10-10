@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CameraScripts;
 using Cinemachine;
@@ -23,6 +24,13 @@ namespace Interaction.Level_Elements
         {
             target = FindObjectOfType<CinemachineTargetGroup>();
             child = GetComponentInChildren<LevelInteraction>();
+            _targetGroupController = target.GetComponent<TargetGroupController>();
+        }
+
+        private void OnValidate()
+        {
+            child = GetComponentInChildren<LevelInteraction>();
+            target = FindObjectOfType<CinemachineTargetGroup>();
             _targetGroupController = target.GetComponent<TargetGroupController>();
         }
 
