@@ -324,7 +324,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 6.507636
+  orthographic size: 6.4575
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -347,7 +347,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210205542}
-  m_LocalRotation: {x: 1e-45, y: -1e-45, z: -0.000000082368366, w: 1}
+  m_LocalRotation: {x: -3e-45, y: -1e-45, z: -0.000000082368366, w: 1}
   m_LocalPosition: {x: 1.335, y: -4.585, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -772,12 +772,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerJoinedEvent, Unity.InputSystem,
-      Version=0.9.6.0, Culture=neutral, PublicKeyToken=null
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerLeftEvent, Unity.InputSystem,
-      Version=0.9.6.0, Culture=neutral, PublicKeyToken=null
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_JoinAction:
     m_UseReference: 0
     m_Action:
@@ -809,6 +809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 618519573}
   - component: {fileID: 618519572}
+  - component: {fileID: 618519574}
   m_Layer: 0
   m_Name: TargetGroup1
   m_TagString: Untagged
@@ -852,6 +853,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &618519574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618519571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c310aa2b0718548b4b53da7d53a942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWeight: 2.5
+  startRadius: 2.5
+  endWeight: 5
+  endRadius: 5
+  lerpDuration: 2
 --- !u!1 &1037704714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3042235149349959464, guid: 76ce9b40fc7deaf40ac123622da040eb,
@@ -1179,7 +1197,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061584750}
-  m_LocalRotation: {x: 1e-45, y: -1e-45, z: -0.000000082368366, w: 1}
+  m_LocalRotation: {x: -3e-45, y: -1e-45, z: -0.000000082368366, w: 1}
   m_LocalPosition: {x: 1.335, y: -4.585, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
