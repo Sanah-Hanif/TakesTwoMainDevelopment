@@ -39,28 +39,20 @@ namespace Interaction.Level_Elements
             child.Interact();
             if(dependancies.Count == 0)
                 return;
-            CancelInvoke(nameof(RemoveTarget));
             foreach (var interaction in dependancies.Where(interaction => interaction))
             {
-                //Debug.Log(target.FindMember(interaction.transform));
                 if(target.FindMember(interaction.transform) == -1)
-                    //target.AddMember(interaction.transform, 2.5f, 2.5f);
                     _targetGroupController.AddObjectToTargetGroup(interaction.gameObject);
                 interaction.Interact();
             }
-            
-            //_targetGroupController.AddObjectToTargetGroup();
-            //Invoke(nameof(RemoveTarget), 2f);
         }
 
-        private void RemoveTarget()
+        private void OnDrawGizmosSelected()
         {
-            foreach (var interaction in dependancies.Where(interaction => interaction))
+            foreach (var obj in dependancies)
             {
-                if(target.FindMember(interaction.transform) != -1)
-                    target.RemoveMember(interaction.transform);
+                Gizmos.DrawLine(transform.position, obj.transform.position);
             }
         }
-        
     }
 }
