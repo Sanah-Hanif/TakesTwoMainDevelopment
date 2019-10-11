@@ -10,6 +10,7 @@ namespace Interaction.Level_Elements
 {
     public class EnvironmentInteraction : InteractionController
     {
+        [SerializeField] Color rayColour = Color.white;
         [SerializeField] protected List<LevelInteraction> dependancies = new List<LevelInteraction>();
 
         private LevelInteraction child;
@@ -51,6 +52,7 @@ namespace Interaction.Level_Elements
         {
             foreach (var obj in dependancies)
             {
+                Gizmos.color = rayColour;
                 Gizmos.DrawLine(transform.position, obj.transform.position);
             }
         }
