@@ -469,6 +469,18 @@ PrefabInstance:
       propertyPath: dependancies.Array.data[0]
       value: 
       objectReference: {fileID: 2033368518}
+    - target: {fileID: 1018902623, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
+      propertyPath: rayColour.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018902623, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
+      propertyPath: rayColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018902623, guid: de440fab0b8b3f842aaed423243a35a1, type: 3}
+      propertyPath: rayColour.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4226617662415850962, guid: de440fab0b8b3f842aaed423243a35a1,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -657,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 7045211670272631830, guid: 93aeb54147090504486329dba345cf7a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7045211670272631833, guid: 93aeb54147090504486329dba345cf7a,
         type: 3}

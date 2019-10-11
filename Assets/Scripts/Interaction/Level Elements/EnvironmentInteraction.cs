@@ -32,7 +32,7 @@ namespace Interaction.Level_Elements
         {
             child = GetComponentInChildren<LevelInteraction>();
             target = FindObjectOfType<CinemachineTargetGroup>();
-            _targetGroupController = target.GetComponent<TargetGroupController>();
+            //_targetGroupController = target.GetComponent<TargetGroupController>();
         }
 
         public override void Interact()
