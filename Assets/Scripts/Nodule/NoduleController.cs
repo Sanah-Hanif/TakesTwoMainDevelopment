@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interaction.Level_Elements;
+using Interaction.Level_Elements.Toggle;
 using UnityEngine;
 
 namespace Nodule
@@ -9,7 +10,7 @@ namespace Nodule
         private Dictionary<EnvironmentInteraction, GameObject> nodules = new Dictionary<EnvironmentInteraction, GameObject>();
 
         [SerializeField] protected Transform spawnPosition;
-
+        
         public void ClearNodules()
         {
             nodules.Clear();

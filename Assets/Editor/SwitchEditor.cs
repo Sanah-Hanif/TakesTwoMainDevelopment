@@ -20,11 +20,11 @@ namespace Editor
         {
             using (var check = new EditorGUI.ChangeCheckScope())
             {
+                base.OnInspectorGUI();
                 if (GUILayout.Button("Toggle"))
                 {
                     _interaction.Interact();
                 }
-                base.OnInspectorGUI();
                 if (check.changed)
                 {
                     var nodules = FindObjectsOfType<NoduleController>();

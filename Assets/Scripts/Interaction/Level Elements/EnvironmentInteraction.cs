@@ -12,35 +12,32 @@ namespace Interaction.Level_Elements
 {
     public class EnvironmentInteraction : InteractionController
     {
-        [SerializeField] Color rayColour = Color.white;
-        [SerializeField] protected Color _noduleColour = Color.white;
-        [SerializeField] protected GameObject _nodulePrefab;
+        [SerializeField] protected Color rayColour = Color.white;
+        [SerializeField] protected Color noduleColour = Color.white;
+        [SerializeField] protected GameObject nodulePrefab;
+        [SerializeField] protected SpriteRenderer aura;
         [SerializeField] protected List<LevelInteraction> dependancies = new List<LevelInteraction>();
-        
-        private SpriteRenderer Aura;
 
-        private LevelInteraction child;
+        private LevelInteraction _child;
         
         protected InputActionMap PlayerMovement;
         protected InputActionMap PlayerAbility;
 
-        private CinemachineTargetGroup target;
+        private CinemachineTargetGroup _target;
         private TargetGroupController _targetGroupController;
 
         private void Awake()
         {
-            Aura = GetComponent<SpriteRenderer>();
-            Aura.color = _noduleColour;
-            target = FindObjectOfType<CinemachineTargetGroup>();
-            child = GetComponentInChildren<LevelInteraction>();
-            _targetGroupController = target.GetComponent<TargetGroupController>();
+            aura.color = noduleColour;
+            _target = FindObjectOfType<CinemachineTargetGroup>();
+            _child = GetComponentInChildren<LevelInteraction>();
+            _targetGroupController = _target.GetComponent<TargetGroupController>();
         }
 
         private void OnValidate()
         {
-            Aura = GetComponent<SpriteRenderer>();
-            Aura.color = _noduleColour;
-            child = GetComponentInChildren<LevelInteraction>();
+            aura.color = noduleColour;
+            _child = GetComponentInChildren<LevelInteraction>();
             //target = FindObjectOfType<CinemachineTargetGroup>();
             //_targetGroupController = target.GetComponent<TargetGroupController>();
         }
@@ -49,21 +46,21 @@ namespace Interaction.Level_Elements
         {
             foreach (var obj in dependancies)
             {
-                GameObject newNodule = Instantiate(_nodulePrefab, obj.transform.position + Vector3.left, quaternion.identity);
-                newNodule.GetComponent<SpriteRenderer>().color = _noduleColour;
+                GameObject newNodule = Instantiate(nodulePrefab, obj.transform.position + Vector3.left, quaternion.identity);
+                newNodule.GetComponent<SpriteRenderer>().color = noduleColour;
                 obj.GetComponentInParent<NoduleController>().AddNodule(this, newNodule);
             }
         }
 
         public override void Interact()
         {
-            child.Interact();
+            _child.Interact();
             if(dependancies.Count == 0)
                 return;
             foreach (var interaction in dependancies.Where(interaction => interaction))
             {
                 interaction.Interact();
-                if(_targetGroupController != null && target != null && target.FindMember(interaction.transform) == -1)
+                if(_targetGroupController != null && _target != null && _target.FindMember(interaction.transform) == -1)
                     _targetGroupController.AddObjectToTargetGroup(interaction.gameObject);
             }
         }
