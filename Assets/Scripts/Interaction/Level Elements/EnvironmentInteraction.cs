@@ -49,7 +49,6 @@ namespace Interaction.Level_Elements
         {
             foreach (var obj in dependancies)
             {
-                Debug.Log(obj.name);
                 GameObject newNodule = Instantiate(_nodulePrefab, obj.transform.position + Vector3.left, quaternion.identity);
                 newNodule.GetComponent<SpriteRenderer>().color = _noduleColour;
                 obj.GetComponentInParent<NoduleController>().AddNodule(this, newNodule);

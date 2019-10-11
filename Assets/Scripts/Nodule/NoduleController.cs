@@ -17,7 +17,6 @@ namespace Nodule
             GameObject[] children = new GameObject[nods];
             for (int i = 0; i < nods; i++)
             {
-                Debug.Log(spawnPosition.GetChild(i).name);
                 children[i] = spawnPosition.GetChild(i).gameObject;
             }
 
