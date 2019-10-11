@@ -1,26 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Interaction.Level_Elements;
 using UnityEngine;
 
-public class NoduleController : MonoBehaviour
+namespace Nodule
 {
-    private List<GameObject> nodules = new List<GameObject>();
-
-    public void AddNodule(GameObject nod)
+    public class NoduleController : MonoBehaviour
     {
-        nodules.Add(nod);
-        float startingPos = -0.5f * nodules.Count;
-        foreach (var obj in nodules)
+        private Dictionary<EnvironmentInteraction, GameObject> nodules = new Dictionary<EnvironmentInteraction, GameObject>();
+
+        [SerializeField] protected Transform spawnPosition;
+
+        public void ClearNodules()
         {
-            var pos = obj.transform.position;
-            pos.y = startingPos;
-            startingPos += 1f;
-        }
-    }
+            nodules.Clear();
+            var nods = spawnPosition.childCount;
+            GameObject[] children = new GameObject[nods];
+            for (int i = 0; i < nods; i++)
+            {
+                Debug.Log(spawnPosition.GetChild(i).name);
+                children[i] = spawnPosition.GetChild(i).gameObject;
+            }
 
-    public void RemoveNodule(GameObject obj)
-    {
-        nodules.Remove(obj);
-        DestroyImmediate(obj);
+            for (int i = 0; i < nods; i++)
+            {
+                DestroyImmediate(children[i]);
+            }
+        }
+
+        public void AddNodule(EnvironmentInteraction env, GameObject nod)
+        {
+            nodules.Add(env, nod);
+            var pos = spawnPosition.position;
+            Vector3 startingPos = pos + (nodules.Count-1) * -0.5f * Vector3.up;
+            foreach (var obj in nodules)
+            {
+                obj.Value.transform.rotation = spawnPosition.rotation;
+                obj.Value.transform.parent = spawnPosition;
+                obj.Value.transform.position = startingPos;
+                startingPos += Vector3.up;
+            }
+        }
     }
 }

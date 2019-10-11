@@ -120,7 +120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayColour: {r: 1, g: 1, b: 1, a: 1}
   _noduleColour: {r: 1, g: 1, b: 1, a: 1}
-  _noduleSprite: {fileID: 0}
   _nodulePrefab: {fileID: 0}
   dependancies:
   - {fileID: 0}

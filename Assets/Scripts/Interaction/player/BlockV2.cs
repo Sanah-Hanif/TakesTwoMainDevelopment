@@ -13,7 +13,7 @@ namespace Interaction.player
     {
         private readonly Dictionary<int, PressurePad> _pads = new Dictionary<int, PressurePad>();
 
-        [SerializeField] private LayerMask whatCanLandOnBlock;
+        [SerializeField] protected LayerMask whatCanLandOnBlock;
 
         private Collider2D _collider2D;
         private Rigidbody2D _rb;

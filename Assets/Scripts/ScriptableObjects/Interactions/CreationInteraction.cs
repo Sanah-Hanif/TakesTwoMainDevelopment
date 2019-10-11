@@ -9,7 +9,7 @@ namespace ScriptableObjects.Interactions
 
         [HideInInspector] public GameObject createdObject;
         
-        [SerializeField] private GameObject creation;
+        [SerializeField] protected GameObject creation;
         
         public override void Interact(Vector2 _position)
         {

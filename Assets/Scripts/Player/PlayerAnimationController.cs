@@ -8,9 +8,9 @@ namespace Interaction.player
     public class PlayerAnimationController : MonoBehaviour
     {
 
-        [SerializeField] private Animator animator;
-        [SerializeField] private GameObject spriteParent;
-        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] protected Animator animator;
+        [SerializeField] protected GameObject spriteParent;
+        [SerializeField] protected Rigidbody2D rb;
     
         private PlayerInputSystem _system;
         

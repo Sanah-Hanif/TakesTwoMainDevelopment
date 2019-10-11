@@ -22,11 +22,6 @@ namespace Editor
             {
                 _interaction.Interact();
             }
-
-            if (GUILayout.Button("Generate Nodules"))
-            {
-                _interaction.DrawNodules();
-            }
         }
     }
 }

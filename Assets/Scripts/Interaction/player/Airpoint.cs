@@ -10,17 +10,15 @@ namespace Interaction.player
     public class Airpoint : PlayerCreationInteraction
     {
 
-        [SerializeField] private LayerMask mask;
-        [SerializeField] private CircleCollider2D _collider2D;
-        [SerializeField] private float duration = 2f;
-        
-        [SerializeField] private SpriteRenderer animation;
-        [SerializeField] private SpriteRenderer objectSprite;
-
-        [SerializeField] private float endRadius = 1.5f;
-        [SerializeField] private float endAlpha = 0.5f;
-        [SerializeField] private float endAnimationAlpha = 0;
-        [SerializeField] private float tweenDuration = 1.5f;
+        [SerializeField] protected LayerMask mask;
+        [SerializeField] protected CircleCollider2D _collider2D;
+        [SerializeField] protected float duration = 2f;
+        [SerializeField] protected SpriteRenderer animation;
+        [SerializeField] protected SpriteRenderer objectSprite;
+        [SerializeField] protected float endRadius = 1.5f;
+        [SerializeField] protected float endAlpha = 0.5f;
+        [SerializeField] protected float endAnimationAlpha = 0;
+        [SerializeField] protected float tweenDuration = 1.5f;
         
         private PointEffector2D _point;
         private Sequence _sequence;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CameraScripts;
 using Cinemachine;
+using Nodule;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,12 +13,11 @@ namespace Interaction.Level_Elements
     public class EnvironmentInteraction : InteractionController
     {
         [SerializeField] Color rayColour = Color.white;
-        [SerializeField] private Color _noduleColour = Color.white;
-        [SerializeField] private Sprite _noduleSprite;
-        [SerializeField] private GameObject _nodulePrefab;
+        [SerializeField] protected Color _noduleColour = Color.white;
+        [SerializeField] protected GameObject _nodulePrefab;
         [SerializeField] protected List<LevelInteraction> dependancies = new List<LevelInteraction>();
         
-        private Dictionary<LevelInteraction, GameObject> _nodules = new Dictionary<LevelInteraction, GameObject>();
+        private SpriteRenderer Aura;
 
         private LevelInteraction child;
         
@@ -29,6 +29,8 @@ namespace Interaction.Level_Elements
 
         private void Awake()
         {
+            Aura = GetComponent<SpriteRenderer>();
+            Aura.color = _noduleColour;
             target = FindObjectOfType<CinemachineTargetGroup>();
             child = GetComponentInChildren<LevelInteraction>();
             _targetGroupController = target.GetComponent<TargetGroupController>();
@@ -36,6 +38,8 @@ namespace Interaction.Level_Elements
 
         private void OnValidate()
         {
+            Aura = GetComponent<SpriteRenderer>();
+            Aura.color = _noduleColour;
             child = GetComponentInChildren<LevelInteraction>();
             //target = FindObjectOfType<CinemachineTargetGroup>();
             //_targetGroupController = target.GetComponent<TargetGroupController>();
@@ -43,35 +47,12 @@ namespace Interaction.Level_Elements
 
         public void DrawNodules()
         {
-            var oldNodules = _nodules.Keys.ToArray();
-            var oldNoduleValues = _nodules.Values.ToArray();
-            
-            if (_nodules.Count > 0)
-            {
-                for (int i = 0; i < _nodules.Count; i++)
-                {
-                    var check = _nodules.TryGetValue(oldNodules[i], out var checkObj);
-                    if (check && checkObj == null)
-                    {
-                        DestroyImmediate(_nodules[oldNodules[i]].gameObject);
-                        _nodules.Remove(oldNodules[i]);
-                    }
-
-                    if (check) continue;
-                    DestroyImmediate(oldNodules[i].gameObject);
-                    _nodules.Remove(oldNodules[i]);
-                }
-            }
-
             foreach (var obj in dependancies)
             {
-                if(_nodules.ContainsKey(obj)) continue;
-                Debug.Log(gameObject.name);
-                GameObject newNodule = Instantiate(_nodulePrefab, obj.transform.position + Vector3.left, quaternion.identity,
-                    obj.transform.parent);
-                newNodule.GetComponent<SpriteRenderer>().sprite = _noduleSprite;
+                Debug.Log(obj.name);
+                GameObject newNodule = Instantiate(_nodulePrefab, obj.transform.position + Vector3.left, quaternion.identity);
                 newNodule.GetComponent<SpriteRenderer>().color = _noduleColour;
-                _nodules.Add(obj, newNodule);
+                obj.GetComponentInParent<NoduleController>().AddNodule(this, newNodule);
             }
         }
 
