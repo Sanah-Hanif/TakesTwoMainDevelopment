@@ -315,6 +315,11 @@ PrefabInstance:
       propertyPath: rayColour.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3764876268340858423, guid: 951a80d3d094acd4cbf39c64b35f5dac,
+        type: 3}
+      propertyPath: dependancies.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4570450074921616881, guid: 951a80d3d094acd4cbf39c64b35f5dac,
         type: 3}
       propertyPath: tweenDuration
@@ -333,7 +338,7 @@ PrefabInstance:
     - target: {fileID: 3764876268509487108, guid: 951a80d3d094acd4cbf39c64b35f5dac,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2630312
+      value: -0.2630312
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3764876268509487107, guid: 951a80d3d094acd4cbf39c64b35f5dac, type: 3}

@@ -42,9 +42,9 @@ namespace Interaction.Level_Elements
                 return;
             foreach (var interaction in dependancies.Where(interaction => interaction))
             {
-                if(target.FindMember(interaction.transform) == -1)
-                    _targetGroupController.AddObjectToTargetGroup(interaction.gameObject);
                 interaction.Interact();
+                if(_targetGroupController != null && target.FindMember(interaction.transform) == -1)
+                    _targetGroupController.AddObjectToTargetGroup(interaction.gameObject);
             }
         }
 
