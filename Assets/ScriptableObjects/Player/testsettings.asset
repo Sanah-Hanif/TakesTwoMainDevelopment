@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9edad283df749204cb8151cb2a7b0dca, type: 3}
-  m_Name: testsettings
+  m_Name: TestSettings
   m_EditorClassIdentifier: 
   maxSpeed: 10
   acceleration: 3
