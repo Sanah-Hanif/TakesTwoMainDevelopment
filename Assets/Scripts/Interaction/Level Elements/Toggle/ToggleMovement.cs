@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEditor;
 
 namespace Interaction.Level_Elements.Toggle
 {
@@ -13,14 +15,40 @@ namespace Interaction.Level_Elements.Toggle
         {
             movement = DOTween.Sequence();
             if (positions.Count > 0)
-                transform.DOMove(positions[0].position, tweenDuration);
+                transform.position = positions[0].position;
+        }
+
+        private void OnValidate()
+        {
+            if (positions.Count > 0)
+                transform.position = positions[0].position;
         }
 
         public override void Interact()
         {
             base.Interact();
-            if(toggled < positions.Count)
+            #if UNITY_EDITOR
+            if (!EditorApplication.isPlaying)
+            {
+                if (toggled < positions.Count)
+                    transform.position = positions[toggled].position;
+            }
+            else if (toggled < positions.Count)
+            {
                 transform.DOMove(positions[toggled].position, tweenDuration);
+            }
+            #else
+            if (toggled < positions.Count)
+                transform.DOMove(positions[toggled].position, tweenDuration);
+            #endif
         }
+        
+        
+        #if UNITY_EDITOR
+        private void OnWillRenderObject()
+        {
+            transform.position = positions[toggled].position;
+        }
+        #endif
     }
 }

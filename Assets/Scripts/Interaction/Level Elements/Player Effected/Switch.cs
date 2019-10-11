@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Player;
+using Scene;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,14 +27,14 @@ namespace Interaction.Level_Elements
             if (!hasCreation)
                 AssignCallBacks();
             else
-                PlayerAbility.GetAction("Place").performed += PlacedObject;
+                PlayerAbility["Place"].performed += PlacedObject;
         }
 
         private void AssignCallBacks()
         {
-            PlayerMovement.GetAction("Ability").Disable();
-            PlayerMovement.GetAction("Interact").performed += Performed;
-            PlayerMovement.GetAction("Interact").Enable();
+            PlayerMovement["Ability"].Disable();
+            PlayerMovement["Interact"].performed += Performed;
+            PlayerMovement["Interact"].Enable();
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -41,11 +42,11 @@ namespace Interaction.Level_Elements
             if (!other.gameObject.CompareTag("Player")) return;
             
             if(!other.GetComponent<PlayerInteraction>().HasCreation)
-                PlayerMovement.GetAction("Ability").Enable();
+                PlayerMovement["Ability"].Enable();
             
-            PlayerMovement.GetAction("Interact").performed -= Performed;
-            PlayerAbility.GetAction("Place").performed -= PlacedObject;
-            PlayerMovement.GetAction("Interact").Disable();
+            PlayerMovement["Interact"].performed -= Performed;
+            PlayerAbility["Place"].performed -= PlacedObject;
+            PlayerMovement["Interact"].Disable();
             PlayerMovement = null;
             PlayerAbility = null;
         }
@@ -57,8 +58,31 @@ namespace Interaction.Level_Elements
 
         private void PlacedObject(InputAction.CallbackContext ctx)
         {
-            PlayerAbility.GetAction("Place").performed -= PlacedObject;
+            PlayerAbility["Place"].performed -= PlacedObject;
             AssignCallBacks();
+        }
+
+        private void OnDisable()
+        {
+            var manager = FindObjectOfType<PlayerManager>();
+            if(manager == null) return;
+            var chaosInput = manager.Chaos.GetComponent<PlayerInputSystem>();
+            var harmonyInput = manager.Chaos.GetComponent<PlayerInputSystem>();
+            
+            chaosInput.Ability["Place"].performed -= PlacedObject;
+            harmonyInput.Ability["Place"].performed -= PlacedObject;
+            
+            //PlayerAbility.GetAction("Place").performed -= PlacedObject;
+            
+            chaosInput.Player["Interact"].performed -= PlacedObject;
+            chaosInput.Player["Interact"].Disable();
+
+            harmonyInput.Player["Interact"].performed -= PlacedObject;
+            harmonyInput.Player["Interact"].Disable();
+            
+            
+            //PlayerMovement.GetAction("Interact").performed -= Performed;
+            //PlayerMovement.GetAction("Interact").Disable();
         }
     }
 }

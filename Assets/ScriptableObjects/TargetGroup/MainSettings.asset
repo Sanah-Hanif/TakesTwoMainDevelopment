@@ -9,15 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9edad283df749204cb8151cb2a7b0dca, type: 3}
-  m_Name: DUNCAN TEST
+  m_Script: {fileID: 11500000, guid: f81ba328433c383428ce7cf7589bb50c, type: 3}
+  m_Name: MainSettings
   m_EditorClassIdentifier: 
-  maxSpeed: 8
-  acceleration: 1
-  jumpVelocity: 10
-  jumpHoldMultiplier: 1
-  gravity: -9.81
-  fallDownThreshHold: 0
-  fallSpeedIncrease: 1.2
-  smallJumpIncrease: 2
-  interactionSpawnRadius: 3
+  startWeight: 2.5
+  startRadius: 2.5
+  endWeight: 5
+  endRadius: 5
+  lerpDuration: 2

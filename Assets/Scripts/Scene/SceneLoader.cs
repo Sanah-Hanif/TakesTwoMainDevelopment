@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Scene
@@ -9,6 +11,8 @@ namespace Scene
     public class SceneLoader : MonoBehaviour
     {
         [SerializeField] protected string firstSceneToLoad;
+
+        public UnityEvent onSceneReload;
 
         private string _currentScene;
         private string _nextScene;
@@ -18,6 +22,8 @@ namespace Scene
         private IEnumerator loadRoutine;
 
         public static SceneLoader Instance => _sceneLoader;
+
+        private PlayerManager _playerManager;
 
         private void Awake()
         {
@@ -34,6 +40,11 @@ namespace Scene
             StartCoroutine(loadRoutine);
             //else
             //    _currentScene = SceneManager.GetActiveScene().name;
+        }
+
+        private void Start()
+        {
+            _playerManager = FindObjectOfType<PlayerManager>();
         }
 
         IEnumerator LoadFirstScene()
@@ -53,7 +64,8 @@ namespace Scene
         private IEnumerator LoadNewScene(string newScene)
         {
             
-            /* TODO: add scene loading logic
+            /*
+             * TODO: add scene loading logic
              * TODO: ensure the same scene doesnt load twice
              * TODO: unload previous scene
              * TODO: load new scene
@@ -68,6 +80,9 @@ namespace Scene
             _currentScene = newScene;
             var scene = SceneManager.GetSceneByName(_currentScene);
             SceneManager.SetActiveScene(scene);
+            
+            //reset player stuff
+            onSceneReload?.Invoke();
         }
 
         public void ReloadScene()
@@ -84,6 +99,9 @@ namespace Scene
             yield return SceneManager.LoadSceneAsync(_currentScene, LoadSceneMode.Additive);
             var scene = SceneManager.GetSceneByName(_currentScene);
             SceneManager.SetActiveScene(scene);
+            
+            //reset player stuff
+            onSceneReload?.Invoke();
         }
     }
 }
