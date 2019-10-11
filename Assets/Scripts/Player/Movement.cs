@@ -13,23 +13,18 @@ namespace Player
         private bool _doubleJumped = false;
         private bool _moved = false;
         private bool _isJumping = false;
+        private bool _fallEarly = false;
         public bool CanMove { get; set; }
-        private PlayerControls _control;
-
-        [Tooltip("Rigidbody on the player")]
+        
         [SerializeField] private Rigidbody2D rigidBody;
-        [Tooltip("Object at the feet of the player")] 
         [SerializeField] private Transform feetTransform;
-        [Tooltip("Object on the side of the player")]
         [SerializeField] private Transform SideTransform;
-        [Tooltip("LayerMask for what the player can jump off of, do not add player")]
+        [SerializeField] private Transform SideTransformLeft;
         [SerializeField] private LayerMask canJumpOff;
-        [Tooltip("LayerMask for what the player can slide off of, do not add player")]
         [SerializeField] private LayerMask slideOffOf;
-        [Tooltip("Distance to check for the ground")]
         [SerializeField] private float groundCheckRadius = 0.05f;
-        [Tooltip("BoxCollider on the player")]
-        [SerializeField] private BoxCollider2D _collider;
+        [SerializeField] private float boxCheckRadius = 0.01f;
+        [SerializeField] private CapsuleCollider2D _collider;
         
         private PlayerSettings settings;
         
@@ -42,14 +37,11 @@ namespace Player
         public UnityAction<GameObject> OnStop;
         public UnityAction<GameObject> OnLand;
 
-        private void Awake()
-        {
-            Initialize();
-        }
+        public bool IsMoving => _moved;
 
         private void FixedUpdate()
         {
-            //Debug.Log(rigidBody.velocity);d
+            //Debug.Log(rigidBody.velocity);
             MoveLeftStick();
             FallDown();
             if(_isJumping)
@@ -77,16 +69,36 @@ namespace Player
         {
             _isJumping = false;
         }
-        
-        private void Initialize()
+
+        private void CancelEarly(InputAction.CallbackContext ctx)
         {
+            _isJumping = false;
+            _fallEarly = true;
+        }
+        
+        public void Initialize()
+        {
+            //reset action events
+            OnJump = null;
+            OnLand = null;
+            OnMove = null;
+            OnStop = null;
+            
+            //resed boolean values
+            _isGrounded = true;
+            _doubleJumped = false;
+            _moved = false;
+            _isJumping = false;
+            _fallEarly = false;
+            
+            //reset player input key bindings
             input = GetComponent<PlayerInputSystem>();
             CanMove = true;
             movement = input.Player;
             movement.Enable();
-            movement.TryGetAction("Jump").started += StartJump;
-            movement.TryGetAction("Jump").performed += CancelJump;
-            movement.TryGetAction("Jump").canceled += CancelJump;
+            movement["Jump"].started += StartJump;
+            movement["Jump"].performed += CancelJump;
+            movement["Jump"].canceled += CancelEarly;
             if(gameObject.layer.Equals(LayerMask.NameToLayer("Harmony")))
                 slideOffOf &= ~LayerMask.NameToLayer("HarmonyGateway");
             else
@@ -96,7 +108,7 @@ namespace Player
 
         private void MoveLeftStick()
         {
-            var direc =  movement.GetAction("move").ReadValue<Vector2>();
+            var direc =  movement["move"].ReadValue<Vector2>();
             var velocity = rigidBody.velocity;
             if(!CheckIfCanMove(direc)) return;
             
@@ -126,15 +138,15 @@ namespace Player
         {
             if (direction.magnitude < 0.5) return true;
             bool move = true;
-            var position = SideTransform.position;
             var direc =  direction.x / Mathf.Abs(direction.x);
-            position.x += (direc == 1 ? 0 : -_collider.bounds.size.x);
+            var position = direc == 1 ? SideTransform.position : SideTransformLeft.position;
             //Debug.Log(position);
             LayerMask mask = LayerMask.GetMask("Ground");
             var obj = Physics2D.OverlapBox(position,
-                       new Vector2(groundCheckRadius, _collider.bounds.size.y - groundCheckRadius),
+                       new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius),
                        0,
                        mask);
+            //Debug.Log(obj == null);
             return obj == null;
         }
 
@@ -143,18 +155,23 @@ namespace Player
             var velocity = rigidBody.velocity;
             if (!(velocity.y < settings.fallDownThreshHold)) return;
             //Debug.Log("falling down");
-            velocity.y -= settings.fallSpeedIncrease;
+            velocity += Physics2D.gravity * (settings.fallSpeedIncrease - 1) * Vector2.up * Time.fixedDeltaTime;
             rigidBody.velocity = velocity;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if(!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
-                CanMove = !(Mathf.Abs(Vector2.Dot(other.GetContact(0).normal, Vector2.up)) < 0.7);
+            var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
+            if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
+            {
+                if(other.enabled)
+                    _isJumping = false;
+                CanMove = !(dot < 0.7);
+            }
             if (!CanMove)
             {
-                CanMove = Physics2D.OverlapBox(feetTransform.position, 
-                              new Vector2(_collider.bounds.size.x - groundCheckRadius, groundCheckRadius), 
+                CanMove = Physics2D.OverlapBox(SideTransform.position, 
+                              new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius), 
                               canJumpOff) != null || rigidBody.velocity.y > 0;
             }
             if (other.gameObject.tag.Equals("Block"))
@@ -168,6 +185,8 @@ namespace Player
                 !other.gameObject.CompareTag("Player") &&
                 !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform"))) 
                 return;
+
+            if (!(dot > 0.7f)) return;
             _doubleJumped = false;
             _isGrounded = true;
             OnLand?.Invoke(gameObject);
@@ -177,15 +196,17 @@ namespace Player
         {
             //movement.TryGetAction("Jump").performed -= Jump;
             //movement.TryGetAction("JumpHold").performed -= JumpHold;
-            movement.TryGetAction("Jump").started -= StartJump;
-            movement.TryGetAction("Jump").performed -= CancelJump;
-            movement.TryGetAction("Jump").canceled -= CancelJump;
+            movement["Jump"].started -= StartJump;
+            movement["Jump"].performed -= CancelJump;
+            movement["Jump"].canceled -= CancelEarly;
             movement.Disable();
         }
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x - groundCheckRadius, groundCheckRadius));
+            Gizmos.DrawCube(SideTransform.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
+            Gizmos.DrawCube(SideTransformLeft.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
+            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius));
         }
     }
 }

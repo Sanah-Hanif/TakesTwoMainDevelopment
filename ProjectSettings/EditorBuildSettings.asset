@@ -5,10 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Levels/Level_1_Tutorial.unity
-    guid: 4d5eab96ba123c746a7f33d290db6a3d
   - enabled: 1
-    path: Assets/Scenes/Alpha/Puzzle 5.unity
-    guid: 1312b5778b52248489a4184ba9f581aa
+    path: Assets/Scenes/AlphaAdditive/BaseAdditive.unity
+    guid: 4a5fa2d3d53246248ade6fd3f20a244a
+  - enabled: 1
+    path: Assets/Scenes/AlphaAdditive/Puzzle1Additive.unity
+    guid: 84bfd4eb8e25e4c4d89dad46445cee87
+  - enabled: 1
+    path: Assets/Scenes/AlphaAdditive/Puzzle3Additive.unity
+    guid: cd6fccb3fd69080438e01275c230e84f
+  - enabled: 1
+    path: Assets/Scenes/AlphaAdditive/Puzzle4Additive.unity
+    guid: 24ff6daa2977cc04186479e619304ed0
+  - enabled: 1
+    path: Assets/Scenes/AlphaAdditive/Puzzle5Additive.unity
+    guid: 2c7bf608d3825674c8156a0baac454fc
   m_configObjects: {}

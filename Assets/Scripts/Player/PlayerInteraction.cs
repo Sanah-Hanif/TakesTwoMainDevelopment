@@ -1,4 +1,5 @@
-﻿using Interaction;
+﻿using System;
+using Interaction;
 using Interaction.player;
 using ScriptableObjects.Interactions;
 using ScriptableObjects.Player;
@@ -10,6 +11,10 @@ namespace Player
 {
     public class PlayerInteraction : InteractionController
     {
+        private void OnDestroy()
+        {
+            Debug.Log(gameObject);
+        }
 
         [SerializeField] private ScriptableObjects.Interactions.Interaction interaction;
         
@@ -21,6 +26,8 @@ namespace Player
         private PlayerCreationInteraction _createdInteraction;
 
         public bool HasCreation => _createdObject != null;
+
+        [HideInInspector] public bool CanUseInteraction = true;
 
         private Rigidbody2D _createdRigidbody2D;
 
@@ -35,22 +42,29 @@ namespace Player
                 Move();
         }
 
-        private void Initialize()
+        public void Initialize()
         {
             input = GetComponent<PlayerInputSystem>();
             _ability = input.Ability;
             _movement = input.Player;
             _ability.Disable();
-            _movement.GetAction("Interact").Disable();
-            _movement.GetAction("Ability").performed += ctx => Interact();
-            _ability.GetAction("Rotate").performed += Rotate;
-            _ability.GetAction("Place").performed += Place;
-            _ability.GetAction("Cancel").performed += Cancel;
+            _movement["Interact"].Disable();
+            _movement["Ability"].performed += ctx => Interact();
+            _ability["Place"].performed += Place;
+            _ability["Cancel"].performed += Cancel;
             settings = input.Settings;
+            
+            if (_createdObject)
+            {
+                Destroy(_createdObject);
+                _createdInteraction = null;
+                _createdObject = null;
+            }
         }
         
         public override void Interact()
         {
+            if(!CanUseInteraction) return;
             interaction.Interact(transform.position);
             var create = (CreationInteraction)interaction;
             _createdObject = create.createdObject;
@@ -60,7 +74,7 @@ namespace Player
 
         private void InitMovingObject()
         {
-            _movement.GetAction("Ability").Disable();
+            _movement["Ability"].Disable();
             //_ability.GetAction("Place").performed += _createdInteraction.OnPlaced;
             _createdInteraction._ability = _ability;
             _createdInteraction.ReCreated();
@@ -75,13 +89,13 @@ namespace Player
             //interaction.Interact(transform.position);
             var create = (CreationInteraction)interaction;
             create.createdObject = null;
-            _movement.GetAction("Ability").Enable();
+            _movement["Ability"].Enable();
         }
 
         private void Place(InputAction.CallbackContext ctx)
         {
             _ability.Disable();
-            _movement.GetAction("Ability").Enable();
+            _movement["Ability"].Enable();
 
             _createdInteraction.Interact();
             
@@ -91,16 +105,10 @@ namespace Player
             _createdInteraction = null;
         }
 
-        private void Rotate(InputAction.CallbackContext ctx)
-        {
-            var value = ctx.ReadValue<float>();
-            _createdObject.transform.Rotate(0,0, 90f * value);
-        }
-
         private void Move()
         {
             var position = transform.position;
-            var move = _ability.GetAction("Movement").ReadValue<Vector2>() * 0.1f;
+            var move = _ability["Movement"].ReadValue<Vector2>() * 0.1f;
             Vector2 oldPos = _createdObject.transform.position;
             oldPos += move;
             var moveAmmount = oldPos - (Vector2) position;
@@ -111,10 +119,9 @@ namespace Player
 
         private void OnDisable()
         {
-            _movement.TryGetAction("Ability").performed -= ctx => Interact();
-            _ability.GetAction("Rotate").performed -= Rotate;
-            _ability.GetAction("Place").performed -= Place;
-            _ability.GetAction("Cancel").performed -= Cancel;
+            _movement["Ability"].performed -= ctx => Interact();
+            _ability["Place"].performed -= Place;
+            _ability["Cancel"].performed -= Cancel;
             _ability.Disable();
         }
     }

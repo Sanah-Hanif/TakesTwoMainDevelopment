@@ -28,7 +28,7 @@ namespace Interaction.Level_Elements
 
         private void OnTriggerExit2D(Collider2D obj)
         {
-            if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Creation"))) &&
+            if ((!obj.tag.Equals("Block") || !obj.gameObject.layer.Equals(LayerMask.NameToLayer("Block"))) &&
                 !obj.gameObject.CompareTag("Player")) return;
 
             RemoveObjectOnPad(obj.gameObject);
