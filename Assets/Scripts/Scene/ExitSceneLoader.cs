@@ -8,7 +8,7 @@ namespace Exit
 {
     public class ExitSceneLoader : MonoBehaviour
     {
-        [SerializeField] private string sceneToLoad;
+        [SerializeField] protected string sceneToLoad;
         
         private List<GameObject> _players = new List<GameObject>();
 

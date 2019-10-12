@@ -16,8 +16,7 @@ namespace Interaction.Level_Elements
         
         [SerializeField] private List<Transform> positions = new List<Transform>();
         [SerializeField] private float moveDuration;
-
-        private int _position = 0;
+        
         private Vector3 _initialPosition;
         private List<GameObject> _objectsOnPlatform = new List<GameObject>();
         private BoxCollider2D _collider;

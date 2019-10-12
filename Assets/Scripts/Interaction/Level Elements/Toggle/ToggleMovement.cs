@@ -9,7 +9,6 @@ namespace Interaction.Level_Elements.Toggle
     public class ToggleMovement : ToggleInteraction
     {
         [SerializeField] private List<Transform> positions = new List<Transform>();
-        
 
         private void Awake()
         {

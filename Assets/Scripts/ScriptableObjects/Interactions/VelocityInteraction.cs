@@ -6,7 +6,7 @@ namespace ScriptableObjects.Interactions
     public class VelocityInteraction : Interaction
     {
 
-        [SerializeField] private float velocity = 3f;
+        [SerializeField] protected float velocity = 3f;
     
         public override void Interact(Vector2 _position)
         {
