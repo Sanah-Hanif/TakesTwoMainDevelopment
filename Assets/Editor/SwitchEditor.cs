@@ -1,5 +1,6 @@
 ﻿using System;
 using Interaction.Level_Elements;
+using Nodule;
 using UnityEngine;
 using UnityEditor;
 
@@ -17,10 +18,28 @@ namespace Editor
 
         public override void OnInspectorGUI()
         {
-            base.OnInspectorGUI();
-            if (GUILayout.Button("Toggle"))
+            using (var check = new EditorGUI.ChangeCheckScope())
             {
-                _interaction.Interact();
+                base.OnInspectorGUI();
+                if (GUILayout.Button("Toggle"))
+                {
+                    _interaction.Interact();
+                }
+                if (check.changed)
+                {
+                    var nodules = FindObjectsOfType<NoduleController>();
+                    var environments = FindObjectsOfType<EnvironmentInteraction>();
+
+                    foreach (var obj in nodules)
+                    {
+                        obj.ClearNodules();
+                    }
+
+                    foreach (var obj in environments)
+                    {
+                        obj.DrawNodules();
+                    }
+                }
             }
         }
     }
