@@ -10,7 +10,6 @@ namespace Interaction.player
     public class Airpoint : PlayerCreationInteraction
     {
 
-        [SerializeField] protected LayerMask mask;
         [SerializeField] protected CircleCollider2D _collider2D;
         [SerializeField] protected float duration = 2f;
         [SerializeField] protected SpriteRenderer animation;
@@ -20,13 +19,10 @@ namespace Interaction.player
         [SerializeField] protected float endAnimationAlpha = 0;
         [SerializeField] protected float tweenDuration = 1.5f;
         
-        private PointEffector2D _point;
         private Sequence _sequence;
 
         private void Awake()
         {
-            _point = GetComponent<PointEffector2D>();
-            _point.colliderMask = 0;
             _sequence = DOTween.Sequence();
             TweenAnimation();
         }
@@ -51,8 +47,7 @@ namespace Interaction.player
             objectSprite.DOFade(1, 1f);
             animation.gameObject.SetActive(false);
             Invoke(nameof(DisablePoint), duration);
-            _point.colliderMask = mask;
-            foreach (var col in Physics2D.OverlapCircleAll(transform.position, _collider2D.radius + 1))
+            foreach (var col in Physics2D.OverlapCircleAll(transform.position, _collider2D.radius))
             {
                 var _switch = col.GetComponent<Switch>();
                 if(_switch)
@@ -64,7 +59,6 @@ namespace Interaction.player
         {
             TweenAnimation();
             CancelInvoke(nameof(DisablePoint));
-            _point.colliderMask = 0;
         }
 
         private void DisablePoint()
