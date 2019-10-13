@@ -10,21 +10,19 @@ namespace Player
     {
         private Gamepad _gamepad;
         private bool _isGrounded = true;
-        private bool _doubleJumped = false;
-        private bool _moved = false;
-        private bool _isJumping = false;
-        private bool _fallEarly = false;
+        private bool _moved;
+        private bool _isJumping;
         public bool CanMove { get; set; }
         
-        [SerializeField] private Rigidbody2D rigidBody;
-        [SerializeField] private Transform feetTransform;
-        [SerializeField] private Transform SideTransform;
-        [SerializeField] private Transform SideTransformLeft;
-        [SerializeField] private LayerMask canJumpOff;
-        [SerializeField] private LayerMask slideOffOf;
-        [SerializeField] private float groundCheckRadius = 0.05f;
-        [SerializeField] private float boxCheckRadius = 0.01f;
-        [SerializeField] private CapsuleCollider2D _collider;
+        [SerializeField] protected Rigidbody2D rigidBody;
+        [SerializeField] protected Transform feetTransform;
+        [SerializeField] protected Transform SideTransform;
+        [SerializeField] protected Transform SideTransformLeft;
+        [SerializeField] protected LayerMask canJumpOff;
+        [SerializeField] protected LayerMask slideOffOf;
+        [SerializeField] protected float groundCheckRadius = 0.05f;
+        [SerializeField] protected float boxCheckRadius = 0.01f;
+        [SerializeField] protected CapsuleCollider2D _collider;
         
         private PlayerSettings settings;
         
@@ -73,7 +71,6 @@ namespace Player
         private void CancelEarly(InputAction.CallbackContext ctx)
         {
             _isJumping = false;
-            _fallEarly = true;
         }
         
         public void Initialize()
@@ -86,11 +83,9 @@ namespace Player
             
             //resed boolean values
             _isGrounded = true;
-            _doubleJumped = false;
             _moved = false;
             _isJumping = false;
-            _fallEarly = false;
-            
+
             //reset player input key bindings
             input = GetComponent<PlayerInputSystem>();
             CanMove = true;
@@ -137,7 +132,6 @@ namespace Player
         private bool CheckIfCanMove(Vector2 direction)
         {
             if (direction.magnitude < 0.5) return true;
-            bool move = true;
             var direc =  direction.x / Mathf.Abs(direction.x);
             var position = direc == 1 ? SideTransform.position : SideTransformLeft.position;
             //Debug.Log(position);
@@ -176,7 +170,6 @@ namespace Player
             }
             if (other.gameObject.tag.Equals("Block"))
             {
-                _doubleJumped = false;
                 _isGrounded = true;
                 OnLand?.Invoke(gameObject);
             }
@@ -187,7 +180,6 @@ namespace Player
                 return;
 
             if (!(dot > 0.7f)) return;
-            _doubleJumped = false;
             _isGrounded = true;
             OnLand?.Invoke(gameObject);
         }

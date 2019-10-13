@@ -27,9 +27,7 @@ namespace Player
 
         public bool HasCreation => _createdObject != null;
 
-        [HideInInspector] public bool CanUseInteraction = true;
-
-        private Rigidbody2D _createdRigidbody2D;
+        [HideInInspector] public bool canUseInteraction = true;
 
         private void Awake()
         {
@@ -64,7 +62,7 @@ namespace Player
         
         public override void Interact()
         {
-            if(!CanUseInteraction) return;
+            if(!canUseInteraction) return;
             interaction.Interact(transform.position);
             var create = (CreationInteraction)interaction;
             _createdObject = create.createdObject;
@@ -101,7 +99,6 @@ namespace Player
             
             _createdInteraction.OnPlaced();
             _createdObject = null;
-            _createdRigidbody2D = null;
             _createdInteraction = null;
         }
 
