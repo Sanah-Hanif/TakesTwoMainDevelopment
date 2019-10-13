@@ -156,23 +156,36 @@ namespace Player
         private void OnCollisionEnter2D(Collision2D other)
         {
             var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
+            Debug.Log(dot);
             if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
             {
                 if(other.enabled)
                     _isJumping = false;
                 CanMove = !(dot < 0.7);
             }
+
+            var objectByFeet = Physics2D.OverlapBox(SideTransform.position,
+                new Vector2(_collider.bounds.size.x, boxCheckRadius),
+                canJumpOff);
             if (!CanMove)
             {
-                CanMove = Physics2D.OverlapBox(SideTransform.position, 
-                              new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius), 
-                              canJumpOff) != null || rigidBody.velocity.y > 0;
+                CanMove = objectByFeet != null || rigidBody.velocity.y > 0;
             }
             if (other.gameObject.tag.Equals("Block"))
             {
+                _isJumping = false;
                 _isGrounded = true;
                 OnLand?.Invoke(gameObject);
             }
+
+            if (objectByFeet != null)
+            {
+                Debug.Log("Things at feet");
+                _isJumping = false;
+                _isGrounded = true;
+                OnLand?.Invoke(gameObject);
+            }
+
 
             if (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) &&
                 !other.gameObject.CompareTag("Player") &&
@@ -181,6 +194,7 @@ namespace Player
 
             if (!(dot > 0.7f)) return;
             _isGrounded = true;
+            _isJumping = false;
             OnLand?.Invoke(gameObject);
         }
 
@@ -198,7 +212,9 @@ namespace Player
         {
             Gizmos.DrawCube(SideTransform.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
             Gizmos.DrawCube(SideTransformLeft.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
-            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius));
+            
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x, boxCheckRadius));
         }
     }
 }
