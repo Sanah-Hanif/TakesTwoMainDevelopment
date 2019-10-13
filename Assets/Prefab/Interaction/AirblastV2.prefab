@@ -89,9 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7394563353548933737}
-  - component: {fileID: 7394563353548933652}
   - component: {fileID: 7394563353548933653}
-  - component: {fileID: 7394563353548933650}
   - component: {fileID: 1517417659}
   - component: {fileID: 3391847800262908480}
   m_Layer: 0
@@ -116,7 +114,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7394563353548933652
+--- !u!58 &7394563353548933653
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,43 +129,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!58 &7394563353548933653
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7394563353548933651}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
   m_Radius: 2
---- !u!250 &7394563353548933650
-PointEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7394563353548933651}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 3072
-  m_ForceMagnitude: 100
-  m_ForceVariation: 0
-  m_DistanceScale: 1
-  m_ForceSource: 1
-  m_ForceTarget: 1
-  m_ForceMode: 2
-  m_Drag: 0
-  m_AngularDrag: 0
 --- !u!114 &1517417659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,9 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf72a447ad847fe4a87154ed2ca4fc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask:
-    serializedVersion: 2
-    m_Bits: 220160
   _collider2D: {fileID: 7394563353548933653}
   duration: 2
   animation: {fileID: 8414248317130887813}
