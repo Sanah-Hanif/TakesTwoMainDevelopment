@@ -26,7 +26,7 @@ namespace Interaction.Level_Elements
         private CinemachineTargetGroup _target;
         private TargetGroupController _targetGroupController;
 
-        private void Awake()
+        private void Start()
         {
             aura.color = noduleColour;
             _target = FindObjectOfType<CinemachineTargetGroup>();
