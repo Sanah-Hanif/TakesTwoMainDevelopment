@@ -615,7 +615,7 @@ MonoBehaviour:
   isCloud: 1
   speedx: 0.1
   speedy: 0.1
-  cloudSpeed: 0.03
+  cloudSpeed: 0.01
 --- !u!1 &650502696
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +677,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650502696}
-  m_LocalRotation: {x: 1.1136717e-18, y: -0.000000023841858, z: -4.6711374e-11, w: 1}
+  m_LocalRotation: {x: 1.1136749e-18, y: -0.000000023841858, z: -4.6711374e-11, w: 1}
   m_LocalPosition: {x: -4.5324316, y: 2.433506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -762,7 +762,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788025073}
-  m_LocalRotation: {x: 1.1136717e-18, y: -0.000000023841858, z: -4.6711374e-11, w: 1}
+  m_LocalRotation: {x: 1.1136749e-18, y: -0.000000023841858, z: -4.6711374e-11, w: 1}
   m_LocalPosition: {x: -4.5324316, y: 2.433506, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   isCloud: 1
   speedx: 0.3
   speedy: 0.3
-  cloudSpeed: 0.05
+  cloudSpeed: 0.02
 --- !u!4 &1452795133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3042235149349959463, guid: 76ce9b40fc7deaf40ac123622da040eb,
@@ -2441,7 +2441,7 @@ MonoBehaviour:
   isCloud: 1
   speedx: 0.9
   speedy: 0.9
-  cloudSpeed: 0.09
+  cloudSpeed: 0.04
 --- !u!1 &2060069895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,4 +2552,4 @@ MonoBehaviour:
   isCloud: 1
   speedx: 0.55
   speedy: 0.55
-  cloudSpeed: 0.07
+  cloudSpeed: 0.03
