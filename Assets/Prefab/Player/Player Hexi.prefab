@@ -274,8 +274,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.104664885}
-  m_Size: {x: 0.5, y: 1.0701888}
+  m_Offset: {x: 0.06948614, y: 0.104664885}
+  m_Size: {x: 0.38, y: 1.0701888}
   m_Direction: 0
 --- !u!1 &3806950527565914597
 GameObject:
@@ -458,7 +458,7 @@ PrefabInstance:
     - target: {fileID: 6588910981490285798, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.17217714
+      value: 0.17217688
       objectReference: {fileID: 0}
     - target: {fileID: 5262269696393188827, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
@@ -513,12 +513,12 @@ PrefabInstance:
     - target: {fileID: 8190565850968100548, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.95771545
+      value: 0.95771575
       objectReference: {fileID: 0}
     - target: {fileID: 8190565850968100548, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.28771728
+      value: 0.2877163
       objectReference: {fileID: 0}
     - target: {fileID: 5293216450989216979, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
@@ -528,22 +528,22 @@ PrefabInstance:
     - target: {fileID: 5293216450989216979, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.9173387
+      value: -0.91733885
       objectReference: {fileID: 0}
     - target: {fileID: 5293216450989216979, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.39810774
+      value: 0.39810738
       objectReference: {fileID: 0}
     - target: {fileID: 1379946195131582918, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.31099978
+      value: -0.31099954
       objectReference: {fileID: 0}
     - target: {fileID: 1379946195131582918, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.95041
+      value: 0.9504101
       objectReference: {fileID: 0}
     - target: {fileID: 9221621509360459004, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
@@ -558,7 +558,7 @@ PrefabInstance:
     - target: {fileID: 9221621509360459004, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000016391276
+      value: 0.00000046193594
       objectReference: {fileID: 0}
     - target: {fileID: 9221621509360459004, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
@@ -598,12 +598,17 @@ PrefabInstance:
     - target: {fileID: 5717323974855605755, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000068545336
+      value: -0.00000074505806
       objectReference: {fileID: 0}
     - target: {fileID: 3467277548819476940, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.28033534
+      value: -0.28033492
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467277548819476940, guid: 94305c897f99d334799822beddc92c3f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9599022
       objectReference: {fileID: 0}
     - target: {fileID: 1897727888125889441, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
@@ -623,12 +628,12 @@ PrefabInstance:
     - target: {fileID: 1166708475629001555, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2512963
+      value: 0.25129467
       objectReference: {fileID: 0}
     - target: {fileID: 1166708475629001555, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.96791023
+      value: 0.96791065
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94305c897f99d334799822beddc92c3f, type: 3}
