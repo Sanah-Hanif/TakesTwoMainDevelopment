@@ -155,6 +155,7 @@ namespace Player
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            if(!other.enabled) return;
             var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
             Debug.Log(dot);
             if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))

@@ -227,7 +227,7 @@ PlatformEffector2D:
   m_SurfaceArc: 140
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 1
+  m_SideArc: 0
 --- !u!68 &490701714222008891
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -623,7 +623,12 @@ PrefabInstance:
     - target: {fileID: 1897727888125889441, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000014752147
+      value: 0.0000014767339
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897727888125889441, guid: 94305c897f99d334799822beddc92c3f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1166708475629001555, guid: 94305c897f99d334799822beddc92c3f,
         type: 3}

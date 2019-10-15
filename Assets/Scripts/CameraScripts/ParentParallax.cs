@@ -14,10 +14,8 @@ public class ParentParallax : MonoBehaviour
     void Update()
     {
         var orthoSize = camera.orthographicSize;
-
-        Debug.Log(orthoSize);
+        
         var newScale = orthoSize / minZoom;
-        Debug.Log(newScale);
 
         _scale.x = newScale;
         _scale.y = newScale;
