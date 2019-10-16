@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/AlphaAdditive/Puzzle3Additive.unity
     guid: cd6fccb3fd69080438e01275c230e84f
   - enabled: 1
-    path: Assets/Scenes/AlphaAdditive/Puzzle4Additive.unity
+    path: Assets/Scenes/AlphaAdditive/puzzle4Additive.unity
     guid: 24ff6daa2977cc04186479e619304ed0
   - enabled: 1
     path: Assets/Scenes/AlphaAdditive/Puzzle5Additive.unity
