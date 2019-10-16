@@ -26,7 +26,7 @@ namespace Interaction.Level_Elements.Toggle
         public override void Interact()
         {
             base.Interact();
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (!EditorApplication.isPlaying)
             {
                 if (toggled < positions.Count)
@@ -36,10 +36,10 @@ namespace Interaction.Level_Elements.Toggle
             {
                 transform.DOMove(positions[toggled].position, tweenDuration);
             }
-            #else
+#else
             if (toggled < positions.Count)
                 transform.DOMove(positions[toggled].position, tweenDuration);
-            #endif
+#endif
         }
         
         
