@@ -278,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210205542}
   m_LocalRotation: {x: 0.000001414617, y: 1.139012e-13, z: -0.00000008236834, w: 1}
-  m_LocalPosition: {x: 1.3350021, y: 4.7000446, z: -15.6500225}
+  m_LocalPosition: {x: 1.3350011, y: 2.9900444, z: -15.650018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 725371729}
@@ -1575,7 +1575,7 @@ PrefabInstance:
     - target: {fileID: 4095246041474484835, guid: f82d0cf6920e457409bc9c01d119887b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7
+      value: 2.9900007
       objectReference: {fileID: 0}
     - target: {fileID: 4095246041474484835, guid: f82d0cf6920e457409bc9c01d119887b,
         type: 3}
@@ -1632,6 +1632,11 @@ PrefabInstance:
       propertyPath: m_Targets.Array.data[1].target
       value: 
       objectReference: {fileID: 1337747217}
+    - target: {fileID: 4095246040878731543, guid: f82d0cf6920e457409bc9c01d119887b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f82d0cf6920e457409bc9c01d119887b, type: 3}
 --- !u!1001 &4173431451673426862
@@ -1808,17 +1813,17 @@ PrefabInstance:
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3350021
+      value: 1.3350011
       objectReference: {fileID: 0}
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7000446
+      value: 2.9900444
       objectReference: {fileID: 0}
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.6500225
+      value: -15.650018
       objectReference: {fileID: 0}
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}
