@@ -111,13 +111,12 @@ namespace Player
             if (gameObject.layer.Equals(LayerMask.NameToLayer("Harmony")))
             {
                 slideOffOf &= ~LayerMask.NameToLayer("HarmonyGateway");
-                canJumpOff &= ~LayerMask.NameToLayer("Harmony");
+                canJumpOff |= 1 << LayerMask.NameToLayer("Chaos");
             }
             else
             {
-                Debug.Log("removing chaos");
                 slideOffOf &= ~LayerMask.NameToLayer("ChaosGateway");
-                canJumpOff &= ~LayerMask.NameToLayer("Chaos");
+                canJumpOff |= 1 << LayerMask.NameToLayer("Harmony");
             }
 
             settings = input.Settings;
@@ -127,6 +126,7 @@ namespace Player
         {
             var direc =  movement["move"].ReadValue<Vector2>();
             var velocity = rigidBody.velocity;
+            CheckJump();
             if(!CheckIfCanMove(direc)) return;
 
             if (direc.magnitude > 0.5f)
@@ -146,6 +146,20 @@ namespace Player
                 velocity = rigidBody.velocity;
                 velocity.x = 0;
                 rigidBody.velocity = velocity;
+            }
+        }
+
+        private void CheckJump()
+        {
+            if (rigidBody.velocity.y < 1f) 
+            {
+                var objectByFeet = Physics2D.OverlapCircle(feetTransform.position, boxCheckRadius*2, canJumpOff);
+                if (objectByFeet != null)
+                {
+                    _isJumping = false;
+                    _isGrounded = true;
+                    OnLand?.Invoke(gameObject);
+                }
             }
         }
 
@@ -176,14 +190,14 @@ namespace Player
             }
             else
             {
-                var objectByFeet = Physics2D.OverlapBox(SideTransform.position,
+                /*var objectByFeet = Physics2D.OverlapBox(SideTransform.position,
                     new Vector2(_collider.bounds.size.x, boxCheckRadius),
                     0,
                     canJumpOff);
                 if (objectByFeet == null)
                 {
                     
-                }
+                }*/
             }
         }
 
@@ -192,23 +206,14 @@ namespace Player
             if(!other.enabled) return;
             var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
             Debug.Log(dot);
-            if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
+            /*if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
             {
                 if(other.enabled)
                     _isJumping = false;
                 CanMove = !(dot < 0.7);
-            }
+            }*/
 
-            var objectByFeet = Physics2D.OverlapBox(SideTransform.position,
-                new Vector2(_collider.bounds.size.x, boxCheckRadius),
-                0,
-                canJumpOff);
-
-            objectByFeet = Physics2D.OverlapCircle(feetTransform.position, boxCheckRadius, canJumpOff);
-            if (!CanMove)
-            {
-                CanMove = objectByFeet != null || rigidBody.velocity.y > 0;
-            }
+            var objectByFeet = Physics2D.OverlapCircle(feetTransform.position, boxCheckRadius*2, canJumpOff);
             if (other.gameObject.tag.Equals("Block"))
             {
                 _isJumping = false;
@@ -254,7 +259,7 @@ namespace Player
             
             Gizmos.color = Color.blue;
             //Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x, boxCheckRadius));
-            Gizmos.DrawWireSphere(feetTransform.position, boxCheckRadius);
+            Gizmos.DrawWireSphere(feetTransform.position, boxCheckRadius*2);
         }
     }
 }
