@@ -212,7 +212,8 @@ namespace Player
                     _isJumping = false;
                 CanMove = !(dot < 0.7);
             }*/
-
+            if (dot < -0.9f)
+                _isJumping = false;
             var objectByFeet = Physics2D.OverlapCircle(feetTransform.position, boxCheckRadius*2, canJumpOff);
             if (other.gameObject.tag.Equals("Block"))
             {
