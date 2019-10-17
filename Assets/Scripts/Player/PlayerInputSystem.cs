@@ -16,6 +16,7 @@ namespace Player
 
         public InputActionMap Ability { get; private set; }
         public InputActionMap Player { get; private set; }
+        public InputActionMap UI { get; private set; }
 
         private Movement _movement;
         private PlayerInteraction _interaction;
@@ -35,6 +36,7 @@ namespace Player
             _input = GetComponent<PlayerInput>();
             Ability = _input.actions.FindActionMap("Ability");
             Player = _input.actions.FindActionMap("Player");
+            UI = _input.actions.FindActionMap("UI");
 
             OnReloadGame();
 
