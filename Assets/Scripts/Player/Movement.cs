@@ -15,6 +15,8 @@ namespace Player
         private bool _isJumping;
         public bool CanMove { get; set; }
         
+        private Vector2 _prevVel = Vector2.zero;
+        
         [SerializeField] protected Rigidbody2D rigidBody;
         [SerializeField] protected Transform feetTransform;
         [SerializeField] protected Transform SideTransform;
@@ -58,6 +60,20 @@ namespace Player
             FallDown();
             if(_isJumping)
                 JumpUp();
+        }
+
+        public void PausePhysics()
+        {
+            rigidBody.gravityScale = 0;
+            _prevVel = rigidBody.velocity;
+            rigidBody.velocity = Vector2.zero;
+        }
+
+        public void ResumePhysics()
+        {
+            rigidBody.velocity = _prevVel;
+            _prevVel = Vector2.zero;
+            rigidBody.gravityScale = 1;
         }
 
         private void StartJump(InputAction.CallbackContext ctx)
@@ -205,13 +221,8 @@ namespace Player
         {
             if(!other.enabled) return;
             var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
-            Debug.Log(dot);
-            /*if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
-            {
-                if(other.enabled)
-                    _isJumping = false;
-                CanMove = !(dot < 0.7);
-            }*/
+            //Debug.Log(dot);
+
             if (dot < -0.9f)
                 _isJumping = false;
             var objectByFeet = Physics2D.OverlapCircle(feetTransform.position, boxCheckRadius*2, canJumpOff);
@@ -224,7 +235,7 @@ namespace Player
 
             if (objectByFeet != null)
             {
-                Debug.Log("Things at feet");
+                //Debug.Log("Things at feet");
                 Debug.Log(objectByFeet.name);
                 _isJumping = false;
                 _isGrounded = true;
