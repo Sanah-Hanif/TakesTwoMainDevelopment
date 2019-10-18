@@ -1,5 +1,6 @@
 ﻿using System;
 using Player;
+using Scene;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,6 +40,12 @@ namespace UI
                 ResumeGame();
             else
                 PauseGame();
+        }
+
+        public void LoadMainMenu()
+        {
+            SceneLoader.Instance.LoadScene("MainMenuAdditive");
+            ResumeGame();
         }
 
         private void PauseGame()
