@@ -190,7 +190,8 @@ namespace Player
                        new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius),
                        0,
                        mask);
-
+            if(obj != null)
+                Debug.Log(obj.name);
             return obj == null;
         }
 
@@ -236,7 +237,7 @@ namespace Player
             if (objectByFeet != null)
             {
                 //Debug.Log("Things at feet");
-                Debug.Log(objectByFeet.name);
+                //Debug.Log(objectByFeet.name);
                 _isJumping = false;
                 _isGrounded = true;
                 OnLand?.Invoke(gameObject);
