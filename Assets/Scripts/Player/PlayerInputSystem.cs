@@ -2,13 +2,15 @@
 using Scene;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using PlayerSettings = ScriptableObjects.Player.PlayerSettings;
 
 namespace Player
 {
     public class PlayerInputSystem : MonoBehaviour
     {
-        [SerializeField] private PlayerSettings settings;
+        [FormerlySerializedAs("settings")] public PlayerSettings _settings;
+        [HideInInspector] public bool foldout = true;
         
         private PlayerInput _input;
 
@@ -21,8 +23,8 @@ namespace Player
 
         public PlayerSettings Settings
         {
-            get => settings;
-            private set => settings = value;
+            get => _settings;
+            private set => _settings = value;
         }
 
         private void Awake()

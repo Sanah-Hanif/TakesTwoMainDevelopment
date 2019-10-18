@@ -10,6 +10,7 @@ namespace Scene
 {
     public class SceneLoader : MonoBehaviour
     {
+        [SerializeField] protected bool loadSceneOnStart = true;
         [SerializeField] protected string firstSceneToLoad;
 
         public UnityEvent onSceneReload;
@@ -28,18 +29,20 @@ namespace Scene
         private void Awake()
         {
             //singleton stuff
-            if(_sceneLoader == null)
+            if (_sceneLoader == null)
                 _sceneLoader = this;
-            else if(_sceneLoader != this)
+            else if (_sceneLoader != this)
                 Destroy(gameObject);
             DontDestroyOnLoad(gameObject);
-            
+
             //if the editor is open, use the active scene, if not, load the first scene we need
-            //if (!Application.isEditor)
-            loadRoutine = LoadFirstScene();
-            StartCoroutine(loadRoutine);
-            //else
-            //    _currentScene = SceneManager.GetActiveScene().name;
+            if (!Application.isEditor || loadSceneOnStart)
+            {
+                loadRoutine = LoadFirstScene();
+                StartCoroutine(loadRoutine);
+            }
+            else
+                _currentScene = SceneManager.GetActiveScene().name;
         }
 
         private void Start()
@@ -47,7 +50,7 @@ namespace Scene
             _playerManager = FindObjectOfType<PlayerManager>();
         }
 
-        IEnumerator LoadFirstScene()
+        private IEnumerator LoadFirstScene()
         {
             yield return SceneManager.LoadSceneAsync(firstSceneToLoad, LoadSceneMode.Additive);
             var scene = SceneManager.GetSceneByName(firstSceneToLoad);

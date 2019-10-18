@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: DUNCAN TEST
   m_EditorClassIdentifier: 
   maxSpeed: 8
-  acceleration: 1
+  useUnityGravity: 1
   jumpVelocity: 10
-  jumpHoldMultiplier: 1
-  gravity: -9.81
+  gravity: -20
   fallDownThreshHold: 0
   fallSpeedIncrease: 1.2
   smallJumpIncrease: 2

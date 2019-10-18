@@ -7,14 +7,13 @@ namespace ScriptableObjects.Player
     {
         [Header("Movement Parameters")]
         public float maxSpeed = 2f;
-        public float acceleration = 1f;
-        
-        [Header("Jump Parameters")]
+
+        [Header("Jump Parameters")] 
+        public bool useUnityGravity = true;
         public float jumpVelocity = 2f;
-        public float jumpHoldMultiplier = 2f;
 
         [Header("Falling Parameters")] 
-        public float gravity = -9.81f;
+        public float gravity = -20f;
         public float fallDownThreshHold = 0f;
         public float fallSpeedIncrease = 2.5f;
         public float smallJumpIncrease = 2f;

@@ -1,5 +1,6 @@
 ﻿using System;
 using ScriptableObjects.Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -36,6 +37,19 @@ namespace Player
         public UnityAction<GameObject> OnLand;
 
         public bool IsMoving => _moved;
+
+        private void OnValidate()
+        {
+            settings = GetComponent<PlayerInputSystem>()._settings;
+            if (!settings.useUnityGravity)
+            {
+                rigidBody.gravityScale = 0;
+            }
+            else
+            {
+                rigidBody.gravityScale = 1;
+            }
+        }
 
         private void FixedUpdate()
         {
@@ -94,10 +108,17 @@ namespace Player
             movement["Jump"].started += StartJump;
             movement["Jump"].performed += CancelJump;
             movement["Jump"].canceled += CancelEarly;
-            if(gameObject.layer.Equals(LayerMask.NameToLayer("Harmony")))
+            if (gameObject.layer.Equals(LayerMask.NameToLayer("Harmony")))
+            {
                 slideOffOf &= ~LayerMask.NameToLayer("HarmonyGateway");
+                canJumpOff |= 1 << LayerMask.NameToLayer("Chaos");
+            }
             else
+            {
                 slideOffOf &= ~LayerMask.NameToLayer("ChaosGateway");
+                canJumpOff |= 1 << LayerMask.NameToLayer("Harmony");
+            }
+
             settings = input.Settings;
         }
 
@@ -105,10 +126,9 @@ namespace Player
         {
             var direc =  movement["move"].ReadValue<Vector2>();
             var velocity = rigidBody.velocity;
+            CheckJump();
             if(!CheckIfCanMove(direc)) return;
-            
-            /*if(Math.Abs(velocity.x) < 0.1f)
-                CheckIfCanMove(direc);*/
+
             if (direc.magnitude > 0.5f)
             {
                 if (_moved == false)
@@ -129,50 +149,88 @@ namespace Player
             }
         }
 
+        private void CheckJump()
+        {
+            if (rigidBody.velocity.y < 1f) 
+            {
+                var objectByFeet = Physics2D.OverlapCircle(feetTransform.position, boxCheckRadius*2, canJumpOff);
+                if (objectByFeet != null)
+                {
+                    _isJumping = false;
+                    _isGrounded = true;
+                    OnLand?.Invoke(gameObject);
+                }
+            }
+        }
+
         private bool CheckIfCanMove(Vector2 direction)
         {
             if (direction.magnitude < 0.5) return true;
             var direc =  direction.x / Mathf.Abs(direction.x);
             var position = direc == 1 ? SideTransform.position : SideTransformLeft.position;
-            //Debug.Log(position);
+
             LayerMask mask = LayerMask.GetMask("Ground");
             var obj = Physics2D.OverlapBox(position,
                        new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius),
                        0,
                        mask);
-            //Debug.Log(obj == null);
+
             return obj == null;
         }
 
         private void FallDown()
         {
-            var velocity = rigidBody.velocity;
-            if (!(velocity.y < settings.fallDownThreshHold)) return;
-            //Debug.Log("falling down");
-            velocity += Physics2D.gravity * (settings.fallSpeedIncrease - 1) * Vector2.up * Time.fixedDeltaTime;
-            rigidBody.velocity = velocity;
+            if (settings.useUnityGravity)
+            {
+                var velocity = rigidBody.velocity;
+                if (!(velocity.y < settings.fallDownThreshHold)) return;
+
+                velocity += Physics2D.gravity * (settings.fallSpeedIncrease - 1) * Vector2.up * Time.fixedDeltaTime;
+                rigidBody.velocity = velocity;
+            }
+            else
+            {
+                /*var objectByFeet = Physics2D.OverlapBox(SideTransform.position,
+                    new Vector2(_collider.bounds.size.x, boxCheckRadius),
+                    0,
+                    canJumpOff);
+                if (objectByFeet == null)
+                {
+                    
+                }*/
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            if(!other.enabled) return;
             var dot = Vector2.Dot(other.GetContact(0).normal, Vector2.up);
-            if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
+            Debug.Log(dot);
+            /*if (!_isGrounded && !other.gameObject.layer.Equals(LayerMask.NameToLayer("MovingPlatform")))
             {
                 if(other.enabled)
                     _isJumping = false;
                 CanMove = !(dot < 0.7);
-            }
-            if (!CanMove)
-            {
-                CanMove = Physics2D.OverlapBox(SideTransform.position, 
-                              new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius), 
-                              canJumpOff) != null || rigidBody.velocity.y > 0;
-            }
+            }*/
+            if (dot < -0.9f)
+                _isJumping = false;
+            var objectByFeet = Physics2D.OverlapCircle(feetTransform.position, boxCheckRadius*2, canJumpOff);
             if (other.gameObject.tag.Equals("Block"))
             {
+                _isJumping = false;
                 _isGrounded = true;
                 OnLand?.Invoke(gameObject);
             }
+
+            if (objectByFeet != null)
+            {
+                Debug.Log("Things at feet");
+                Debug.Log(objectByFeet.name);
+                _isJumping = false;
+                _isGrounded = true;
+                OnLand?.Invoke(gameObject);
+            }
+
 
             if (!other.gameObject.layer.Equals(LayerMask.NameToLayer("Ground")) &&
                 !other.gameObject.CompareTag("Player") &&
@@ -181,6 +239,7 @@ namespace Player
 
             if (!(dot > 0.7f)) return;
             _isGrounded = true;
+            _isJumping = false;
             OnLand?.Invoke(gameObject);
         }
 
@@ -198,7 +257,10 @@ namespace Player
         {
             Gizmos.DrawCube(SideTransform.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
             Gizmos.DrawCube(SideTransformLeft.position, new Vector2(boxCheckRadius, _collider.bounds.size.y - groundCheckRadius));
-            Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x - groundCheckRadius, boxCheckRadius));
+            
+            Gizmos.color = Color.blue;
+            //Gizmos.DrawWireCube(feetTransform.position, new Vector2(_collider.bounds.size.x, boxCheckRadius));
+            Gizmos.DrawWireSphere(feetTransform.position, boxCheckRadius*2);
         }
     }
 }
