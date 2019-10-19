@@ -202,6 +202,21 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: Puzzle1Additive
       objectReference: {fileID: 0}
+    - target: {fileID: 8707924414029016781, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1177119005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707924414029016781, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707924414029016781, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dba760fb9e780c448bbb5d0e5557d2e, type: 3}
 --- !u!1 &271748493
