@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -200,7 +200,7 @@ PrefabInstance:
     - target: {fileID: -2210771112303313854, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
         type: 3}
       propertyPath: sceneToLoad
-      value: Puzzle1Additive
+      value: Clean_Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 8707924414029016781, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
         type: 3}
