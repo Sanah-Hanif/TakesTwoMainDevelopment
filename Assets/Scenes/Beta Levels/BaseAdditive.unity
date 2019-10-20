@@ -1646,7 +1646,7 @@ Transform:
   m_GameObject: {fileID: 725371728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 533871898}
   - {fileID: 253510941}
@@ -3032,6 +3032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Hexi
       objectReference: {fileID: 0}
+    - target: {fileID: 543618938240513656, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 543618938240513655, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3434,12 +3439,12 @@ PrefabInstance:
     - target: {fileID: 4173431451286811825, guid: c01bfc4a1c26ba94c9355181f740e28a,
         type: 3}
       propertyPath: loadSceneOnStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4173431451286811825, guid: c01bfc4a1c26ba94c9355181f740e28a,
         type: 3}
       propertyPath: firstSceneToLoad
-      value: MainMenuAdditive
+      value: Puzzle3Additive
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c01bfc4a1c26ba94c9355181f740e28a, type: 3}

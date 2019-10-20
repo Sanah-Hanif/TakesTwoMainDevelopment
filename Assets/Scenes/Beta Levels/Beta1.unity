@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -140,12 +140,12 @@ PrefabInstance:
     - target: {fileID: 3327747768374997633, guid: f89dbc3e1a487064180982650b7df3d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3327747768374997633, guid: f89dbc3e1a487064180982650b7df3d7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3327747768374997633, guid: f89dbc3e1a487064180982650b7df3d7,
         type: 3}
@@ -224,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 397489702459523833, guid: de440fab0b8b3f842aaed423243a35a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 397489702459523833, guid: de440fab0b8b3f842aaed423243a35a1,
         type: 3}
@@ -576,7 +576,7 @@ PrefabInstance:
     - target: {fileID: 3450513163073972024, guid: f373783d5d608224ab54b4651e6cf8b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.5
+      value: 21.5
       objectReference: {fileID: 0}
     - target: {fileID: 3450513163073972024, guid: f373783d5d608224ab54b4651e6cf8b6,
         type: 3}
@@ -586,7 +586,7 @@ PrefabInstance:
     - target: {fileID: 1640455953536141496, guid: f373783d5d608224ab54b4651e6cf8b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22
+      value: 21.5
       objectReference: {fileID: 0}
     - target: {fileID: 1640455953536141496, guid: f373783d5d608224ab54b4651e6cf8b6,
         type: 3}
@@ -626,7 +626,7 @@ PrefabInstance:
     - target: {fileID: 6831288011835865001, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6831288011835865001, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
         type: 3}
@@ -676,7 +676,7 @@ PrefabInstance:
     - target: {fileID: -2210771112303313854, guid: 1dba760fb9e780c448bbb5d0e5557d2e,
         type: 3}
       propertyPath: sceneToLoad
-      value: Clean_Level_3
+      value: Beta2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dba760fb9e780c448bbb5d0e5557d2e, type: 3}
@@ -750,8 +750,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1177119005
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1944,7 +1944,7 @@ PrefabInstance:
     - target: {fileID: 397489702459523833, guid: de440fab0b8b3f842aaed423243a35a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.30236435
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 397489702459523833, guid: de440fab0b8b3f842aaed423243a35a1,
         type: 3}
@@ -2061,7 +2061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625898202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -20.697636, z: 0}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1180804421}
