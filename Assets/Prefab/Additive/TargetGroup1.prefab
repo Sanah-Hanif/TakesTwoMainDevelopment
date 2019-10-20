@@ -87,7 +87,7 @@ MonoBehaviour:
     radius: 5
   - target: {fileID: 4095246040878731543}
     weight: 5
-    radius: 5.65
+    radius: 5
 --- !u!114 &4095246041474484832
 MonoBehaviour:
   m_ObjectHideFlags: 0
