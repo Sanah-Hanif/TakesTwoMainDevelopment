@@ -18,7 +18,7 @@ namespace Scene
 
         public bool CanUseAbilty => canUseAbility;
 
-        void Start()
+        public void Reload()
         {
             var player_manager = FindObjectOfType<PlayerManager>();
 

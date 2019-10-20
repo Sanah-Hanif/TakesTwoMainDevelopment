@@ -3439,12 +3439,12 @@ PrefabInstance:
     - target: {fileID: 4173431451286811825, guid: c01bfc4a1c26ba94c9355181f740e28a,
         type: 3}
       propertyPath: loadSceneOnStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4173431451286811825, guid: c01bfc4a1c26ba94c9355181f740e28a,
         type: 3}
       propertyPath: firstSceneToLoad
-      value: Beta1
+      value: Beta4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c01bfc4a1c26ba94c9355181f740e28a, type: 3}

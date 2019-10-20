@@ -89,6 +89,7 @@ namespace Scene
             
             //reset player stuff
             onSceneReload?.Invoke();
+            FindObjectOfType<PuzzleController>().Reload();
         }
 
         public void ReloadScene()
