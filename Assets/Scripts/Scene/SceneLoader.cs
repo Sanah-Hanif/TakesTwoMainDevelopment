@@ -56,6 +56,7 @@ namespace Scene
             var scene = SceneManager.GetSceneByName(firstSceneToLoad);
             _currentScene = firstSceneToLoad;
             SceneManager.SetActiveScene(scene);
+            FindObjectOfType<PuzzleController>().Reload();
         }
 
         public void LoadScene(string newScene)
@@ -79,6 +80,7 @@ namespace Scene
                 Application.Quit();
 
             if (_currentScene.Equals(newScene)) yield break;
+            FindObjectOfType<PuzzleController>().OnSceneReload();
             yield return SceneManager.UnloadSceneAsync(_currentScene);
 
             yield return SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive);

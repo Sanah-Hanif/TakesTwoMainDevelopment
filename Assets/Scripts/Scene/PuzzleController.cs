@@ -46,17 +46,17 @@ namespace Scene
                 _objectsInScene.Add(rootObjects[i]);
             }
             
-            SceneLoader.Instance.onSceneReload.AddListener(OnSceneReload);
+            //SceneLoader.Instance.onSceneReload.AddListener(OnSceneReload);
         }
 
-        private void OnSceneReload()
+        public void OnSceneReload()
         {
             var active = SceneManager.GetActiveScene();
             foreach (var obj in _objectsInScene)
             {
                 SceneManager.MoveGameObjectToScene(obj, active);
             }
-            SceneLoader.Instance.onSceneReload.RemoveListener(OnSceneReload);
+            //SceneLoader.Instance.onSceneReload.RemoveListener(OnSceneReload);
         }
     }
 }
