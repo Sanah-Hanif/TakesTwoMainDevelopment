@@ -348,11 +348,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Hund
       objectReference: {fileID: 0}
-    - target: {fileID: 3042235149349959464, guid: 76ce9b40fc7deaf40ac123622da040eb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3042235149349959463, guid: 76ce9b40fc7deaf40ac123622da040eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -407,11 +402,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046285128187561312, guid: 76ce9b40fc7deaf40ac123622da040eb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.443
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76ce9b40fc7deaf40ac123622da040eb, type: 3}
@@ -3042,11 +3032,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Hexi
       objectReference: {fileID: 0}
-    - target: {fileID: 543618938240513656, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 543618938240513655, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3101,11 +3086,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5780860854521218096, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.467
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a57ab9d4b9fee94a8a65a917f920e21, type: 3}
