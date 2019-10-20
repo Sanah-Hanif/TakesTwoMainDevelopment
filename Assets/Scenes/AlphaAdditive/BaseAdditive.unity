@@ -333,6 +333,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3177826071854254315, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: midPoint
+      value: 
+      objectReference: {fileID: 618519573}
     - target: {fileID: 3042235149349959464, guid: 76ce9b40fc7deaf40ac123622da040eb,
         type: 3}
       propertyPath: m_Name
@@ -460,7 +465,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 14.193749
+  orthographic size: 14.175
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -484,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210205542}
   m_LocalRotation: {x: 0.000001414617, y: 1.139012e-13, z: -0.00000008236834, w: 1}
-  m_LocalPosition: {x: 1.335001, y: 2.3550413, z: -15.000018}
+  m_LocalPosition: {x: 1.335001, y: 2.3400419, z: -15.000018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 725371729}
@@ -3017,6 +3022,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 952700669280439692, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
+        type: 3}
+      propertyPath: midPoint
+      value: 
+      objectReference: {fileID: 618519573}
     - target: {fileID: 543618938240513656, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
         type: 3}
       propertyPath: m_Name
@@ -3220,7 +3230,7 @@ PrefabInstance:
     - target: {fileID: 4095246041474484835, guid: f82d0cf6920e457409bc9c01d119887b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.37
+      value: 2.3400002
       objectReference: {fileID: 0}
     - target: {fileID: 4095246041474484835, guid: f82d0cf6920e457409bc9c01d119887b,
         type: 3}
@@ -3463,7 +3473,7 @@ PrefabInstance:
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3550413
+      value: 2.3400419
       objectReference: {fileID: 0}
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}

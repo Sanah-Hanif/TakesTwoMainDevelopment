@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 490701714222008891}
   - component: {fileID: 9112688035849873157}
   - component: {fileID: 1203180416687286363}
+  - component: {fileID: 952700669280439692}
   m_Layer: 17
   m_Name: Player Hexi
   m_TagString: Player
@@ -278,6 +279,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06948614, y: 0.104664885}
   m_Size: {x: 0.38, y: 1.0701888}
   m_Direction: 0
+--- !u!114 &952700669280439692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543618938240513656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca8f0c5a507d6d4a836e75ecc0637ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midPoint: {fileID: 0}
+  maxDistanceX: 10
+  maxDistanceY: 20
 --- !u!1 &3806950527565914597
 GameObject:
   m_ObjectHideFlags: 0
