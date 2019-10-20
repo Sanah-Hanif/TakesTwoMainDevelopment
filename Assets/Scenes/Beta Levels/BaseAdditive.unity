@@ -333,15 +333,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3177826071854254315, guid: 76ce9b40fc7deaf40ac123622da040eb,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: midPoint
       value: 
       objectReference: {fileID: 618519573}
-    - target: {fileID: 3177826071854254315, guid: 76ce9b40fc7deaf40ac123622da040eb,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: maxDistanceX
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3042235149349959464, guid: 76ce9b40fc7deaf40ac123622da040eb,
         type: 3}
@@ -3017,15 +3019,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 952700669280439692, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: midPoint
       value: 
       objectReference: {fileID: 618519573}
-    - target: {fileID: 952700669280439692, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: maxDistanceX
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 543618938240513656, guid: 7a57ab9d4b9fee94a8a65a917f920e21,
         type: 3}
@@ -3444,7 +3448,7 @@ PrefabInstance:
     - target: {fileID: 4173431451286811825, guid: c01bfc4a1c26ba94c9355181f740e28a,
         type: 3}
       propertyPath: firstSceneToLoad
-      value: Beta4
+      value: Beta2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c01bfc4a1c26ba94c9355181f740e28a, type: 3}
