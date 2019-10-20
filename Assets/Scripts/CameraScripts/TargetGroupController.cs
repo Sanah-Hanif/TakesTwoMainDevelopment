@@ -78,10 +78,10 @@ namespace CameraScripts
                 
                 yield return endFrame;
             }
-            
+
+            if (objToIncrease == null) yield break;
             _target.RemoveMember(objToIncrease.transform);
             _routines.Remove(objToIncrease);
-
         }
     }
 }
