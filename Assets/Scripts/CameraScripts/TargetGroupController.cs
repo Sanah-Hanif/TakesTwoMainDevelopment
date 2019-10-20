@@ -55,7 +55,7 @@ namespace CameraScripts
                 //currentWeight += Time.deltaTime * (endWeight - startWeight) * (1f/lerpDuration);
                 currentWeightLerp += Time.deltaTime * (1f/settings.lerpDuration);
                 
-                
+                if(_target.FindMember(objToIncrease.transform) == -1) break;
                 _target.m_Targets[member].radius = Mathf.Lerp(settings.startRadius, settings.endRadius, currentRadiusLerp);
                 _target.m_Targets[member].weight = Mathf.Lerp(settings.startWeight, settings.endWeight, currentWeightLerp);
                 

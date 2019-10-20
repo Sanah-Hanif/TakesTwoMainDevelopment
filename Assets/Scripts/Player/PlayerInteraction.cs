@@ -94,7 +94,7 @@ namespace Player
         {
             _ability.Disable();
             _movement["Ability"].Enable();
-
+            if(_createdInteraction == null) return;
             _createdInteraction.Interact();
             
             _createdInteraction.OnPlaced();
