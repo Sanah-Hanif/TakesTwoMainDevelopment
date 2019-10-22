@@ -74,6 +74,9 @@ namespace Scene
              * TODO: load new scene
              * TODO: fades/cuts between puzzles
              */
+            
+            if(newScene.Equals("Exit"))
+                Application.Quit();
 
             if (_currentScene.Equals(newScene)) yield break;
             yield return SceneManager.UnloadSceneAsync(_currentScene);
