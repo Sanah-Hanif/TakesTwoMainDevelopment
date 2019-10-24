@@ -37,7 +37,7 @@ namespace Interaction.Level_Elements
         public void RemoveObjectOnPad(GameObject obj)
         {
             var other = _objectsOnPad[obj.GetInstanceID()];
-            var block = other.GetComponent<Block>();
+            var block = other.GetComponent<BlockV2>();
             
             if (block != null)
             {
