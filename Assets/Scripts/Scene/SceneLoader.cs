@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Player;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,7 @@ namespace Scene
         public static SceneLoader Instance => _sceneLoader;
 
         private PlayerManager _playerManager;
+        [SerializeField] private TransitionManager transition;
 
         private void Awake()
         {
@@ -47,6 +49,7 @@ namespace Scene
 
         private void Start()
         {
+            transition = FindObjectOfType<TransitionManager>();
             _playerManager = FindObjectOfType<PlayerManager>();
         }
 
@@ -57,6 +60,7 @@ namespace Scene
             _currentScene = firstSceneToLoad;
             SceneManager.SetActiveScene(scene);
             FindObjectOfType<PuzzleController>().Reload();
+            yield return StartCoroutine(transition.FadeStart());
         }
 
         public void LoadScene(string newScene)
@@ -80,6 +84,9 @@ namespace Scene
                 Application.Quit();
 
             if (_currentScene.Equals(newScene)) yield break;
+
+            yield return StartCoroutine(transition.FadeIn());
+            
             FindObjectOfType<PuzzleController>().OnSceneReload();
             yield return SceneManager.UnloadSceneAsync(_currentScene);
 
@@ -92,6 +99,8 @@ namespace Scene
             //reset player stuff
             onSceneReload?.Invoke();
             FindObjectOfType<PuzzleController>().Reload();
+            
+            yield return StartCoroutine(transition.FadeOut());
         }
 
         public void ReloadScene()

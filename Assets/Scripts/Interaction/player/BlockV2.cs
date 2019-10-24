@@ -76,11 +76,6 @@ namespace Interaction.player
             {
                 AddPad(col.GetComponent<PressurePad>());
             }
-
-            foreach (var col in cols.Where(col => col.GetComponent<Airblast>()))
-            {
-                col.GetComponent<Airblast>().AddObject(_rb);
-            }
         }
 
         private void AddPad(PressurePad pad)
