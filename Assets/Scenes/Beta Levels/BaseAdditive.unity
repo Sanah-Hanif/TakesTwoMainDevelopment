@@ -341,6 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionImage: {fileID: 558796855}
   transitionDuration: 1
+  transitionEndAlpha: 1
 --- !u!1001 &209512616
 PrefabInstance:
   m_ObjectHideFlags: 0
