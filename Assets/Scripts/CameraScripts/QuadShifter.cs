@@ -8,6 +8,7 @@ public class QuadShifter : MonoBehaviour
     Vector2 currentPos, prevPos;
     float offsetx, offsety;
     [SerializeField] bool isCloud;
+    [SerializeField] bool isShader = false;
 
     [SerializeField] float speedx, speedy, cloudSpeed;
     Renderer rend;
@@ -35,7 +36,8 @@ public class QuadShifter : MonoBehaviour
         }
 
         rend.material.SetTextureOffset("_MainTex", new Vector2(offsetx, offsety));
-        rend.material.SetTextureOffset("_BaseMap", new Vector2(offsetx, offsety));
+        if(!isShader)
+            rend.material.SetTextureOffset("_BaseMap", new Vector2(offsetx, offsety));
 
         prevPos = currentPos;
         

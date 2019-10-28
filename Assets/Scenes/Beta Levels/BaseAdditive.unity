@@ -731,7 +731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253510940}
   m_LocalRotation: {x: -0, y: -0, z: -1.6112658e-19, w: 1}
-  m_LocalPosition: {x: 0.0000000019399, y: 0.10154, z: 11.818}
+  m_LocalPosition: {x: -0.000000017600698, y: 0.1068437, z: 9.000015}
   m_LocalScale: {x: 41.230186, y: 22.783497, z: 16.03396}
   m_Children: []
   m_Father: {fileID: 725371729}
@@ -751,7 +751,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  speedx: 0.1
+  isShader: 1
+  speedx: 0.08
   speedy: 0
   cloudSpeed: 0.01
 --- !u!64 &253510943
@@ -785,7 +786,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f49c50ca86dd074b917186eee611884, type: 2}
+  - {fileID: 2100000, guid: 375af6623fb357b4ebdeab903ba55515, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -862,6 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 0
+  isShader: 0
   speedx: 0.6
   speedy: 0
   cloudSpeed: 0
@@ -1391,6 +1393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 0
+  isShader: 0
   speedx: 0.5
   speedy: 0
   cloudSpeed: 0
@@ -2038,7 +2041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  speedx: 0.9
+  isShader: 1
+  speedx: 0.7
   speedy: 0
   cloudSpeed: 0.04
 --- !u!64 &1350843945
@@ -2072,7 +2076,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1e5d2b089409d642b081dfb4da14c0b, type: 2}
+  - {fileID: 2100000, guid: 7fe1c13f5b5e329469339e72c0f9ed69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2666,6 +2670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 0
+  isShader: 0
   speedx: 0.2
   speedy: 0
   cloudSpeed: 0
@@ -2819,7 +2824,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  speedx: 0.3
+  isShader: 1
+  speedx: 0.2
   speedy: 0
   cloudSpeed: 0.02
 --- !u!64 &1901950877
@@ -2853,7 +2859,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 287a92d3ae42ee64f92be4b44cadb3a6, type: 2}
+  - {fileID: 2100000, guid: 62839dd55cdaf3140aadcaa254728862, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3508,7 +3514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  speedx: 0.55
+  isShader: 1
+  speedx: 0.4
   speedy: 0
   cloudSpeed: 0.03
 --- !u!64 &2141018316
@@ -3542,7 +3549,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a337c3dfa9a6f204db0fb1627ad0516f, type: 2}
+  - {fileID: 2100000, guid: 535009f47cee8284aa4953f9c64e9506, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
