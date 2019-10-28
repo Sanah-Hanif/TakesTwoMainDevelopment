@@ -752,7 +752,7 @@ MonoBehaviour:
   followingPoint: {fileID: 618519573}
   isCloud: 1
   speedx: 0.1
-  speedy: 0.1
+  speedy: 0
   cloudSpeed: 0.01
 --- !u!64 &253510943
 MeshCollider:
@@ -863,7 +863,7 @@ MonoBehaviour:
   followingPoint: {fileID: 618519573}
   isCloud: 0
   speedx: 0.6
-  speedy: 0.6
+  speedy: 0
   cloudSpeed: 0
 --- !u!64 &405422916
 MeshCollider:
@@ -1392,7 +1392,7 @@ MonoBehaviour:
   followingPoint: {fileID: 618519573}
   isCloud: 0
   speedx: 0.5
-  speedy: 0.5
+  speedy: 0
   cloudSpeed: 0
 --- !u!64 &593272381
 MeshCollider:
@@ -2039,7 +2039,7 @@ MonoBehaviour:
   followingPoint: {fileID: 618519573}
   isCloud: 1
   speedx: 0.9
-  speedy: 0.9
+  speedy: 0
   cloudSpeed: 0.04
 --- !u!64 &1350843945
 MeshCollider:
@@ -2667,7 +2667,7 @@ MonoBehaviour:
   followingPoint: {fileID: 618519573}
   isCloud: 0
   speedx: 0.2
-  speedy: 0.2
+  speedy: 0
   cloudSpeed: 0
 --- !u!64 &1745858936
 MeshCollider:
@@ -2909,7 +2909,7 @@ MonoBehaviour:
   followingPoint: {fileID: 618519573}
   isCloud: 1
   speedx: 0.3
-  speedy: 0.3
+  speedy: 0
   cloudSpeed: 0.02
 --- !u!64 &1901950877
 MeshCollider:
@@ -3598,7 +3598,7 @@ MonoBehaviour:
   followingPoint: {fileID: 618519573}
   isCloud: 1
   speedx: 0.55
-  speedy: 0.55
+  speedy: 0
   cloudSpeed: 0.03
 --- !u!64 &2141018316
 MeshCollider:
@@ -3899,7 +3899,7 @@ PrefabInstance:
     - target: {fileID: 4173431451286811825, guid: c01bfc4a1c26ba94c9355181f740e28a,
         type: 3}
       propertyPath: firstSceneToLoad
-      value: MainMenuAdditive
+      value: Beta5
       objectReference: {fileID: 0}
     - target: {fileID: 4173431451286811825, guid: c01bfc4a1c26ba94c9355181f740e28a,
         type: 3}
