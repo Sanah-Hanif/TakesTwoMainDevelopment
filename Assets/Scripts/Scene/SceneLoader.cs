@@ -16,12 +16,14 @@ namespace Scene
 
         public UnityEvent onSceneReload;
 
+        private const string MenuScene = "MainMenuAdditive";
+
         private string _currentScene;
         private string _nextScene;
 
         private static SceneLoader _sceneLoader;
 
-        private IEnumerator loadRoutine;
+        private IEnumerator _loadRoutine;
 
         public static SceneLoader Instance => _sceneLoader;
 
@@ -38,10 +40,16 @@ namespace Scene
             DontDestroyOnLoad(gameObject);
 
             //if the editor is open, use the active scene, if not, load the first scene we need
-            if (!Application.isEditor || loadSceneOnStart)
+            if (!Application.isEditor)
             {
-                loadRoutine = LoadFirstScene();
-                StartCoroutine(loadRoutine);
+                firstSceneToLoad = MenuScene;
+                _loadRoutine = LoadFirstScene();
+                StartCoroutine(_loadRoutine);
+            }
+            else if (loadSceneOnStart)
+            {
+                _loadRoutine = LoadFirstScene();
+                StartCoroutine(_loadRoutine);
             }
             else
                 _currentScene = SceneManager.GetActiveScene().name;
@@ -65,8 +73,8 @@ namespace Scene
 
         public void LoadScene(string newScene)
         {
-            loadRoutine = LoadNewScene(newScene);
-            StartCoroutine(loadRoutine);
+            _loadRoutine = LoadNewScene(newScene);
+            StartCoroutine(_loadRoutine);
         }
 
         private IEnumerator LoadNewScene(string newScene)
@@ -105,8 +113,8 @@ namespace Scene
 
         public void ReloadScene()
         {
-            loadRoutine = RestartScene();
-            StartCoroutine(loadRoutine);
+            _loadRoutine = RestartScene();
+            StartCoroutine(_loadRoutine);
         }
 
         private IEnumerator RestartScene()

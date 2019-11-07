@@ -111,7 +111,7 @@ namespace Player
             OnMove = null;
             OnStop = null;
             
-            //resed boolean values
+            //reset boolean values
             _isGrounded = true;
             _moved = false;
             _isJumping = false;
@@ -204,17 +204,6 @@ namespace Player
 
                 velocity += Physics2D.gravity * (settings.fallSpeedIncrease - 1) * Vector2.up * Time.fixedDeltaTime;
                 rigidBody.velocity = velocity;
-            }
-            else
-            {
-                /*var objectByFeet = Physics2D.OverlapBox(SideTransform.position,
-                    new Vector2(_collider.bounds.size.x, boxCheckRadius),
-                    0,
-                    canJumpOff);
-                if (objectByFeet == null)
-                {
-                    
-                }*/
             }
         }
 

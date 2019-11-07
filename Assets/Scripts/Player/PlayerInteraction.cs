@@ -73,6 +73,8 @@ namespace Player
         private void InitMovingObject()
         {
             _movement["Ability"].Disable();
+            _movement["Move"].Disable();
+            _ability["Movement"].Enable();
             //_ability.GetAction("Place").performed += _createdInteraction.OnPlaced;
             _createdInteraction._ability = _ability;
             _createdInteraction.ReCreated();
@@ -83,6 +85,9 @@ namespace Player
         {
             Destroy(_createdObject);
             _ability.Disable();
+            _movement["Move"].Enable();
+            _ability["Movement"].Disable();
+            _movement["Ability"].Enable();
             _createdObject = null;
             //interaction.Interact(transform.position);
             var create = (CreationInteraction)interaction;
@@ -93,6 +98,8 @@ namespace Player
         private void Place(InputAction.CallbackContext ctx)
         {
             _ability.Disable();
+            _movement["Move"].Enable();
+            _ability["Movement"].Disable();
             _movement["Ability"].Enable();
             if(_createdInteraction == null) return;
             _createdInteraction.Interact();

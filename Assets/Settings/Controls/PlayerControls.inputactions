@@ -626,7 +626,7 @@
                 {
                     "name": "",
                     "id": "05cd0ec4-e71c-4e03-aa8f-01f558766182",
-                    "path": "<XInputController>/rightStick",
+                    "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "StickDeadzone(max=0.5)",
                     "groups": ";XBox360",
