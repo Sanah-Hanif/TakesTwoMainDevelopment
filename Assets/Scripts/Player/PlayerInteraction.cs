@@ -51,13 +51,11 @@ namespace Player
             _ability["Place"].performed += Place;
             _ability["Cancel"].performed += Cancel;
             settings = input.Settings;
-            
-            if (_createdObject)
-            {
-                Destroy(_createdObject);
-                _createdInteraction = null;
-                _createdObject = null;
-            }
+
+            if (!_createdObject) return;
+            Destroy(_createdObject);
+            _createdInteraction = null;
+            _createdObject = null;
         }
         
         public override void Interact()
