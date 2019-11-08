@@ -177,12 +177,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Main
-
-    Menu'
+  m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f5261a5c9284e04fbf8a329adda471b, type: 2}
+  m_sharedMaterial: {fileID: 1466766728683595734, guid: 1f5261a5c9284e04fbf8a329adda471b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -207,8 +206,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88.5
-  m_fontSizeBase: 88.5
+  m_fontSize: 83.2
+  m_fontSizeBase: 83.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -253,7 +252,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -503,7 +502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210205542}
   m_LocalRotation: {x: 0.000001414617, y: 1.139012e-13, z: -0.00000008236834, w: 1}
-  m_LocalPosition: {x: -2.412499, y: 2.3400428, z: -15.000018}
+  m_LocalPosition: {x: -2.412499, y: 2.3400426, z: -15.000019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 725371729}
@@ -731,7 +730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253510940}
   m_LocalRotation: {x: -0, y: -0, z: -1.6112658e-19, w: 1}
-  m_LocalPosition: {x: -0.000000017600698, y: 0.1068437, z: 9.000015}
+  m_LocalPosition: {x: 0.0000000019399, y: 0.10154, z: 11.818}
   m_LocalScale: {x: 41.230186, y: 22.783497, z: 16.03396}
   m_Children: []
   m_Father: {fileID: 725371729}
@@ -751,8 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  isShader: 1
-  speedx: 0.08
+  speedx: 0.1
   speedy: 0
   cloudSpeed: 0.01
 --- !u!64 &253510943
@@ -786,7 +784,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 375af6623fb357b4ebdeab903ba55515, type: 2}
+  - {fileID: 2100000, guid: 9f49c50ca86dd074b917186eee611884, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -863,7 +861,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 0
-  isShader: 0
   speedx: 0.6
   speedy: 0
   cloudSpeed: 0
@@ -1393,7 +1390,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 0
-  isShader: 0
   speedx: 0.5
   speedy: 0
   cloudSpeed: 0
@@ -2041,8 +2037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  isShader: 1
-  speedx: 0.7
+  speedx: 0.9
   speedy: 0
   cloudSpeed: 0.04
 --- !u!64 &1350843945
@@ -2076,7 +2071,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7fe1c13f5b5e329469339e72c0f9ed69, type: 2}
+  - {fileID: 2100000, guid: c1e5d2b089409d642b081dfb4da14c0b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2164,8 +2159,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f5261a5c9284e04fbf8a329adda471b, type: 2}
+  m_sharedMaterial: {fileID: 1466766728683595734, guid: 1f5261a5c9284e04fbf8a329adda471b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2190,8 +2186,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88.5
-  m_fontSizeBase: 88.5
+  m_fontSize: 125
+  m_fontSizeBase: 125
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2321,8 +2317,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Controls
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f5261a5c9284e04fbf8a329adda471b, type: 2}
+  m_sharedMaterial: {fileID: 1466766728683595734, guid: 1f5261a5c9284e04fbf8a329adda471b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2347,8 +2344,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88.5
-  m_fontSizeBase: 88.5
+  m_fontSize: 125
+  m_fontSizeBase: 125
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2670,7 +2667,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 0
-  isShader: 0
   speedx: 0.2
   speedy: 0
   cloudSpeed: 0
@@ -2824,8 +2820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  isShader: 1
-  speedx: 0.2
+  speedx: 0.3
   speedy: 0
   cloudSpeed: 0.02
 --- !u!64 &1901950877
@@ -2859,7 +2854,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62839dd55cdaf3140aadcaa254728862, type: 2}
+  - {fileID: 2100000, guid: 287a92d3ae42ee64f92be4b44cadb3a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2945,12 +2940,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Quit To Windows
-
-'
+  m_text: "Quit To \nWindows\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1f5261a5c9284e04fbf8a329adda471b, type: 2}
+  m_sharedMaterial: {fileID: 1466766728683595734, guid: 1f5261a5c9284e04fbf8a329adda471b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2975,8 +2969,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 88.5
-  m_fontSizeBase: 88.5
+  m_fontSize: 73.7
+  m_fontSizeBase: 73.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3016,9 +3010,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2019752531}
-    characterCount: 16
+    characterCount: 17
     spriteCount: 0
-    spaceCount: 3
+    spaceCount: 4
     wordCount: 3
     linkCount: 0
     lineCount: 2
@@ -3514,8 +3508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followingPoint: {fileID: 618519573}
   isCloud: 1
-  isShader: 1
-  speedx: 0.4
+  speedx: 0.55
   speedy: 0
   cloudSpeed: 0.03
 --- !u!64 &2141018316
@@ -3549,7 +3542,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 535009f47cee8284aa4953f9c64e9506, type: 2}
+  - {fileID: 2100000, guid: a337c3dfa9a6f204db0fb1627ad0516f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3846,12 +3839,12 @@ PrefabInstance:
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3400428
+      value: 2.3400426
       objectReference: {fileID: 0}
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.000018
+      value: -15.000019
       objectReference: {fileID: 0}
     - target: {fileID: 5551843500936807449, guid: ceca4536166dbd9449d931fd75a60d06,
         type: 3}

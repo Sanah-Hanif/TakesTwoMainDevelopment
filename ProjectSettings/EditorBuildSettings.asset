@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Beta Levels/Beta5.unity
     guid: 24ff6daa2977cc04186479e619304ed0
+  - enabled: 1
+    path: Assets/Scenes/Beta Levels/Beta6.unity
+    guid: a17def02410469148a210b8b3d567432
   m_configObjects: {}
