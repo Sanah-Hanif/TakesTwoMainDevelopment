@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayColour: {r: 1, g: 1, b: 1, a: 1}
-  noduleColour: {r: 1, g: 1, b: 1, a: 1}
+  noduleColour: {r: 1, g: 1, b: 1, a: 0}
   nodulePrefab: {fileID: 4904131905791201007, guid: 7afb7285f985a6744a99499116e08b98,
     type: 3}
   aura: {fileID: 92131427048072820}
@@ -349,7 +349,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b9b14a4d8c3906849a40e9e545721ee1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
