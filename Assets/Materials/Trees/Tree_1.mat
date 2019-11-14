@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bush_4
+  m_Name: Tree_1
   m_Shader: {fileID: -6465566751694194690, guid: ccc18e29a5ed28d469dc8327a31ff0c4,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -20,18 +20,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_206570E7:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_33D1A278: 0.045
-    - Vector1_A2DE05C6: 0.52
-    - Vector1_AA99ADE2: 0.33
-    - Vector1_DDA5F168: 0.53
+    - Vector1_33D1A278: 0.605
+    - Vector1_A2DE05C6: 0.81
+    - Vector1_AA99ADE2: 0.28
+    - Vector1_DDA5F168: 0.31
     m_Colors:
     - Vector2_6B7CDD83: {r: 0, g: 0, b: 0, a: 0}

@@ -25,23 +25,6 @@ namespace Editor
                 {
                     _interaction.Interact();
                 }
-
-                if (!check.changed)
-                {
-                    return;
-                }
-                var nodules = FindObjectsOfType<NoduleController>();
-                var environments = FindObjectsOfType<EnvironmentInteraction>();
-
-                foreach (var obj in nodules)
-                {
-                    obj.ClearNodules();
-                }
-
-                foreach (var obj in environments)
-                {
-                    obj.DrawNodules();
-                }
             }
         }
     }
