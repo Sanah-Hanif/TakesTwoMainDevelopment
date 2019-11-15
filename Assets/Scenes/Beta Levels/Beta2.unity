@@ -26939,15 +26939,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.024000168
       objectReference: {fileID: 0}
-    - target: {fileID: 3327747767172498785, guid: f89dbc3e1a487064180982650b7df3d7,
-        type: 3}
-      propertyPath: m_Name
-      value: Cube(door)
-      objectReference: {fileID: 0}
     - target: {fileID: 3327747768666568137, guid: f89dbc3e1a487064180982650b7df3d7,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327747767172498785, guid: f89dbc3e1a487064180982650b7df3d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Cube(door)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f89dbc3e1a487064180982650b7df3d7, type: 3}
@@ -38794,7 +38794,7 @@ PrefabInstance:
     - target: {fileID: 2915327290412096363, guid: 9a72acf632731014e89ac492541531d2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.5
+      value: 69.4
       objectReference: {fileID: 0}
     - target: {fileID: 2915327290412096363, guid: 9a72acf632731014e89ac492541531d2,
         type: 3}

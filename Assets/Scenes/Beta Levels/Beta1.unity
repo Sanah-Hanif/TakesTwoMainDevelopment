@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -187,11 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3327747767172498785, guid: f89dbc3e1a487064180982650b7df3d7,
-        type: 3}
-      propertyPath: m_Name
-      value: Cube(door)
-      objectReference: {fileID: 0}
     - target: {fileID: 3327747768666568137, guid: f89dbc3e1a487064180982650b7df3d7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -201,6 +196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: tweenDuration
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327747767172498785, guid: f89dbc3e1a487064180982650b7df3d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Cube(door)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f89dbc3e1a487064180982650b7df3d7, type: 3}
@@ -12153,7 +12153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.568895, y: 7.4951277}
+  m_AnchoredPosition: {x: -10.568895, y: 11.76}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1596262090
