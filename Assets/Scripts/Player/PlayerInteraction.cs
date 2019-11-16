@@ -25,6 +25,8 @@ namespace Player
         private GameObject _createdObject;
         private PlayerCreationInteraction _createdInteraction;
 
+        [SerializeField] private string interact = "Block";
+
         public bool HasCreation => _createdObject != null;
 
         [HideInInspector] public bool canUseInteraction = true;
@@ -117,6 +119,11 @@ namespace Player
             var clamped = Vector2.ClampMagnitude(moveAmmount, settings.interactionSpawnRadius);
             var newPos = (Vector2) position + clamped;
             _createdObject.transform.position = newPos;
+            if (!interact.Equals("Air")) return;
+            Vector2 direc = _createdObject.transform.position - transform.position;
+            float angle = Vector2.SignedAngle(Vector2.right, direc);
+            Vector3 rot = new Vector3(0, 0, angle);
+            _createdObject.transform.rotation = Quaternion.Euler(rot);
         }
 
         private void OnDisable()

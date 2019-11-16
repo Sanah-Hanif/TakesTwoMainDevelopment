@@ -13,7 +13,6 @@ namespace Interaction.player
         [SerializeField] protected CircleCollider2D _collider2D;
         [SerializeField] protected float duration = 2f;
         [SerializeField] protected SpriteRenderer animation;
-        [SerializeField] protected SpriteRenderer objectSprite;
         [SerializeField] protected float endRadius = 1.5f;
         [SerializeField] protected float endAlpha = 0.5f;
         [SerializeField] protected float endAnimationAlpha = 0;
@@ -24,28 +23,19 @@ namespace Interaction.player
         private void Awake()
         {
             _sequence = DOTween.Sequence();
+            _collider2D.radius = endRadius;
             TweenAnimation();
         }
 
         private void TweenAnimation()
         {
             animation.gameObject.SetActive(true);
-            //inserting an animation for the air pulse
-            _sequence.Append(animation.transform.DOScale(Vector2.one * endRadius, tweenDuration/2)) 
-                .Insert(0, animation.DOFade(endAnimationAlpha, tweenDuration/2))
-                .Insert(0,objectSprite.DOFade(endAlpha, tweenDuration/2))
-                .Insert(tweenDuration/2, animation.transform.DOScale(Vector2.one, tweenDuration/4))
-                .Insert(tweenDuration/2, objectSprite.DOFade(1f, tweenDuration/4));
-            //_sequence.Append(animation.transform.DOScale(Vector2.one, tweenDuration/4));
-            _sequence.SetLoops(-1, LoopType.Restart);//makes it loop infinitely
-            _sequence.Play();
+            animation.DOFade(endAlpha, tweenDuration);
         }
 
         public override void OnPlaced()
         {
-            _sequence.Kill();
-            objectSprite.DOFade(1, 1f);
-            animation.gameObject.SetActive(false);
+            animation.DOFade(1, tweenDuration);
             Invoke(nameof(DisablePoint), duration);
             foreach (var col in Physics2D.OverlapCircleAll(transform.position, _collider2D.radius))
             {

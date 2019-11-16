@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: {fileID: 11400000, guid: 234f54adea476db4fadbdb10f17ec85d, type: 2}
+  interact: Air
   canUseInteraction: 1
 --- !u!114 &1935901944704711004
 MonoBehaviour:

@@ -1,46 +1,9 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 16995157, guid: a811bde74b26b53498b4f6d872b09b6d, type: 3}
-  m_Name: DOTweenSettings
-  m_EditorClassIdentifier: 
-  useSafeMode: 1
-  safeModeOptions:
-    nestedTweenFailureBehaviour: 0
-  timeScale: 1
-  useSmoothDeltaTime: 0
-  maxSmoothUnscaledTime: 0.15
-  rewindCallbackMode: 0
-  showUnityEditorReport: 0
-  logBehaviour: 0
-  drawGizmos: 1
-  defaultRecyclable: 0
-  defaultAutoPlay: 3
-  defaultUpdateType: 0
-  defaultTimeScaleIndependent: 0
-  defaultEaseType: 6
-  defaultEaseOvershootOrAmplitude: 1.70158
-  defaultEasePeriod: 0
-  defaultAutoKill: 1
-  defaultLoopType: 0
-  showPreviewPanel: 1
-  storeSettingsLocation: 0
-  modules:
-    showPanel: 0
-    audioEnabled: 1
-    physicsEnabled: 1
-    physics2DEnabled: 1
-    spriteEnabled: 1
-    uiEnabled: 1
-    textMeshProEnabled: 0
-    tk2DEnabled: 0
-  showPlayingTweens: 0
-  showPausedTweens: 0
+648a3bf2552a520ad50de971caaf0da2fd3e3747	not-for-merge	branch 'Alpha' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+0fbc1f56ace748efa0bf638f0b7074727afc3296	not-for-merge	branch 'Animation' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+85dc32685e6a7e6d7992b9ada0bd2c268cae9103	not-for-merge	branch 'AnimationSound' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+fa95f27054702b0ecae738f09cccf457e6254946	not-for-merge	branch 'Art' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+734a28cc5b4bc4e4a4438818dc6b501007479577	not-for-merge	branch 'BETA' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+d634c908427b259d126cf2eba62b7fea725cecd2	not-for-merge	branch 'BetaBuild' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+2abf0d2a5e9ec107ea5dd3cd6b7cf6d781e83242	not-for-merge	branch 'Build' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+1d2d1e4f283de29c0a5ae1146a9df619428befbc	not-for-merge	branch 'Finale' of https://github.com/Sanah-Hanif/TakesTwoMainDevelopment
+2ca9c3a68e1ef8473cae4ca2c0da8938dc8da78d	not-for-merge	branch 'Levels' of https://github.c
