@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Beta Levels/Beta2.unity
     guid: f696b1c3c300d0041b0ab8bdf27e5e07
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Beta Levels/Beta3.unity
     guid: 70e446995c35e7f4ebc79091246c6b7b
   - enabled: 1
