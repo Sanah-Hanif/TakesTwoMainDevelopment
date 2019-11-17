@@ -39,8 +39,6 @@ namespace Player
             UI = _input.actions.FindActionMap("UI");
 
             OnReloadGame();
-
-            Player["Reload"].performed += ctx => SceneLoader.Instance.ReloadScene();
         }
 
         public void OnReloadGame()
