@@ -501,6 +501,101 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4516200804975544042, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9562527
+      objectReference: {fileID: 0}
+    - target: {fileID: 4516200804975544042, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.2925418
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645174033292416199, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9582772
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645174033292416199, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.28584048
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345831520343095919, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.95691836
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345831520343095919, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.2903571
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136751368027959602, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.8586759
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136751368027959602, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.51251906
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644091631784716949, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.41245046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644091631784716949, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.91098005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145436313394093337, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.40824905
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145436313394093337, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.91287065
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781501867964155991, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.25806984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781501867964155991, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9661263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348661949563737603, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.34877232
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348661949563737603, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9372075
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834532488760845589, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000017881392
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834532488626646741, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000008940696
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834532488750243925, guid: 76ce9b40fc7deaf40ac123622da040eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000046193588
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76ce9b40fc7deaf40ac123622da040eb, type: 3}
 --- !u!1 &210205542
