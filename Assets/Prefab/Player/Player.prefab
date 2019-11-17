@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: {fileID: 11400000, guid: 234f54adea476db4fadbdb10f17ec85d, type: 2}
+  canUseInteraction: 1
 --- !u!114 &1935901944704711004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,12 +230,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
-      Version=0.9.6.0, Culture=neutral, PublicKeyToken=null
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
-      Version=0.9.6.0, Culture=neutral, PublicKeyToken=null
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: XBox360
   m_DefaultActionMap: 6e0975ac-ad30-4e29-87b3-e6be2e25e18d
@@ -255,6 +257,7 @@ MonoBehaviour:
   rigidBody: {fileID: 3042235149349959461}
   feetTransform: {fileID: 9046285128187561312}
   SideTransform: {fileID: 8168653152096175288}
+  SideTransformLeft: {fileID: 0}
   canJumpOff:
     serializedVersion: 2
     m_Bits: 49664
@@ -262,6 +265,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 786944
   groundCheckRadius: 0.05
+  boxCheckRadius: 0.01
   _collider: {fileID: 3042235149349959462}
 --- !u!114 &2141220240
 MonoBehaviour:
@@ -275,7 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa5f62f2b20c2c44b4890912765b0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 0771effae7998614da31824ae11239b3, type: 2}
+  _settings: {fileID: 11400000, guid: 0771effae7998614da31824ae11239b3, type: 2}
+  foldout: 1
 --- !u!251 &8163853465242244836
 PlatformEffector2D:
   m_ObjectHideFlags: 0
