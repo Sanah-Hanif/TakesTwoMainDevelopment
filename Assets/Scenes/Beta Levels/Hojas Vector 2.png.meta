@@ -1,0 +1,787 @@
+fileFormatVersion: 2
+guid: c309f1eb1d6a8b64fb9c63a82898866c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7960502881349954301
+    second: Hojas Vector 2_0
+  - first:
+      213: 1630904045145978566
+    second: Hojas Vector 2_1
+  - first:
+      213: 7498739746756339018
+    second: Hojas Vector 2_2
+  - first:
+      213: -1432875816033791847
+    second: Hojas Vector 2_3
+  - first:
+      213: -5952280517078185803
+    second: Hojas Vector 2_4
+  - first:
+      213: -6765221162206244680
+    second: Hojas Vector 2_5
+  - first:
+      213: -174236572711263997
+    second: Hojas Vector 2_6
+  - first:
+      213: -2472136890168891795
+    second: Hojas Vector 2_7
+  - first:
+      213: -7205373553392674695
+    second: Hojas Vector 2_8
+  - first:
+      213: -5548674296802421840
+    second: Hojas Vector 2_9
+  - first:
+      213: 8795893667983704416
+    second: Hojas Vector 2_10
+  - first:
+      213: -6405668440403343870
+    second: Hojas Vector 2_11
+  - first:
+      213: 5556768379396648031
+    second: Hojas Vector 2_12
+  - first:
+      213: -995747174966236839
+    second: Hojas Vector 2_13
+  - first:
+      213: 1594308330589930749
+    second: Hojas Vector 2_14
+  - first:
+      213: -6115214166894124254
+    second: Hojas Vector 2_15
+  - first:
+      213: -170687236077594491
+    second: Hojas Vector 2_16
+  - first:
+      213: -7644004609839388029
+    second: Hojas Vector 2_17
+  - first:
+      213: 8976058465841565288
+    second: Hojas Vector 2_18
+  - first:
+      213: -7118387568425024979
+    second: Hojas Vector 2_19
+  - first:
+      213: 1030947295504353034
+    second: Hojas Vector 2_20
+  - first:
+      213: -6555528827831276119
+    second: Hojas Vector 2_21
+  - first:
+      213: -6580140001301143413
+    second: Hojas Vector 2_22
+  - first:
+      213: 3250003073488070413
+    second: Hojas Vector 2_23
+  - first:
+      213: -7991829878900196212
+    second: Hojas Vector 2_24
+  - first:
+      213: 4287084147405675868
+    second: Hojas Vector 2_25
+  - first:
+      213: -2443462423419164948
+    second: Hojas Vector 2_26
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 2
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hojas Vector 2_0
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 2489
+        width: 382
+        height: 913
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751650b72fb7b55468834e77f0c1437d
+      internalID: -7960502881349954301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_1
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 2481
+        width: 477
+        height: 928
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6cc6555b5bdee049a5576f9bc4155ed
+      internalID: 1630904045145978566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_2
+      rect:
+        serializedVersion: 2
+        x: 2746
+        y: 2662
+        width: 525
+        height: 567
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9226dc9788de3fa41bebd0b8dce841eb
+      internalID: 7498739746756339018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_3
+      rect:
+        serializedVersion: 2
+        x: 3877
+        y: 2645
+        width: 804
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb23a415cdf02248ad230a6351b7eea
+      internalID: -1432875816033791847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1371
+        width: 499
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26b77e342a08114ca8e99d5ec37914f
+      internalID: -5952280517078185803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_5
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 1587
+        width: 197
+        height: 369
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c9daf4ba0aed9449ce88d9db89b471
+      internalID: -6765221162206244680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_6
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1258
+        width: 990
+        height: 833
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7d98af1257d8048afee692448b1dad
+      internalID: -174236572711263997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_7
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 1520
+        width: 337
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586bdc28400e60448bfb10003efc3d54
+      internalID: -2472136890168891795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_8
+      rect:
+        serializedVersion: 2
+        x: 2932
+        y: 1673
+        width: 188
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0d6597c27e1964f850658400c2ec9f
+      internalID: -7205373553392674695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_9
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 1520
+        width: 336
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7204033479d52514dbed0115a8bb0d13
+      internalID: -5548674296802421840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_10
+      rect:
+        serializedVersion: 2
+        x: 3882
+        y: 1316
+        width: 377
+        height: 717
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5dcb8b774eadb149b2afec99b007e71
+      internalID: 8795893667983704416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_11
+      rect:
+        serializedVersion: 2
+        x: 4249
+        y: 1340
+        width: 428
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a32d5d8c4339b47b348545d4de4eae
+      internalID: -6405668440403343870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_12
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1343
+        width: 443
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbfb2a890f60da642bb9d68f7d063262
+      internalID: 5556768379396648031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_13
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 1232
+        width: 337
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571983daeb7648f4687d73ea25418ba8
+      internalID: -995747174966236839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_14
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 1232
+        width: 336
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5888b3acb62f738479abc37f8382bf23
+      internalID: 1594308330589930749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_15
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 121
+        width: 317
+        height: 566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c84b81c710e0b4ea398333a8d99545
+      internalID: -6115214166894124254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_16
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 0
+        width: 994
+        height: 809
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428cc12c59396c94c92a803767c637db
+      internalID: -170687236077594491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_17
+      rect:
+        serializedVersion: 2
+        x: 2855
+        y: 364
+        width: 306
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cffd865ef867b94469537e1810ab417c
+      internalID: -7644004609839388029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_18
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 446
+        width: 152
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 678a938cd3aebc942bfbb2875511ef7f
+      internalID: 8976058465841565288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_19
+      rect:
+        serializedVersion: 2
+        x: 4223
+        y: 546
+        width: 118
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a10e35527902774a89c0b6fcf09661f
+      internalID: -7118387568425024979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_20
+      rect:
+        serializedVersion: 2
+        x: 4286
+        y: 446
+        width: 152
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f14f37c4bade54f9765e8f3d9e6818
+      internalID: 1030947295504353034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_21
+      rect:
+        serializedVersion: 2
+        x: 2648
+        y: 106
+        width: 349
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 870b3d060ffd935429b7b6ce368087e3
+      internalID: -6555528827831276119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_22
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 106
+        width: 349
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a81dba713be8194282453e64d98985f
+      internalID: -6580140001301143413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_23
+      rect:
+        serializedVersion: 2
+        x: 4043
+        y: 76
+        width: 220
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0646a6accc8dc8a4db6eb19b1b61f17d
+      internalID: 3250003073488070413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_24
+      rect:
+        serializedVersion: 2
+        x: 4084
+        y: 270
+        width: 179
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13ed536e4b78bc4887616c606075ec6
+      internalID: -7991829878900196212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_25
+      rect:
+        serializedVersion: 2
+        x: 4295
+        y: 76
+        width: 220
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3f0e5788d045e409ced21af3e265af
+      internalID: 4287084147405675868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hojas Vector 2_26
+      rect:
+        serializedVersion: 2
+        x: 4295
+        y: 270
+        width: 179
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1e6226ca4f50fe4ab33fe935ebc2218
+      internalID: -2443462423419164948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ba676101259607d46b8f60d0ad26557a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
